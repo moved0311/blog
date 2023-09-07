@@ -1,8 +1,10 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import rehypePrism from "rehype-prism-plus";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
-  filePathPattern: `**/*.md`,
+  filePathPattern: `**/*.mdx`,
+  contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
     description: { type: "string", required: false },
@@ -16,4 +18,8 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
-export default makeSource({ contentDirPath: "posts", documentTypes: [Post] });
+export default makeSource({
+  contentDirPath: "posts",
+  documentTypes: [Post],
+  mdx: { rehypePlugins: [[rehypePrism, { ignoreMissing: true }]] },
+});

@@ -17,8 +17,6 @@ tags:
 - Social Relation Extraction
 - <a href="#9">Cloud Computing</a>
 
-<!--more-->
-
 #### Journals
 
 - Nature
@@ -92,6 +90,7 @@ tags:
     在社群希望找到出現次數較高的 motifs(最常出現的 subgraph)
 
 補充資料 : [Erdős Number](https://en.wikipedia.org/wiki/Erd%C5%91s_number)
+
 <br>
 
 # Centrality Analysis
@@ -161,7 +160,7 @@ unweighted graph
 > 或指定某幾個人觀察這些人的影響力
 
 <hr>
-<!-- 20170413  --> 
+
 # Comunity Detection
 
 **Properties of cohesion 凝聚力的判斷**
@@ -214,9 +213,8 @@ unweighted graph
   - <a href="#MM"> Modularity Maximization</a>
   - <a href="#BC"> Bridge-Cut Algo</a>
 
-<h2 id="KL"> KL algorithm </h2> 
-    Input  : weighted graph  
-    Output : 切成兩個equal-size subgraph,且橫跨兩群的crossing edge的總和最小
+<h2 id="KL"> KL algorithm </h2>
+Input : weighted graph Output : 切成兩個equal-size subgraph,且橫跨兩群的crossing edge的總和最小
 
 **名詞定義**
 
@@ -255,16 +253,8 @@ unweighted graph
 **KL algorithm 複雜度**  
 $$ O(n^2) $$ 找到最適合交換的兩點,有 n pair 要交換 &rArr; $$ O(n^3) $$
 
-<!-- 20170413  -->
-
-<!-- 20170512,20170621-->
 <h2 id="HC">Hiraichiecal Clustering</h2>
-bottom-up  
-每一回合都找兩個最像的做合併  
-* single link    
-    距離取min  
-* complete link  
-    距離取max
+bottom-up 每一回合都找兩個最像的做合併 * single link 距離取min * complete link 距離取max
 
 #### Distance Matrix
 
@@ -384,7 +374,7 @@ distance constrain
 
 ---
 
-<H1 id="3">Link Prediction </H1> 
+<H1 id="3">Link Prediction </H1>
 <a href="#LP">Link Prediction</a>
 
 <a href="#NSBM">Node-wise Similarity Based Methods</a>
@@ -438,8 +428,7 @@ distance constrain
    $$ Y = \alpha + \beta_1X_1 + \beta_2X_2 + ... + \beta_nX_n $$  
    利用學習方式估計出$$ \alpha , \beta $$
 
-<h2 id="TPBM"> Topological Pattern Based Methods </h2> 
-> 計算兩點之間的分數,若大於某個值就表示他們之間有關係(連線)
+<h2 id="TPBM"> Topological Pattern Based Methods </h2>> 計算兩點之間的分數,若大於某個值就表示他們之間有關係(連線)
 
 - **Local Method**
 
@@ -529,7 +518,7 @@ relational Markov model
    判斷分為好幾回合,若多數點是 unknown 那就判斷是 unknown  
    unknown 也視為一種 label
 
-<h2 id="GE">Ghost Edges for Node Label Prediction</h2>   
+<h2 id="GE">Ghost Edges for Node Label Prediction</h2>
 將沒有label的node用Ghost edge連到有label的node,有label的node就算沒有實體的edge連到unlabel node但是也可以造成影響。且影響力可以依據距離來做調整。
 
 #### Steady-state Probability
@@ -729,10 +718,6 @@ NPC 問題通常找近似解,所以需要一個比較的方法
  1.從自己建立的 node 找一個點放到 set 中  
  2.計算和 require 和 set 中的距離,取最短,並將 path 上的點加入 set,直到所有 require 都在 set 中
 
-<!-- 20170512 -->
-
-<!-- class -->
-
 Epidemics
 疫情會有一個週期
 接觸後有多少機率會傳染 p
@@ -823,9 +808,6 @@ e.g. Programming IDE,Programming API,System Control interface,Hadoop,Google App 
 
 e.g. web Service,Google App
 
-<!-- 20170525 -->
-
-<!-- class -->
 <h1 id="9_1">MapReduce</h1>
 
 - A programming model
@@ -838,9 +820,6 @@ map 跑完的結果先處理(先加起來)
 
 - Combiner
 - Improved Word Count
-<!-- class -->
-
-<!-- class -->
 
 relational database 如何做 join
 透過主鍵連結兩張表,map 做的事就是找到對應的 key 和 value
@@ -850,10 +829,6 @@ key 就設為主鍵,但 value 必須要有紀錄資料和資料來自哪張 tabl
 MapReduce Algorithm Design
 提供紀錄中間狀態,提供需要 for loop 的程式執行
 可以自己設定 key
-
-<!-- class -->
-
-<!-- class -->
 
 介紹 dijkstra
 那要怎麼把 dijkstra 做成 mapreduce 版本
@@ -891,9 +866,6 @@ mapreduce 沒有提供 share memory 的機制去交換 global 的資料
 Inverted Files
 利用 linklist 紀錄每個 term 出現在哪些文章中
 
-<!-- class -->
-
-<!-- 20170602 -->
 <h1 id="9_2">Pig Programming</h1>
 
 - sql-like language, 透過 hadoop 處理大量半結構化資料
@@ -972,10 +944,6 @@ Word Count using Pig
 - count word
 - save file
 
-<!-- 20170602 -->
-
-<!----------------------------------- class --------------------------------------------->
-
 #### Agent-based Model
 
 代理人做事的程式
@@ -1024,10 +992,4 @@ GraphAnonymization algorithm
 Degree-sequence anonymization
 將每個點的 degree 由大排到小
 
-<!----------------------------------- class --------------------------------------------->
-
-<!----------------------------------- class --------------------------------------------->
-
 # Networks with Signed Edges
-
-<!----------------------------------- class --------------------------------------------->
