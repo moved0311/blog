@@ -13,7 +13,7 @@ tags:
 - [Next13](#next13)
 - [結論](#結論)
 
-## <h2 id="改版原因">改版原因</h2>
+## 改版原因
 
 [鉅亨網新聞網站](https://news.cnyes.com/news/cat/headline)大約是 2017 做了一次改版,當時使用的相關技術是 Node8, React15, Redux 與前人找了一個使用 Express 實作 Server Side Render 的樣板作為基底。六年後的 2023,目前 Node 穩定版本已經來到 18, React18,也陸續出現實作 SSR 的框架例如 Nextjs, Remix。
 
@@ -21,7 +21,7 @@ React16.8 推出 React hooks 寫法後, 寫 Class Component 的人就越來越�
 
 Node 版本過舊,一些新的 JavaScript 語法不支援,相關套件只安裝較舊的版本或是不能使用。
 
-## <h2 id="tech-stack">Tech Stack</h2>
+## Tech Stack
 
 - [Next13](https://nextjs.org/)
 - [React18](https://react.dev/)
@@ -35,7 +35,7 @@ Linaria 是一個 CSS 的框件,主打是 Zero-runtime CSS in JS, 業界標竿 A
 
 Nx 則是希望未來能夠整合推版流程, 目前鉅亨網的專案是一個項目就開一個 gitlab repository, 目前大約有接近 10 個 repository, 會造成一個相同的功能在 A,B,C 專案都要用到, 就必須要推 3 次版, 如果是動到 Header 全部專案都有用到就必須每個專案都各別推版。Nx 是其中一個 monorepo 架構的實作,未來如果專案都整合到 monorepo 中能夠改善推很多次版的問題。
 
-## <h2 id="建立專案">建立專案</h2>
+## 建立專案
 
 1. 建立 nx monorepo 結構(先切換至 node18)
 
@@ -96,7 +96,7 @@ return (
 ...
 ```
 
-![next-with-header](./step5.png)
+![next-with-header](/2023-07-07-news-tech-stack/step5.png)
 
 6. 安裝[Linaria](https://github.com/callstack/linaria)
 
@@ -129,9 +129,9 @@ const Title = styled.h1`
 </div>
 ```
 
-![linaria-title](./step6.png)
+![linaria-title](/2023-07-07-news-tech-stack/step6.png)
 
-## <h2 id="next13">Next13</h2>
+## Next13
 
 - Next13 的 App routing, 加強了以前 pages routing 方式, 整合了 layout, loading, error 等功能。
 - 預設是 Server Component, 也捨棄掉以前的 getInitialProps, getServerProps。如果是 Client Component 需要在開頭的地方加上'use client'
@@ -139,7 +139,7 @@ const Title = styled.h1`
 
 [Next.js App Router: Routing, Data Fetching, Caching - Vercel](https://www.youtube.com/watch?v=gSSsZReIFRk)
 
-## <h2 id="結論">結論</h2>
+## 結論
 
 - 在改版部分碰上了一些挑戰,目前是重新開啟一個新的專案而不是舊版的繼續往上升級,主要考量是升級應該會更棘手。後面會陸續碰到舊元件共用/重做問題、CICD 問題、快取問題、登入問題。
 - 目前還在製作 prototype,有一個 monorepo 結構包含 Nextjs 專案和一個共用 UI 專案, 之後專案如果也要升級會一起整合到 monorepo 中。
