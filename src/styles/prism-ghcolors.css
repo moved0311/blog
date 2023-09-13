@@ -14,6 +14,8 @@
    word-break: normal;
    font-size: .9em;
    line-height: 1.2em;
+   background-color: inherit;
+   padding: 0;
  
    -moz-tab-size: 4;
    -o-tab-size: 4;
@@ -42,7 +44,7 @@
  /* Code blocks */
  pre[class*="language-"] {
    padding: 1em;
-   margin-bottom: 0.5em;
+   margin-bottom: 24px;
    overflow: auto;
    border: 1px solid #dddddd;
    background-color: white;

@@ -30,6 +30,13 @@ article > h2 {
   position: relative;
 }
 
+article > h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 20px 0;
+  position: relative;
+}
+
 article > h2::before {
   content: "";
   width: 6px;
@@ -48,10 +55,53 @@ ul {
   list-style: disc;
 }
 
+ul > li > ul {
+  list-style: circle;
+  padding-left: 16px;
+}
+
+ul > li > ol {
+  padding-left: 16px;
+}
+
 ol,ul > li {
   margin-bottom: 12px;
 }
 
 p {
   margin-bottom: 20px;
+}
+
+a {
+  color: #007acc;
+}
+
+a:hover {
+  box-shadow: 0 1px 0 0;
+}
+
+code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
+}
+
+table {
+  border: 0;
+  margin: 16px 0;
+}
+
+tr > th {
+  padding: 8px 16px;
+  border-bottom: solid 2px #bfbfbf;
+  background-color: #f0f0f0;
+  border: 1px solid #dbdbdb;
+}
+
+tr > td {
+  padding: 10px 16px;
+  border-color: #dbdbdb;
+  border: 1px solid #dbdbdb;
 }
