@@ -1,0 +1,28 @@
+---
+title: 更新專案套件版本
+date: 2023-10-02
+---
+
+## outdated
+
+`pnpm outdated`
+
+![outdated](/2023-10-02-update-package/outdated.png)
+
+指令可以列出目前專案套件版本與套件最新版本差異，軟體版本主要格式是 Major.Minor.Patch，對應到上面的紅色、黃色、綠色。
+
+## 互動式的更新套件
+
+`pnpm update -i -L`
+
+- -i (interactive)
+- -L (lastest)
+
+![pnpm update](/2023-10-02-update-package/update.png)
+
+常常一次把套件全部都更到最新版的結果專案直接炸掉，可以透過互動式的分批更新。
+
+## Reference
+
+- [Software versioning](https://en.wikipedia.org/wiki/Software_versioning)
+- [pnpm update](https://pnpm.io/zh-TW/cli/update)
