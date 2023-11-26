@@ -13,7 +13,7 @@ function PostCard(post: Post) {
         </Link>
       </h2>
       <div className="flex items-center">
-        <time dateTime={post.date} className="mb-2 block text-sm text-gray-600">
+        <time dateTime={post.date} className="block text-sm text-gray-600">
           {format(parseISO(post.date), "LLLL d, yyyy")}
         </time>
         <ul className="list-none flex items-center gap-1 ml-2 font-medium">
@@ -33,7 +33,6 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-3xl py-8">
-      <h1 className="mb-4 font-black pb-4 text-3xl font-extrabold ">Taiyi</h1>
       {posts.map((post) => (
         <PostCard key={post.title} {...post} />
       ))}

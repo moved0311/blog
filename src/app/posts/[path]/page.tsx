@@ -21,8 +21,8 @@ const Page = ({ params }: PageProps) => {
   const MDXContent = useMDXComponent(body.code);
 
   return (
-    <article className="mx-auto max-w-3xl py-8">
-      <div className="mb-8 text-center">
+    <article>
+      <div className="mb-8">
         <time dateTime={date} className="mb-1 text-xs text-gray-600">
           {format(parseISO(date), "LLLL d, yyyy")}
         </time>
