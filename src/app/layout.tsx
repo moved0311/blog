@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
         />
       </head>
-      <body className={cx(inter.className, "mx-auto max-w-3xl")}>
+      <body className={cx(inter.className, "mx-auto max-w-3xl px-4 pb-8 lg:px-0")}>
         <Header />
         {children}
       </body>
