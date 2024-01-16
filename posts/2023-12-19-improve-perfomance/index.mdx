@@ -1,0 +1,60 @@
+---
+title: 改善新聞專案Lighthouse分數
+date: 2024-01-16
+tags:
+  - Work
+---
+
+## 新聞專案改版到上線之前作業
+
+1. 壓力測試
+   使用 Apache Jmeter 來模擬使用者發送 Request 的情況，可以設定 1 秒內發送 X 次,連續發送 Y 秒之類的設定。發現壓測結果還比改版之前還要差，Lighthouse 效能分數也比舊站低 20 分左右。
+
+<img alt="meme" src="/2023-12-19-improve-perfomance/performance-meme.png" width="500" style={{ marginTop: 12 + "px" }} />
+
+## 改善效能
+
+- 測量方式:\
+  用無痕瀏覽器用 dev 開啟專案，固定使用同一個路徑(類似`news/id/5414108`)，點擊 Dev Tool Lighthouse 的分析。
+
+| Lighthouse 分數                                                              | Lighthouse Performance                                                             |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| ![](/2023-12-19-improve-perfomance/20231219-lighthouse-dev-news-5414108.png) | ![](/2023-12-19-improve-perfomance/20231219-lighthouse-dev-news-5414108-score.png) |
+
+### 1. Code Split
+
+Code Split 意思是將比較大包的檔案，切分成比較小包的單元(chunk)做載入。例如下圖`page.js`大小是 1MB，可以針對`page.js`中使用到的元件做 lazy loading，將其中部分內容切出去成為另一個單元。一次載入一大包元件可能會造成 main thread 堵塞，一些比較緊急的任務會被延遲。拆成小單元好處是頁面初次載入速度可以提升，有較緊急的任務也可以插入在小單元之間。
+
+例如`page.js`可能包含兩個元件 A+B，將 B 元件做 lazyload 後，B 元件在 Network 中會被切出去變成另外一個 chunk。像是很多`_app-pages-browser`開頭的檔案就是切出去的 chunks，這樣原本的`page.js`就能夠縮小體積。
+
+![code-split](/2023-12-19-improve-perfomance/code-split.png)
+
+⚠️ 發現 next13 在 server component 做 lazy loading 不會減少 network size，要將需要 lazy 的元件移至 client component 再做 dynamic loading 才能夠正常將元件切分成另外一個 chunk。
+
+- 參考:
+  - [Next.js/Lazy Loading](https://nextjs.org/docs/app/building-your-application/optimizing/lazy-loading)
+  - [React lazy or next dynamic don't reduce an app route's "First Load JS"](https://github.com/vercel/next.js/issues/49454)
+
+<br />
+將一些在第一屏不用馬上載入的元件延後載入後，可以改善 LCP(Largest Contentful Paint, 最大內容繪製)，由 2.5s 降低至 1.3s 與 TBT(Total Blocking Time, 總阻塞時間)，由7580ms降至3900ms。
+
+| Code Split 後 Lighthouse 分數                               | Lighthouse Performance                                                                       |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| ![](/2023-12-19-improve-perfomance/20231221-lighthouse.png) | ![code-split-after-code-split](/2023-12-19-improve-perfomance/20231221-lighthouse-score.png) |
+
+### 2. 使用 Bundle 檢查工具查看各個套件打包大小
+
+使用類似[@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)套件來分析套件打包大小。檢查使用的套件是不是太大包，要不要換一套輕量一點的。或是引入方式是不是能夠只引入使用到的部分。
+
+例如引入 lodash 的方式的差異:
+
+```diff-js
+- import { isEmpty } from "lodash";
++ import isEmpty from "lodash/isEmpty";
+```
+
+參考: [lodash | 如何正確的 import lodash](https://medium.com/starbugs/the-correct-way-to-import-lodash-libraries-bdf613235927)
+
+<br />
+
+![bundle](/2023-12-19-improve-perfomance/bundle.png)

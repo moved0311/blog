@@ -53,6 +53,12 @@ ol {
 
 ul {
   list-style: disc;
+  margin-left: 16px;
+}
+
+ul > li > ul {
+  list-style: circle;
+  padding-left: 16px;
 }
 
 p {
