@@ -1,14 +1,30 @@
-"use client";
 import { format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
+import { type Metadata } from "next";
 
 type PageProps = {
   params: {
     path: string;
   };
 };
+
+type Props = {
+  params: { path: string }
+  searchParams?: { [key: string]: string | string[] }
+}
+
+export async function generateMetadata(
+  { params }: Props
+): Promise<Metadata> {
+  const { path } = params
+  const title = `${path} | Taiyi | Dev`
+
+  return {
+    title,
+  }
+}
 
 const Page = ({ params }: PageProps) => {
   const path = params?.path;
