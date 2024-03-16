@@ -9,12 +9,31 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+      typography: ({ theme }: { theme: any }) => ({
+        DEFAULT: {
+          css: {
+            code: {
+              borderRadius: theme('borderRadius.sm'),
+              paddingTop: theme('padding[1]'),
+              paddingRight: theme('padding[1.5]'),
+              paddingBottom: theme('padding[1]'),
+              paddingLeft: theme('padding[1.5]'),
+              // prose-code:bg-[#f9f2f4] prose-code:text-[#c7254e]
+            },
+            'code::before': {
+              content: 'normal',
+            },
+            'code::after': {
+              content: 'normal',
+            },
+            a: {
+              color: '#007acc',
+            },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }
 export default config

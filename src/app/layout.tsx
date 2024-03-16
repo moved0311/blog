@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import cx from "classnames";
 
 import "@/styles/prism-plus.css";
-import "@/styles/prism-ghcolors.css";
+import "@/styles/prism-vsc-dark-plus.css"
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
         />
       </head>
-      <body className={cx(inter.className, "mx-auto max-w-3xl px-4 pb-8 lg:px-0 dark:bg-gray-900")}>
+      <body className={cx(inter.className, "mx-auto max-w-3xl px-4 pb-8 lg:px-0 dark:bg-[#0d1117]")}>
         <Header />
         {children}
       </body>

@@ -1,7 +1,7 @@
 ---
-title: "將UI元件庫發佈到Gitlab上"
-date: "2023-03-02"
-lastUpdate: "2023-03-16"
+title: '將UI元件庫發佈到Gitlab上'
+date: '2023-03-02'
+lastUpdate: '2023-03-16'
 ---
 
 要怎麼把公司 UI 共用元件庫打包發佈讓所有專案能夠使用又不希望上傳到公開的元件庫？
@@ -114,8 +114,6 @@ token 可以到使用者的 Edit Profile 中註冊一個
 
 ![Access Token](/2023-03-02-publish-to-gitlab/accessToken.png)
 
-<br />
-
 設定 CICD (Gitlab 只要偵測到專案內有.gitlab-ci.yml 就會執行對應的 CICD)
 
 ```yml:.gitlab-ci.yml
@@ -134,8 +132,6 @@ deploy:
 當 git push 時觸發 CICD，在 Gitlab CI/CD 的頁面就會像這樣，如果推版成功就會有綠色勾勾。
 
 ![CICD](/2023-03-02-publish-to-gitlab/CICD.png)
-
-<br />
 
 yarn publish 會根據.yarnrc.yml 設定檔來決定佈署的地方與權限設定
 
@@ -175,8 +171,6 @@ files 定義需要打包哪些檔案\
 //<gitlab-url>/api/v4/projects/<project-id>/packages/npm/:_authToken=<access-token>
 ```
 
-<br />
-
 可能會稍微遇到一些問題，但應該都可以解掉...吧
 
 ![CICD_Error](/2023-03-02-publish-to-gitlab/CICD_Error.png)
@@ -194,12 +188,10 @@ yarn add @cnyes/fe-share-components
 //<gitlab-url>/api/v4/projects/<project-id>/packages/npm/:_authToken=<access-token>
 ```
 
-<br />
-
 在元件內引入方式
 
 ```ts
-import { Button } from "@cnyes/fe-share-components";
+import { Button } from '@cnyes/fe-share-components'
 ```
 
 ## Reference

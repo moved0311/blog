@@ -12,17 +12,6 @@ body {
   display: none;
 }
 
-.rehype-code-title {
-  border: 1px solid #dddddd;
-  border-bottom-width: 0;
-  background-color: white;
-  padding: 8px 16px;
-  margin: 0;
-  border-radius: 4px 4px 0 0;
-  color: #303030;
-  font-weight: bold;
-}
-
 article > h2 {
   font-size: 24px;
   font-weight: 700;
@@ -30,67 +19,16 @@ article > h2 {
   position: relative;
 }
 
-article > h3 {
-  font-size: 20px;
-  font-weight: 500;
-  margin: 20px 0;
-  position: relative;
-}
-
 article > h2::before {
-  content: "";
+  content: '';
   width: 6px;
   height: 30px;
   background-color: rgb(0, 122, 204);
   position: absolute;
   left: -16px;
-  top: 3px;
+  top: 2px;
 }
 
-ol {
-  list-style: auto;
-}
-
-ul {
-  list-style: disc;
-  margin-left: 16px;
-}
-
-ul > li > ul {
-  list-style: circle;
-  padding-left: 16px;
-}
-
-p {
-  margin-bottom: 20px;
-}
-
-a {
-  color: #007acc;
-}
-
-code {
-  padding: 2px 4px;
-  font-size: 90%;
-  color: #c7254e;
-  background-color: #f9f2f4;
-  border-radius: 4px;
-}
-
-table {
-  border: 0;
-  margin: 16px 0;
-}
-
-tr > th {
-  padding: 8px 16px;
-  border-bottom: solid 2px #bfbfbf;
-  background-color: #f0f0f0;
-  border: 1px solid #dbdbdb;
-}
-
-tr > td {
-  padding: 10px 16px;
-  border-color: #dbdbdb;
-  border: 1px solid #dbdbdb;
+.rehype-code-title {
+  font-weight: 500;
 }
