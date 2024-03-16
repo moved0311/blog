@@ -37,12 +37,12 @@ const Page = ({ params }: PageProps) => {
   const MDXContent = useMDXComponent(body.code);
 
   return (
-    <article>
+    <article className="dark:text-white">
       <div className="mb-8">
-        <time dateTime={date} className="mb-1 text-xs text-gray-600">
+        <time dateTime={date} className="mb-1 text-xs text-gray-500">
           {format(parseISO(date), "LLLL d, yyyy")}
         </time>
-        <h1 className="text-3xl font-bold">{title}</h1>
+        <h1 className="text-3xl font-bold dark:text-white">{title}</h1>
       </div>
       <MDXContent />
     </article>

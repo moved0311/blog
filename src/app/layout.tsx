@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="zh-tw">
+    <html lang="zh-tw" className="dark">
       <head>
         <link
           rel="stylesheet"
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
         />
       </head>
-      <body className={cx(inter.className, "mx-auto max-w-3xl px-4 pb-8 lg:px-0")}>
+      <body className={cx(inter.className, "mx-auto max-w-3xl px-4 pb-8 lg:px-0 dark:bg-gray-900")}>
         <Header />
         {children}
       </body>
