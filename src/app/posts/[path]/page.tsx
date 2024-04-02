@@ -11,19 +11,17 @@ type PageProps = {
 };
 
 type Props = {
-  params: { path: string }
-  searchParams?: { [key: string]: string | string[] }
-}
+  params: { path: string };
+  searchParams?: { [key: string]: string | string[] };
+};
 
-export async function generateMetadata(
-  { params }: Props
-): Promise<Metadata> {
-  const { path } = params
-  const title = `${path} | Taiyi | Dev`
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { path } = params;
+  const title = `${path} | Taiyi | Dev`;
 
   return {
     title,
-  }
+  };
 }
 
 const Page = ({ params }: PageProps) => {
@@ -44,7 +42,7 @@ const Page = ({ params }: PageProps) => {
         </time>
         <h1 className="text-3xl font-bold dark:text-white">{title}</h1>
       </div>
-      <article className="prose dark:prose-invert prose-a:no-underline prose-th:text-center">
+      <article className="prose md:prose-lg dark:prose-invert prose-a:no-underline prose-th:text-center">
         <MDXContent />
       </article>
     </div>

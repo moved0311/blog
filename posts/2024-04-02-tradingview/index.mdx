@@ -1,0 +1,216 @@
+---
+title: TradingView Charting Library
+date: 2024-04-02
+---
+
+## 簡介
+
+TradingView 是一家專門做報價圖表的公司，在工作上會使用到他們的圖表套件。目前有使用到兩套：一套功能比較完整[charting_library](https://github.com/tradingview/charting_library/)需付費，另一套比較輕量開源[lightweight-charts](https://github.com/tradingview/lightweight-charts)。
+
+- 輕量適合單純呈現一張走勢圖使用。
+- 完整的包含內建的各種技術指標、分時走勢、畫圖工具等等。
+
+| lightweight-charts(輕量)                                                                | charting_library(完整)                                                             |
+| --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| <img src="/2024-04-02-tradingview/lightweight-charting.png" style={{height:'300px'}} /> | <img src="/2024-04-02-tradingview/charting_library.png" style={{height:'300px'}}/> |
+
+## 文件
+
+從 v25 後開始有人性化的文件，Interface 格式也都很好查詢。也提供不同語言的範例程式。
+
+- Document:
+  - https://www.tradingview.com/charting-library-docs/
+- 各種語言範例:
+  - https://github.com/tradingview/charting-library-examples
+
+## 實作
+
+1. 建立全新的 React 專案
+
+```sh
+# node: v20.7.0
+npx create-react-app tradingview-app --template typescript # 建立新的React專案
+cd tradingview-app # 進到專案目錄
+npm i # 安裝相依套件
+npm start # 啟動專案
+```
+
+2. 從[charting_library](https://github.com/tradingview/charting_library/)下載`charting_library` 與 `datafeeds` 放到`/public`下
+
+   - `charting_library`: 包含呈現圖表的靜態檔案
+   - `datafeeds`: 官方提供測試用的 API 資料(後面串接自家 API 可以不需要)
+
+   <img src="/2024-04-02-tradingview/put-to-public.png" alt="static-files" width="600" />
+
+3. 載入 JS 檔案
+
+   在 index.html 的`<head>`內加入`<script>`, 會在瀏覽器的 window 加上 TradingView 與 Datafeeds 物件
+
+   ```html
+   <head>
+     ...
+     <script src="charting_library/charting_library.standalone.js"></script>
+     <script src="datafeeds/udf/dist/bundle.js"></script>
+   </head>
+   ```
+
+4. 寫 Chart 元件
+
+```ts
+const Chart = () => {
+  useEffect(() => {
+    new window.TradingView.widget({
+      container: "chartContainer",
+      locale: "zh_TW",
+      library_path: "charting_library/",
+      datafeed: new window.Datafeeds.UDFCompatibleDatafeed("https://demo-feed-data.tradingview.com"),
+      symbol: "AAPL",
+      interval: "1D",
+      fullscreen: true,
+    });
+  }, []);
+
+  return <div id="chartContainer"></div>;
+};
+
+export default Chart;
+```
+
+- container: 空`<div>`元素的 id,透過 id 來將圖表元件插入到特定位置下
+- `library_path`需要填剛剛下載放到`/public`靜態檔案的路徑
+- datafeed: 這裡的 datafeed 是官方提供測試用，後面需要實作自己的 datafeed
+- symbol: symbol 格式可以根據 API 不同來做改變
+
+  <img src="/2024-04-02-tradingview/AAPL.png" alt="tradingview-first-example" width="400" />
+
+5. 串接 API
+
+- Document: [Datafeed-Implementation](https://www.tradingview.com/charting-library-docs/latest/tutorials/implement_datafeed_tutorial/Datafeed-Implementation/)
+
+```ts
+import DataFeed from "./datafeed";
+
+const index = () => {
+  useEffect(() => {
+    new window.TradingView.widget({
+      container: "chartContainer",
+      locale: "zh_TW",
+      library_path: "charting_library/",
+      datafeed: DataFeed, // <-- 實作自己的DataFeed
+      symbol: "AAPL",
+      interval: "1D",
+    });
+  }, []);
+
+  return <div id="chartContainer"></div>;
+};
+```
+
+```ts:datafeed.ts
+export default {
+  onReady: (callback) => {
+    console.log('[onReady]: Method call');
+  },
+  resolveSymbol: (symbolName, onSymbolResolvedCallback, onResolveErrorCallback, extension) => {
+    console.log('[resolveSymbol]: Method call', symbolName);
+  },
+  getBars: (symbolInfo, resolution, periodParams, onHistoryCallback, onErrorCallback) => {
+    console.log('[getBars]: Method call', symbolInfo);
+  },
+  subscribeBars: (symbolInfo, resolution, onRealtimeCallback, subscriberUID, onResetCacheNeededCallback) => {
+    console.log('[subscribeBars]: Method call with subscriberUID:', subscriberUID);
+  },
+  unsubscribeBars: (subscriberUID) => {
+    console.log('[unsubscribeBars]: Method call with subscriberUID:', subscriberUID);
+  },
+};
+```
+
+<img src="/2024-04-02-tradingview/flow.png" alt="flow" />
+
+```ts
+onReady: (callback: OnReadyCallback) => {
+  const config = {}
+  setTimeout(() => callback(config));
+},
+```
+
+```ts
+resolveSymbol: async (symbolName: string, onSymbolResolvedCallback: (info: LibrarySymbolInfo) => void) => {
+  const [market, code] = symbolName.split(':');
+  const name = `${market}:${code}`;
+  const res = await GETv2QuoteBySymbol(symbolName, { column: 'I_FORMAT' });
+  const chineseName = res?.data?.[0]?.[QuotesCodeMapping.CHINESE_NAME];
+  const price = res?.data?.[0]?.[QuotesCodeMapping.CLOSE]; // 字串小數位數由後端控制
+  const countDecimal = price.toString().split('.')[1].length; // 有幾位小數
+  const pricescale = Math.pow(10, countDecimal);
+
+  const symbolInfo = {
+    description: chineseName || symbolName /* 顯示的名稱 */,
+    name: symbolName,
+    ticker: name,
+    session: '24x7',
+    timezone: 'Asia/Taipei',
+    type: 'forex',
+    has_intraday: true,
+    has_daily: true,
+    exchange: '',
+    minmov: 1,
+    minmove2: 0,
+    fractional: false,
+    currency_code: '',
+    pricescale,
+    supported_resolutions: ['1', '5', '10', '15', '30', '60', 'D', 'W', 'M']
+  } as LibrarySymbolInfo;
+  onSymbolResolvedCallback(symbolInfo);
+},
+```
+
+```ts
+getBars: async (
+  symbolInfo: LibrarySymbolInfo,
+  resolution: ResolutionString,
+  periodParams: PeriodParams,
+  onHistoryCallback: HistoryCallback,
+  onErrorCallback: ErrorCallback
+) => {
+  // tradingview會設定每個尺度(resolution)下要有幾個bars,如果沒有滿足數量可能會造成一直call getBars的無窮迴圈
+  const symbol = symbolInfo.name;
+  const { from, to } = periodParams;
+
+  if (symbol) {
+    try {
+      const { data, statusCode } = await getSymbolHistories({
+        resolution,
+        symbol,
+        to,
+        from
+      });
+
+      if (statusCode !== 200 || data?.t?.length === 0) {
+        onHistoryCallback([], { noData: true });
+        return;
+      }
+
+      const { l, h, o, c, t } = data;
+
+      const bars = t?.reduce((acc: Bar[], timestamp: number, index: number) => {
+        acc.push({
+          time: timestamp * 1000,
+          low: l[index],
+          high: h[index],
+          open: o[index],
+          close: c[index]
+        });
+        return acc;
+      }, [] as Bar[]);
+
+      bars.sort((a: Bar, b: Bar) => a.time - b.time);
+
+      onHistoryCallback(bars, { noData: false });
+    } catch (error) {
+      onErrorCallback((error as Error).message);
+    }
+  }
+},
+```
