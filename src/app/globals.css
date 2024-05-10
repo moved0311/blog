@@ -33,3 +33,7 @@ article > h2::before {
   font-weight: 500;
   text-align: right;
 }
+
+.comment {
+  display: none;
+}

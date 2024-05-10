@@ -1,0 +1,65 @@
+---
+title: 鉅亨網外匯專案
+date: 2024-05-10
+---
+
+從 2024 一月底開始一個新的外匯改版專案，原本打算將這個專案開在新聞專案的 Nx Mono Repo 下，但在推版 CICD 遇到各種問題。例如 Nx 是希望所有專案統一使用一份`package.json`管理套件版本。如果新開的專案打算使用 Next14，那其他 Mono Repo 下的專案也要一起升上去，但升版很容易出意外可能一個升上去正常另一個直接爆開。
+
+Nx 的 CICD 也需要另外寫一套可以讓不同專案佈署到不同網域，並整合前人寫好的佈到 K8S 流程。經過了各種嘗試，還是把新專案拉出去自己獨立一個 repo。
+
+獨立 repo 也有問題要解決，像是元件共用的問題，不同 repo 要共用同一塊元件的話要另外做成一個元件庫。獨立打包的元件庫與 Nx 的 libs 在運作上又有很大的差別。
+
+獨立打包的元件庫假設是用 tailwind 寫的，那其他人使用這個元件庫時不用特別安裝 tailwind 也能夠正常使用。但 Nx 在使用 libs 時是直接將程式碼嵌入進去，libs 是用 tailwind 寫的，那 app 裡面就必須要安裝 tailwind 才能夠正常使用 libs。
+
+元件庫發佈新版本時，另外有用到的 A, B, C 專案也需要再各自推版。隨著專案越來越多，推版花費的時間也越來越長。
+
+## 改善 Lighthouse 效能
+
+1. lazy loading
+
+   將一些一開始不用載入的元件透過 dynamic 切成另外一個 chunk 延後載入，或是用到的時候再載入。
+
+   在 nextjs 中，如果沒有另外做 lazy loading，頁面的元件都會包進`page.js`中。做 lazy load 的元件會另外打包成一個`_app-pages-browser_src_components_xxx`的 js 檔案能夠縮小`page.js`大小
+
+   ⚠️ dynamic 需要在 client 元件使用才能切成獨立的 chunk
+
+   鉅亨專案設計稿分為桌機版與手機版，桌機手機樣式差很多很難做 RWD。在開發時大多都是採用 AWD(Adaptive Web Design)的方式: 拿到 request 時判斷使用者裝置後決定使用桌機的版型或是手機的版型。
+
+   這樣在效能上會有影響，一開始進到網站判斷桌機還是手機版時如果加上 dynamic import，會有短暫顯示 loading 狀態，沒特別寫會是整頁空白。Desktop 和 Mobile 很大一包的情況下空白會感覺特別久?
+
+   ```js
+   import dynamic from "next/dynamic";
+
+   const Desktop = dyanmic(() => import("@/components/desktop"));
+   const Mobile = dyanmic(() => import("@/components/mobile"));
+   ```
+
+   直接 import 的話速度會變快，一開始就會顯示 SSR 內容。但是變成只看 Desktop 卻也將 Mobile 的檔案也載入了。
+
+   ```js
+   import Desktop from "@/components/desktop";
+   import Mobile from "@/components/mobile";
+   ```
+
+   之後遇到一樣狀況可能解法是:
+
+   1. 分成兩台機器個別處理 Desktop 與 Mobile。(缺點: 較貴、維護較麻煩)
+   2. 改設計稿，改成能符合 RWD 的設計。(缺點:元件排版上比較不自由，桌機要顯示手機不要顯示或是桌機元件順序要跟手機元件順序不同可能會很麻煩)
+   3. 一樣用上面 AWD 方式，分別顯示 Desktop、Mobile
+
+2. 使用適當大小的圖片 [Properly size images](https://developer.chrome.com/docs/lighthouse/performance/uses-responsive-images/?utm_source=lighthouse&utm_medium=devtools)
+
+- Lighthouse 發現有一個小 logo 圖片大小是 30x12，但實際上是用了一張 300x200 的圖片(14KB)去縮小的。改使用 svg 格式的圖片約 2KB
+
+3. 使用 next/image 需要安裝[sharp](https://www.npmjs.com/package/sharp)套件，圖片最佳化才能運作
+
+4. 增加機器 CPU 大小
+
+   - CPU: request: 50m, limit: 50m，載入網頁要等 10-20 秒, icon 還可能沒辦法載入
+   - CPU: request: 100m, limit: 150m，載入速度較正常，但 lighthouse 分數約是 local 測量的一半
+   - CPU: request: 150m, limit: 200m，lighthouse 分數與 local 測試相近
+
+   (m: millicores)
+
+<span class="comment">## 其他 1. nextjs官方的[Dockerfile範例](https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile)</span>
+5. 元件加預設高度，避免畫面跳動影響CLS
