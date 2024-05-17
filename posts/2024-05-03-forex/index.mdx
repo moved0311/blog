@@ -1,6 +1,9 @@
 ---
 title: 鉅亨網外匯專案
 date: 2024-05-10
+lastUpdate: 2024-04-26
+tags:
+  - Work
 ---
 
 從 2024 一月底開始一個新的外匯改版專案，原本打算將這個專案開在新聞專案的 Nx Mono Repo 下，但在推版 CICD 遇到各種問題。例如 Nx 是希望所有專案統一使用一份`package.json`管理套件版本。如果新開的專案打算使用 Next14，那其他 Mono Repo 下的專案也要一起升上去，但升版很容易出意外可能一個升上去正常另一個直接爆開。
@@ -62,4 +65,11 @@ Nx 的 CICD 也需要另外寫一套可以讓不同專案佈署到不同網域�
    (m: millicores)
 
 <span class="comment">## 其他 1. nextjs官方的[Dockerfile範例](https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile)</span>
-5. 元件加預設高度，避免畫面跳動影響CLS
+
+5. 元件加預設高度，避免畫面跳動影響 CLS
+
+6. 發現在推到 beta 站時，輸入網址後很久才回應(約 10s)\
+   有些 API 是在 server side 打的，需要等所有 API 都回應之後，才會回傳 response。\
+   可以在`next.config.ts`中加上 logging 打開 log 資訊，可以觀察每個 API 的 cache 狀態和執行時間。
+   [next-config-js/logging](https://nextjs.org/docs/app/api-reference/next-config-js/logging) \
+   把一些標紅字的 API call 移到 client 端打。
