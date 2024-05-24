@@ -1,7 +1,7 @@
 ---
-title: '將UI元件庫發佈到Gitlab上'
-date: '2023-03-02'
-lastUpdate: '2023-03-16'
+title: "將UI元件庫發佈到Gitlab上"
+date: "2023-03-02"
+lastUpdate: "2023-03-16"
 ---
 
 要怎麼把公司 UI 共用元件庫打包發佈讓所有專案能夠使用又不希望上傳到公開的元件庫？
@@ -11,9 +11,9 @@ lastUpdate: '2023-03-16'
 前端的共用 UI 元件庫要怎麼推到 Gitlab 上，並可以從 Gitlab 做下載呢？\
 Gitlab 有提供 Packages & Registries(圖 1)讓套件上傳的空間。配合 CICD 每次 push 或增加 tag 時能夠一併做發佈的動作(圖 2)
 
-| 圖 1                                                                 | 圖 2                                                                  |
-| -------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| ![Packages & Registries](/2023-03-02-publish-to-gitlab/registry.png) | ![Packages & Registries](/2023-03-02-publish-to-gitlab/registry1.png) |
+| 圖 1                                                      | 圖 2                                                       |
+| --------------------------------------------------------- | ---------------------------------------------------------- |
+| ![Packages & Registries](/images/2023-03-02-registry.png) | ![Packages & Registries](/images/2023-03-02-registry1.png) |
 
 ## 之前做法
 
@@ -27,7 +27,7 @@ yarn add https://<gitlab-url>/fe-common-library.git#3.89.0
 
 node_modules 迷因
 
-![meme](/2023-03-02-publish-to-gitlab/nodeModules.jpeg)
+![meme](/images/2023-03-02-nodeModules.jpeg)
 
 ## 流程步驟
 
@@ -40,7 +40,7 @@ node_modules 迷因
 
 透過[Storybook](https://storybook.js.org/)可以方便預覽每個元件的樣式與有什麼參數可以使用。例如按鈕元件，可以透過下方控制欄看出有什麼參數可以使用，與觸發時的樣式預覽。
 
-![Storybook](/2023-03-02-publish-to-gitlab/storybook.png)
+![Storybook](/images/2023-03-02-storybook.png)
 
 ## 2. 透過 Rollup 編譯打包
 
@@ -112,7 +112,7 @@ plugins 可以加入一些額外擴充功能
 到 Settings > Access Token 新增 Project Access Tokens (將 token 加入環境變數)\
 token 可以到使用者的 Edit Profile 中註冊一個
 
-![Access Token](/2023-03-02-publish-to-gitlab/accessToken.png)
+![Access Token](/images/2023-03-02-accessToken.png)
 
 設定 CICD (Gitlab 只要偵測到專案內有.gitlab-ci.yml 就會執行對應的 CICD)
 
@@ -131,7 +131,7 @@ deploy:
 建立一個 node 環境並執行 yarn publish。只要 push 時就會執行，可以在這裡設定成新增 tag 才執行推版動作。\
 當 git push 時觸發 CICD，在 Gitlab CI/CD 的頁面就會像這樣，如果推版成功就會有綠色勾勾。
 
-![CICD](/2023-03-02-publish-to-gitlab/CICD.png)
+![CICD](/images/2023-03-02-CICD.png)
 
 yarn publish 會根據.yarnrc.yml 設定檔來決定佈署的地方與權限設定
 
@@ -173,7 +173,7 @@ files 定義需要打包哪些檔案\
 
 可能會稍微遇到一些問題，但應該都可以解掉...吧
 
-![CICD_Error](/2023-03-02-publish-to-gitlab/CICD_Error.png)
+![CICD_Error](/images/2023-03-02-CICD_Error.png)
 
 ## 安裝至使用專案
 
@@ -191,7 +191,7 @@ yarn add @cnyes/fe-share-components
 在元件內引入方式
 
 ```ts
-import { Button } from '@cnyes/fe-share-components'
+import { Button } from "@cnyes/fe-share-components";
 ```
 
 ## Reference

@@ -10,21 +10,16 @@ tags:
 1. 壓力測試
    使用 Apache Jmeter 來模擬使用者發送 Request 的情況，可以設定 1 秒內發送 X 次,連續發送 Y 秒之類的設定。發現壓測結果還比改版之前還要差，Lighthouse 效能分數也比舊站低 20 分左右。
 
-<img
-  alt="meme"
-  src="/2023-12-19-improve-perfomance/performance-meme.png"
-  width="500"
-  style={{ marginTop: 12 + 'px' }}
-/>
+<img alt="meme" src="/images/2023-12-19-performance-meme.png" width="500" style={{ marginTop: 12 + "px" }} />
 
 ## 改善效能
 
 - 測量方式:\
   用無痕瀏覽器用 dev 開啟專案，固定使用同一個路徑(類似`news/id/5414108`)，點擊 Dev Tool Lighthouse 的分析。
 
-| Lighthouse 分數                                                              | Lighthouse Performance                                                             |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| ![](/2023-12-19-improve-perfomance/20231219-lighthouse-dev-news-5414108.png) | ![](/2023-12-19-improve-perfomance/20231219-lighthouse-dev-news-5414108-score.png) |
+| Lighthouse 分數                                         | Lighthouse Performance                                        |
+| ------------------------------------------------------- | ------------------------------------------------------------- |
+| ![](/images/2023-12-19-lighthouse-dev-news-5414108.png) | ![](/images/2023-12-19-lighthouse-dev-news-5414108-score.png) |
 
 ### 1. Code Split
 
@@ -32,7 +27,7 @@ Code Split 意思是將比較大包的檔案，切分成比較小包的單元(ch
 
 例如`page.js`可能包含兩個元件 A+B，將 B 元件做 lazyload 後，B 元件在 Network 中會被切出去變成另外一個 chunk。像是很多`_app-pages-browser`開頭的檔案就是切出去的 chunks，這樣原本的`page.js`就能夠縮小體積。
 
-![code-split](/2023-12-19-improve-perfomance/code-split.png)
+![code-split](/images/2023-12-19-code-split.png)
 
 ⚠️ 發現 next13 在 server component 做 lazy loading 不會減少 network size，要將需要 lazy 的元件移至 client component 再做 dynamic loading 才能夠正常將元件切分成另外一個 chunk。
 
@@ -42,9 +37,9 @@ Code Split 意思是將比較大包的檔案，切分成比較小包的單元(ch
 
 將一些在第一屏不用馬上載入的元件延後載入後，可以改善 LCP(Largest Contentful Paint, 最大內容繪製)，由 2.5s 降低至 1.3s 與 TBT(Total Blocking Time, 總阻塞時間)，由 7580ms 降至 3900ms。
 
-| Code Split 後 Lighthouse 分數                               | Lighthouse Performance                                                                       |
-| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| ![](/2023-12-19-improve-perfomance/20231221-lighthouse.png) | ![code-split-after-code-split](/2023-12-19-improve-perfomance/20231221-lighthouse-score.png) |
+| Code Split 後 Lighthouse 分數          | Lighthouse Performance                                                  |
+| -------------------------------------- | ----------------------------------------------------------------------- |
+| ![](/images/2023-12-19-lighthouse.png) | ![code-split-after-code-split](/images/2023-12-19-lighthouse-score.png) |
 
 ### 2. 使用 Bundle 檢查工具查看各個套件打包大小
 
@@ -59,4 +54,4 @@ Code Split 意思是將比較大包的檔案，切分成比較小包的單元(ch
 
 參考: [lodash | 如何正確的 import lodash](https://medium.com/starbugs/the-correct-way-to-import-lodash-libraries-bdf613235927)
 
-![bundle](/2023-12-19-improve-perfomance/bundle.png)
+![bundle](/images/2023-12-19-bundle.png)

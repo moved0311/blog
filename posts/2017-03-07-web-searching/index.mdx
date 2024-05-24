@@ -459,7 +459,7 @@ ranking 的計算是根據 P(Q|D)
 **計算 P(Q|D)**
 
 - [Multinomial model](https://en.wikipedia.org/wiki/Multinomial_distribution)  
-   ![multinomial Distribustion](/2017-03-07-webSearching/MultinomialDistribution.png)
+   ![multinomial Distribustion](/images/2017-03-07-MultinomialDistribution.png)
 
 $$ P(q|M*d) = P((t_1,...,t*{|q|})|M*d) = \prod*{1 \leq k \leq |q|} P(t*k|M_d) = \prod*{distinct\;term\;t\;in\;q}P(t|M*d)^{tf*{t,q}}$$
 
@@ -609,7 +609,7 @@ k 通常選擇奇數(3,5,7),通常使用 heuristic 來決定 k 值
 
 example:
 k = 3
-![kNN = 3](/2017-03-07-webSearching/kNN3.png)
+![kNN = 3](/images/2017-03-07-kNN3.png)
 
 計算相似度:
 
@@ -669,7 +669,7 @@ Geometric Margin
 > 訓練出來的線,兩端碰到最近的 support vector 中的點所為成的區域
 
 目標是找到最大的$\rho$
-![svm01](/2017-03-07-webSearching/svm01.png)
+![svm01](/images/2017-03-07-svm01.png)
 
 - w: hyperplane normal vector
 - $x_i$: data point i
@@ -683,7 +683,7 @@ Geometric Margin
 $w^Tx_i + b \geq 1 \quad if\; y_i = 1$  
 $w^Tx_i + b \leq -1 \quad if\; y_i = -1$
 
-![svm02](/2017-03-07-webSearching/svm02.png)
+![svm02](/images/2017-03-07-svm02.png)
 
 $\rho = \frac{2}{\left \| w \right \|}$
 
