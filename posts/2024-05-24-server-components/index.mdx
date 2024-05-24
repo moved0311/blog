@@ -1,0 +1,95 @@
+---
+title: React Server Component(RSC)
+date: 2024-05-24
+tags:
+  - React
+---
+
+## 歷史
+
+最早的網頁內容是在 server 中，將 html 模板(字串)與變數組合後回傳給瀏覽器顯示像是 PHP。
+
+```js
+import { createServer } from "http";
+
+createServer(async (req, res) => {
+  const content = "Hello World";
+  res.setHeader("Content-Type", "text/html");
+  res.end(`<html>
+    <head>
+      <title>blog</title>
+    </head>
+    <body>${content}</body>
+  </html>`);
+}).listen(3000);
+```
+
+但是直接操作字串做開發不是很理想，內容一但變得複雜將會很難維護。理想上是可以將內容拆分成一塊一塊的積木，最後可以互相的嵌入與移除。
+
+## JSX
+
+React 提出的[JSX](https://react.dev/learn/writing-markup-with-jsx)，是一種 JavaScript 語法的擴展，讓使用者可以在 JS 讓 HTML 可以用物件方式保存在變數中。
+
+```jsx
+const element = <h1 className="greeting">Hello!</h1>;
+
+// 等同於;
+
+const element = React.createElement("h1", { className: "greeting" }, "Hello, World!");
+```
+
+在 SPA(Single-Page App)上，當使用者發送 request 到 server，server 會回傳只包含`<div id='root'/>`的 html 與 js 檔案。瀏覽器執行 js 檔案將整個 JSX 物件掛在`<div id='root'/>`後頁面才會顯示。
+
+SPA 缺點:
+
+1. 對 SEO 不友善，爬蟲只能爬到空的`<div>`無法得知裡面內容
+2. 瀏覽器在執行 js 需要時間，會造成頁面空白一陣子才顯示內容。
+3. API 呼叫全都在 client 端會造成 waterfall
+
+SSR(Server-Side Rendering):
+
+提早在 server 上將 JSX 轉換成 HTML 字串。瀏覽器在回應時會有預先的內容能夠顯示，而不是只有一個空白的`<div>`元素。
+
+## RSC(React Server Component)
+
+RSC 主要想法是讓元件能夠直接存取資料庫、檔案，讓一些能在 server 處理的事留在 server 處理，例如 API call、第三方套件。在 server 處理的 API 與第三方套件的 bundle 也不會傳至 client，可以減少 bundle size。
+
+RSC 在產生 React Tree 時，如果遇到 client component 時，會使用 placeholder 表示，placeholder 中會紀錄載入 client 元件位置，之後再透過瀏覽器將 client 元件載入。
+
+```js:placeholder範例
+{
+  $$typeof: Symbol(react.element)
+  type: {
+    $$typeof: Symbol(react.module.reference),
+    name: 'default'
+    filename: './src/component.client.js'
+  }
+}
+```
+
+- React Tree 的 root 一定是 server component。
+- client component 不能 import server component，因為 server component 不能在瀏覽器上執行。
+- RSC 的回傳格式透過[`renderToReadableSream(<App />)`](https://react.dev/reference/react-dom/server/renderToReadableStream)回傳 streaming 資料，像是一塊一塊的積木，這些 streaming 資料瀏覽器是看不懂的，需要再轉換成 html 讓瀏覽器顯示(在 server 轉就是 SSR，在 client 轉就是 CSR)。
+  ```text:RSC範例
+  1:"$Sreact.suspense"
+  0:[["$","h1",null,{"children":"Hello world"}],["$","$1",null,{"fallback":"Loading...","children":"$L2"}]]
+  2: ....
+  ```
+- 原本是用檔名來區分是 server 元件還是 client 元件，例如`index.server.tsx`或是`index.client.tsx`。後來改成在檔案的最前面加上`'use client'`、`'use server'`來區分。
+
+<img src="/images/2024-05-24-rsc.png" />
+依據[React server components from scratch! - YouTube](https://www.youtube.com/watch?v=MaebEqhZR84)這個實作畫的流程圖
+
+1. 使用者訪問`/`路由
+2. Server 回傳 HTML、JS
+
+- 這裡的範例是 Client Side Rendering(CSR)
+
+3. 拿到 JS 後會再向 Server 發送`/rsc`請求，取得 RSC。再透過瀏覽器 render RSC
+
+## Reference
+
+1. [How React server components work: an in-depth guide](https://www.plasmic.app/blog/how-react-server-components-work)
+2. [RSC From Scratch. Part 1: Server Components](https://github.com/reactwg/server-components/discussions/5)
+3. [Why do Client Components get SSR'd to HTML?](https://github.com/reactwg/server-components/discussions/4)
+4. [React server components from scratch! - YouTube](https://www.youtube.com/watch?v=MaebEqhZR84)

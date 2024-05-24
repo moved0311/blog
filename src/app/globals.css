@@ -32,8 +32,6 @@ article > h2::before {
 .rehype-code-title {
   font-weight: 500;
   text-align: right;
-}
-
-.comment {
-  display: none;
+  transform: translate(-15px, 35px);
+  font-size: 14px;
 }
