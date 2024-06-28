@@ -28,7 +28,7 @@ createServer(async (req, res) => {
 
 ## JSX
 
-React 提出的[JSX](https://react.dev/learn/writing-markup-with-jsx)，是一種 JavaScript 語法的擴展，讓使用者可以在 JS 讓 HTML 可以用物件方式保存在變數中。
+[JSX](https://react.dev/learn/writing-markup-with-jsx)是 React.createElement 的語法糖，建立 React 元件時不用每次都寫 createElement。
 
 ```jsx
 const element = <h1 className="greeting">Hello!</h1>;
@@ -37,6 +37,8 @@ const element = <h1 className="greeting">Hello!</h1>;
 
 const element = React.createElement("h1", { className: "greeting" }, "Hello, World!");
 ```
+
+## CSR/SSR
 
 在 SPA(Single-Page App)上，當使用者發送 request 到 server，server 會回傳只包含`<div id='root'/>`的 html 與 js 檔案。瀏覽器執行 js 檔案將整個 JSX 物件掛在`<div id='root'/>`後頁面才會顯示。
 
