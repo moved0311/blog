@@ -42,7 +42,7 @@ const Page = ({ params }: PageProps) => {
         </time>
         <h1 className="text-3xl font-bold dark:text-white">{title}</h1>
       </div>
-      <article className="prose md:prose-lg dark:prose-invert prose-a:no-underline prose-th:text-center">
+      <article className="prose md:prose-lg dark:prose-invert prose-a:no-underline prose-th:text-center prose-li:m-0 prose-ul:m-0 prose-h2:mb-0">
         <MDXContent />
       </article>
     </div>
