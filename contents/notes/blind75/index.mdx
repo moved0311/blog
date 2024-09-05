@@ -61,9 +61,29 @@ n, m: length of text1 and text2
 
 19. Word Break
 
-第一時間想到使用replace方式，將s不斷的word取代成空字串\
-從短的開始或是從長的開始都嘗試\
-但是會遇到不能分段取代\
-例如cbca, 不能先取代bc後再取代ca
+My first thought was to use `replace` to handle it, but it will cause errors when replacing multiple times. For example, with 'cbca', you can't replace 'bc' first and then replace 'ca' afterwards.
+
+This problem needs to be handled using dp. Start from the last character and recurse backward.
+
+```py
+def wordBreak(s, wordDict):
+    l = len(s)
+    dp = [False] * (l + 1)
+    dp[l] = True
+
+    for i in range(l - 1, -1, -1):
+        for word in wordDict:
+            wordLen = len(word)
+            if s[i: i + wordLen] == word:
+                dp[i] = dp[i] or dp[i + wordLen]
+
+    return dp[0]
+```
 
 
+|tc|sc|
+|--|--|
+|O(m*n)|O(m)|
+
+m: string length\
+n: wordDict length

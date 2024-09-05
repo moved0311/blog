@@ -7,8 +7,6 @@ export default function Home() {
     compareDesc(new Date(a.date), new Date(b.date)),
   );
 
-  console.log(posts.slice(3));
-
   return (
     <div className="mx-auto max-w-3xl py-8">
       {posts.map((post) => {
