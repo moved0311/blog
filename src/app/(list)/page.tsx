@@ -3,7 +3,11 @@ import { allPosts } from "contentlayer/generated";
 import PostCard from "@/components/Post";
 
 export default function Home() {
-  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
+  const posts = allPosts.sort((a, b) =>
+    compareDesc(new Date(a.date), new Date(b.date)),
+  );
+
+  console.log(posts.slice(3));
 
   return (
     <div className="mx-auto max-w-3xl py-8">

@@ -26,8 +26,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const Page = ({ params }: PageProps) => {
   const path = params?.path;
-  const postsPath = `posts/${path}`;
-  const post = allPosts.find((post) => post._raw.flattenedPath === postsPath);
+  const notesPath = `notes/${path}`;
+
+  const post = allPosts.find((post) => post._raw.flattenedPath === notesPath);
 
   if (!post) notFound();
 

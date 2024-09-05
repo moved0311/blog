@@ -1,0 +1,69 @@
+---
+title: Blind 75
+date: 2024-09-03
+draft: true
+---
+
+17. Longest Increasing Subsequence
+
+tags: `dp`
+
+The last value is regarded as 1, if it satisfies strict increasing order, then recursively move backward.
+
+```py
+def f(arr):
+    dp = [1] * len(arr)
+    for i in range(len(arr) - 1, -1, -1):
+        for j in range(i + 1, len(arr)):
+            if arr[i] < arr[j]:
+                dp[i] = max(dp[i], 1 + dp[j])
+
+    return max(dp)
+```
+
+|tc|sc|
+|--|--|
+|O($n^2$)|O(n)|
+
+
+
+18. Longest Common Subsequence
+
+tags: `2d-dp`
+
+Create a 2D matrix, when the character match, add 1 to diagonal cell. Otherwise, take the larger value from either the left or the top cell.
+
+tips: Increase the table size to avoid edges cases.
+
+```py
+def lcs(text1, text2):
+    dp = [[0] * len(text2) for i in range(len(text1))]
+
+    for i in range(len(text1)):
+        for j in range(len(text2)):
+            if text1[i] == text2[j]:
+                if i > 0 and j > 0:
+                    dp[i][j] = dp[i - 1][j - 1] + 1
+                else:
+                    dp[i][j] = 1
+            else:
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+
+    return dp[len(text1) - 1][len(text2) - 1]
+```
+
+|tc|sc|
+|--|--|
+|O(n * m)|O($n^2$)|
+
+n, m: length of text1 and text2 
+
+
+19. Word Break
+
+第一時間想到使用replace方式，將s不斷的word取代成空字串\
+從短的開始或是從長的開始都嘗試\
+但是會遇到不能分段取代\
+例如cbca, 不能先取代bc後再取代ca
+
+
