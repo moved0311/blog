@@ -87,3 +87,22 @@ def wordBreak(s, wordDict):
 
 m: string length\
 n: wordDict length
+
+
+21. House Robber
+
+My first thought is to use recursion: each time, remove the i-th element and also remove i - 1 and i + 1 from the array. Recursively do this until the array length is 0, then return the maximum value. but this method will time out.
+
+The dicision to rob the current house only depends on the first two state r1 and r2. Only keep r1 + n and r2, then shift iteratively.
+
+```py
+def rob(nums):
+  r1, r2 = 0, 0
+
+  for num in nums:
+    tmp = max(r1 + num, r2)
+    r1 = r2
+    r2 = tmp
+
+  return r2
+```
