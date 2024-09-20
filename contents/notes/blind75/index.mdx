@@ -21,11 +21,9 @@ def f(arr):
     return max(dp)
 ```
 
-|tc|sc|
-|--|--|
-|O($n^2$)|O(n)|
-
-
+| tc       | sc   |
+| -------- | ---- |
+| O($n^2$) | O(n) |
 
 18. Longest Common Subsequence
 
@@ -52,12 +50,11 @@ def lcs(text1, text2):
     return dp[len(text1) - 1][len(text2) - 1]
 ```
 
-|tc|sc|
-|--|--|
-|O(n * m)|O($n^2$)|
+| tc        | sc       |
+| --------- | -------- |
+| O(n \* m) | O($n^2$) |
 
-n, m: length of text1 and text2 
-
+n, m: length of text1 and text2
 
 19. Word Break
 
@@ -80,14 +77,12 @@ def wordBreak(s, wordDict):
     return dp[0]
 ```
 
-
-|tc|sc|
-|--|--|
-|O(m*n)|O(m)|
+| tc      | sc   |
+| ------- | ---- |
+| O(m\*n) | O(m) |
 
 m: string length\
 n: wordDict length
-
 
 21. House Robber
 
@@ -106,3 +101,47 @@ def rob(nums):
 
   return r2
 ```
+
+22. House RobberII
+    Consider it in two parts: the first part includes the first element, and the second part does not include the first element.
+
+```py
+def robII(nums):
+    def robI(nums):
+        r1, r2 = 0, 0
+        for i in range(len(nums)):
+            tmp = max(r1 + nums[i], r2)
+            r1 = r2
+            r2 = tmp
+        return r2
+
+    return max(robI(nums[2: -1]) + nums[0], robI(nums[1:]))
+```
+
+24. Count Paths
+
+```py
+def uniquePaths(self, m: int, n: int) -> int:
+    dp = [[0] * (n+1) for i in range(m+1)]
+    dp[1][1] = 1
+
+    def dfs(row, col):
+        if row < 1 or col < 1:
+            return 0
+        if dp[row][col]:
+            return dp[row][col]
+
+        v = dfs(row - 1, col) + dfs(row, col - 1)
+        dp[row][col] = v
+        return v
+
+    dfs(m, n)
+
+    return dp[m][n]
+```
+
+| tc      | sc      |
+| ------- | ------- |
+| O(m\*n) | O(m\*n) |
+
+sc: 可以優化成 O(n)
