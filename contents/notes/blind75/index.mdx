@@ -145,3 +145,34 @@ def uniquePaths(self, m: int, n: int) -> int:
 | O(m\*n) | O(m\*n) |
 
 sc: 可以優化成 O(n)
+
+25. Jump Game
+
+```py
+def canJump(self, nums: List[int]) -> bool:
+    dp = [False] * len(nums)
+    dp[0] = True
+
+    for i in range(len(nums)):
+        for step in range(1, nums[i] + 1):
+            if i + step < len(nums):
+                dp[i + step] = dp[i]
+
+    return dp[len(nums) - 1]
+
+    # tc: O(n^2)   --> O(n)
+    # sc: O(n)     --> O(1)
+```
+
+```py
+def canJump(self, nums: List[int]) -> bool:
+    goal = len(nums) - 1
+
+    for i in range(len(nums) - 1, -1, -1):
+        if i + nums[i] >= goal:
+            goal = i
+    return True if goal == 0 else False
+
+    # tc: O(n)
+    # sc: O(1)
+```
