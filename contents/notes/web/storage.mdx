@@ -1,0 +1,22 @@
+---
+title: Web Storage
+date: 2024-09-25
+draft: true
+---
+
+|                    | Cookies            | Local Storage | Session Storage |
+| ------------------ | ------------------ | ------------- | --------------- |
+| Capacity           | ~4kb                | >5mb          | >5mb             |
+| Browser            | HTML 4/5           | HTML 5        | HTML 5          |
+| Accessible from    | Any Windows        | Any Windows   | Same tab        |
+| Expires            | Manually set       | Never         | On tab close    |
+| Storage Location   | Browser and Server | Browser only  | Browser only    |
+| Sent with requeset | Yes                | No            | No              |
+
+
+```diff
++ document.cookie = "Secure; HttpOnly";
+```
+
+Secure: Inscure site(http) can't set cookies. \
+HttpOnly: Can't be modified by JavaScript, for example using Document.cookie
