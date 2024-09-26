@@ -176,3 +176,69 @@ def canJump(self, nums: List[int]) -> bool:
     # tc: O(n)
     # sc: O(1)
 ```
+
+26. Clone graph
+
+```py
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val = 0, neighbors = None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+"""
+
+def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
+    dp = {}
+
+    def dfs(root):
+        if not root:
+            return None
+        if root.val in dp:
+            return dp[root.val]
+
+        copy = Node(root.val)
+        dp[root.val] = copy
+        for n in root.neighbors:
+            copy.neighbors.append(dfs(n))
+
+        return copy
+
+    return dfs(node)
+
+time  complexity: O(n)
+space complexity: O(n) dp + O(n) dfs stack?
+```
+
+60. Invert a Binary Tree
+
+```py
+def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+    def dfs(node):
+        if node == None:
+            return None
+        tmp = node.left
+        node.left = dfs(node.right)
+        node.right = dfs(tmp)
+        return node
+
+    return dfs(root)
+
+# time complexity: O(n)
+# space complexity: O(n) recursion stask
+```
+
+58. Depth of Binary Tree
+
+```py
+def maxDepth(self, root: Optional[TreeNode]) -> int:
+    if not root:
+        return 0
+
+    return max(self.maxDepth(root.left) + 1,
+                self.maxDepth(root.right) + 1
+            )
+
+# time complexity: O(n)
+# space complexity: O(n) worst case
+```
