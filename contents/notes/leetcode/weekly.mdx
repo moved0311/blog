@@ -1,0 +1,82 @@
+---
+title: Weekly
+draft: true
+date: 2024-09-29
+---
+
+## 417
+Q1. Find the K-th Character in String Game I
+
+```py
+def kthCharacter(self, k: int) -> str:
+		chars = ['a','b','c','d','e','f','g','h','i',
+						 'j','k','l','m','n','o','p','q','r',
+						 's','t','u','v','w','x','y','z']
+
+		res = [0] * k
+		cur = 0
+		iter = 1
+		for i in range(1, len(res)):
+				res[i] = res[i - pow(2, iter - 1)] + 1
+				
+				if i == pow(2, iter) - 1:
+						iter += 1
+
+		return chars[res[k-1]]
+```
+
+使用python內建函式`chr()`, `ord()`
+```py
+ord('a') # 97
+ord('b') # 98
+
+chr(97) # a
+chr(98) # b
+```
+
+```py
+def kthCharacter(self, k: int) -> str:
+	s = 'a'
+
+	while len(s) < k:
+		s += ''.join(chr(((ord(c) - ord('a') + 1) % 26) + ord('a')) for c in s)
+
+	return s[k-1]
+```
+
+Q2. Count of Substrings Containing Every Vowel and K Consonants I
+Q3. Count of Substrings Containing Every Vowel and K Consonants II
+
+```py
+def countOfSubstrings(self, word: str, k: int) -> int:
+	counts = {}
+	consonants = 0
+	left = 0
+	ans = 0
+
+	for i in range(len(word)):
+		counts[word[i]] = counts.get(word[i], 0) + 1
+
+		if word[i] not in "aeiou":
+			consonants += 1
+
+		while counts.get('a', 0) > 0 \
+			and counts.get('e', 0) > 0 \
+			and counts.get('i', 0) > 0 \
+			and counts.get('o', 0) > 0 \
+			and counts.get('u', 0) > 0 \
+			and consonants >= k:
+				if consonants == k:
+					ans += 1
+					tmp = i + 1
+					while tmp < len(word) and word[tmp] in "aeiou": # check (valid + vowel) is valid
+						ans += 1
+						tmp += 1
+
+				counts[word[left]] -= 1
+				
+				if word[left] not in "aeiou":
+						consonants -= 1
+				left += 1
+	return ans
+```

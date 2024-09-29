@@ -1,0 +1,44 @@
+---
+title: Biweekly
+draft: true
+date: 2024-09-29
+---
+
+## 140
+
+Q2. Maximize the Total Height of Unique Towers
+
+```py
+def maximumTotalSum(self, maximumHeight: List[int]) -> int:
+		res = []
+		picked = set()
+
+		for n in maximumHeight:
+				tmp = n
+				while tmp in picked:
+						tmp -= 1
+				if tmp <= 0:
+						return -1
+				picked.add(tmp)
+				res.append(tmp)
+
+		return sum(res)
+
+# Time Limit Exceeded
+```
+
+```py
+def maximumTotalSum(self, maximumHeight: List[int]) -> int:
+    maximumHeight.sort(reverse=True)
+    res = 0
+    cur = maximumHeight[0]
+
+    for h in maximumHeight:
+        if cur > h:
+            cur = h
+        if cur <= 0:
+            return -1
+        res += cur
+        cur -= 1
+    return res
+```
