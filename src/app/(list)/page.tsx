@@ -11,9 +11,10 @@ export default function Home() {
     <div className="mx-auto max-w-3xl py-8">
       {posts.map((post) => {
         const title = post.title;
+        const isNote = post.category === "note";
         const isDraft = post.draft;
 
-        if (isDraft) return null;
+        if (isNote || isDraft) return null;
 
         return <PostCard key={title} {...post} />;
       })}
