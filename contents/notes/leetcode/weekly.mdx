@@ -9,20 +9,20 @@ Q1. Find the K-th Character in String Game I
 
 ```py
 def kthCharacter(self, k: int) -> str:
-		chars = ['a','b','c','d','e','f','g','h','i',
-						 'j','k','l','m','n','o','p','q','r',
-						 's','t','u','v','w','x','y','z']
+    chars = ['a','b','c','d','e','f','g','h','i',
+             'j','k','l','m','n','o','p','q','r',
+             's','t','u','v','w','x','y','z']
 
-		res = [0] * k
-		cur = 0
-		iter = 1
-		for i in range(1, len(res)):
-				res[i] = res[i - pow(2, iter - 1)] + 1
-				
-				if i == pow(2, iter) - 1:
-						iter += 1
+    res = [0] * k
+    cur = 0
+    iter = 1
+    for i in range(1, len(res)):
+        res[i] = res[i - pow(2, iter - 1)] + 1
+        
+        if i == pow(2, iter) - 1:
+            iter += 1
 
-		return chars[res[k-1]]
+    return chars[res[k-1]]
 ```
 
 使用python內建函式`chr()`, `ord()`
@@ -36,47 +36,85 @@ chr(98) # b
 
 ```py
 def kthCharacter(self, k: int) -> str:
-	s = 'a'
+  s = 'a'
 
-	while len(s) < k:
-		s += ''.join(chr(((ord(c) - ord('a') + 1) % 26) + ord('a')) for c in s)
+  while len(s) < k:
+    s += ''.join(chr(((ord(c) - ord('a') + 1) % 26) + ord('a')) for c in s)
 
-	return s[k-1]
+  return s[k-1]
 ```
 
-Q2. Count of Substrings Containing Every Vowel and K Consonants I
-Q3. Count of Substrings Containing Every Vowel and K Consonants II
+Q2. Count of Substrings Containing Every Vowel and K Consonants I\
+`5 <= word.length <= 250`
 
 ```py
 def countOfSubstrings(self, word: str, k: int) -> int:
-	counts = {}
-	consonants = 0
-	left = 0
-	ans = 0
+  counts = {}
+  consonants = 0
+  left = 0
+  ans = 0
 
-	for i in range(len(word)):
-		counts[word[i]] = counts.get(word[i], 0) + 1
+  for i in range(len(word)):
+    counts[word[i]] = counts.get(word[i], 0) + 1
 
-		if word[i] not in "aeiou":
-			consonants += 1
+    if word[i] not in "aeiou":
+      consonants += 1
 
-		while counts.get('a', 0) > 0 \
-			and counts.get('e', 0) > 0 \
-			and counts.get('i', 0) > 0 \
-			and counts.get('o', 0) > 0 \
-			and counts.get('u', 0) > 0 \
-			and consonants >= k:
-				if consonants == k:
-					ans += 1
-					tmp = i + 1
-					while tmp < len(word) and word[tmp] in "aeiou": # check (valid + vowel) is valid
-						ans += 1
-						tmp += 1
+    while counts.get('a', 0) > 0 \
+      and counts.get('e', 0) > 0 \
+      and counts.get('i', 0) > 0 \
+      and counts.get('o', 0) > 0 \
+      and counts.get('u', 0) > 0 \
+      and consonants >= k:
+        if consonants == k:
+          ans += 1
+          tmp = i + 1
+          while tmp < len(word) and word[tmp] in "aeiou": # check (valid + vowel) is valid
+            ans += 1
+            tmp += 1
 
-				counts[word[left]] -= 1
-				
-				if word[left] not in "aeiou":
-						consonants -= 1
-				left += 1
-	return ans
+        counts[word[left]] -= 1
+        
+        if word[left] not in "aeiou":
+            consonants -= 1
+        left += 1
+  return ans
+```
+
+Q3. Count of Substrings Containing Every Vowel and K Consonants II\
+`5 <= word.length <= 2 * 10^5`
+
+```text
+  vowel >= 5 and consonants >= k
+- vowel >= 5 and consonants >= k + 1
+-------------------------------------
+  vowel >= 5 and consonants == k
+```
+
+```py
+class Solution:
+  def solve(self, word, k):
+    cnt = Counter()
+    ans = left = cons =  0
+    vowel = "aeiou"
+    for c in word:
+      if c in vowel:
+        cnt[c] += 1
+      else:
+        cons += 1
+
+      while len(cnt) == 5 and cons >= k:
+        out = word[left]
+        if out in vowel:
+          cnt[out] -= 1
+          if cnt[out] == 0:
+            del cnt[out]
+        else:
+            cons -= 1
+        left += 1
+      ans += left
+    return ans
+
+  def countOfSubstrings(self, word: str, k: int) -> int:
+      return self.solve(word, k) - self.solve(word, k+1)
 ```
