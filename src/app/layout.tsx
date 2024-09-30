@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import cx from "classnames";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 import "@/styles/prism-plus.css";
 import "@/styles/prism-vsc-dark-plus.css"
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         {children}
       </body>
+      <GoogleAnalytics gaId="G-P6ZZ0ZGEV8" />
     </html>
   );
 }
