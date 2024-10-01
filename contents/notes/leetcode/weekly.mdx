@@ -118,3 +118,21 @@ class Solution:
   def countOfSubstrings(self, word: str, k: int) -> int:
       return self.solve(word, k) - self.solve(word, k+1)
 ```
+
+Q4. Find the K-th Character in String Game II
+```py
+class Solution:
+  def kthCharacter(self, k: int, operations: List[int]) -> str:
+    def f(k, ops):
+      if k == 1:
+        return 'a'
+      m = len(ops)
+      op = ops.pop()
+      if k > pow(2, m - 1): # right half
+        ch = f(k - pow(2, m - 1), ops)
+        return chr(((ord(ch) - ord('a') + op) % 26) + ord('a'))
+      else: # left half
+        return f(k, ops)
+
+    return f(k, operations)
+```
