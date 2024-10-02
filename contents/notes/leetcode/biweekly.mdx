@@ -10,35 +10,39 @@ Q2. Maximize the Total Height of Unique Towers
 
 ```py
 def maximumTotalSum(self, maximumHeight: List[int]) -> int:
-		res = []
-		picked = set()
+	res = []
+	picked = set()
 
-		for n in maximumHeight:
-				tmp = n
-				while tmp in picked:
-						tmp -= 1
-				if tmp <= 0:
-						return -1
-				picked.add(tmp)
-				res.append(tmp)
+	for n in maximumHeight:
+		tmp = n
+		while tmp in picked:
+			tmp -= 1
+		if tmp <= 0:
+			return -1
+		picked.add(tmp)
+		res.append(tmp)
 
-		return sum(res)
+	return sum(res)
 
 # Time Limit Exceeded
 ```
 
 ```py
 def maximumTotalSum(self, maximumHeight: List[int]) -> int:
-    maximumHeight.sort(reverse=True)
-    res = 0
-    cur = maximumHeight[0]
+  maximumHeight.sort(reverse=True)
+  res = 0
+  cur = maximumHeight[0]
 
-    for h in maximumHeight:
-        if cur > h:
-            cur = h
-        if cur <= 0:
-            return -1
-        res += cur
-        cur -= 1
-    return res
+  for h in maximumHeight:
+    if cur > h:
+      cur = h
+    if cur <= 0:
+      return -1
+    res += cur
+      cur -= 1
+  return res
 ```
+
+Q3. [Find the Lexicographically Smallest Valid Sequence](https://leetcode.com/contest/biweekly-contest-140/problems/find-the-lexicographically-smallest-valid-sequence/)
+
+Q4. [Find the Occurrence of First Almost Equal Substring - LeetCode](https://leetcode.com/contest/biweekly-contest-140/problems/find-the-occurrence-of-first-almost-equal-substring/)
