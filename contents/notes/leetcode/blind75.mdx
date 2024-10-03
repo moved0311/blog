@@ -235,6 +235,42 @@ time  complexity: O(n)
 space complexity: O(n) dp + O(n) dfs stack?
 ```
 
+37. Meeting Rooms
+```py
+def canAttendMeetings(self, intervals: List[Interval]) -> bool:
+  cnt = Counter()
+
+  for interval in intervals:
+    start = interval.start
+    end = interval.end
+
+    for i in range(start, end):
+      cnt[i] += 1
+      if cnt[i] > 1:
+        return False
+    return True
+
+# Time complexity: O(n^2) Space complexity: O(n)
+```
+```py
+def canAttendMeetings(self, intervals: List[Interval]) -> bool:
+  intervals.sort(key=lambda i: i.start)
+
+  N = len(intervals)
+
+  for i in range(N - 1):
+      end = intervals[i].end
+      nextStart = intervals[i + 1].start
+
+      if end > nextStart:
+        return False
+
+  return True
+# Time complexity: O(nlogn) sort intervals
+# Space complexity: O(1)
+```
+
+
 39. Reverse a Linked List
 
 ```py
@@ -299,6 +335,26 @@ def isValid(self, s: str) -> bool:
 # Space complexity: O(n)
 ```
 
+54. Valid Palindrome
+```py
+def isPalindrome(self, s: str) -> bool:
+  t = []
+  for c in s:
+    if c.isalnum():
+      t.append(c.lower())
+
+    N = len(t)        
+    i = 0
+    j = N - 1
+    while i < j:
+      if t[i] != t[j]:
+        return False
+      i += 1
+      j -= 1
+
+  return True
+```
+
 58. Depth of Binary Tree
 
 ```py
@@ -345,4 +401,22 @@ def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
 
 # time complexity: O(n)
 # space complexity: O(n) recursion stask
+```
+
+74. Valid Anagram
+```py
+def isAnagram(self, s: str, t: str) -> bool:
+  cnt = Counter()
+
+  for c in s:
+    cnt[c] += 1
+
+  for c in t:
+    if c not in cnt:
+      return False
+    cnt[c] -= 1
+    if cnt[c] == 0:
+      del cnt[c]
+
+  return True if len(cnt) == 0 else False
 ```

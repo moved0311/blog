@@ -17,6 +17,10 @@ chr(97) # a
 chr(98) # b
 ```
 
+```py
+"str123".isalnum() # check a-z, 0-9
+```
+
 ## Bit
 ```py
 (5).bit_length() # 3
@@ -32,6 +36,17 @@ chr(98) # b
 ```py
 list.sort()
 list.sort(reverse=True)
+```
+
+```py
+t = [('a', 5), ('e', 1),('c', 3), ('b', 2)]
+t.sort(key=lambda c: c[1])
+for i in t:
+	print(i)
+# ('e', 1)
+# ('b', 2)
+# ('c', 3)
+# ('a', 5)
 ```
 
 ## Counter
@@ -50,4 +65,9 @@ for k, v in cnt.items():
 # a 3
 # b 2
 # c 2
+```
+
+```py
+s = "aaaabbb"
+s.count('a') # 4
 ```
