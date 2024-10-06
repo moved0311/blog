@@ -136,3 +136,76 @@ class Solution:
 
     return f(k, operations)
 ```
+
+
+## 418
+Q1. Maximum Possible Number by Binary Concatenation
+```py
+def count(self, nums):
+  ans = nums[0]
+  for i in range(1, len(nums)):
+    N = (nums[i]).bit_length()
+    ans = ans << N
+    ans += nums[i]
+
+  return ans
+  
+def maxGoodNumber(self, nums: List[int]) -> int:
+  orders = [
+    [nums[0], nums[1], nums[2]],
+    [nums[0], nums[2], nums[1]],
+    [nums[1], nums[2], nums[0]],
+    [nums[1], nums[0], nums[2]],
+    [nums[2], nums[0], nums[1]],
+    [nums[2], nums[1], nums[0]],
+  ]
+
+  return max([self.count(o) for o in orders])
+```
+
+```py
+def maxGoodNumber(self, nums: List[int]) -> int:
+  def cmp(a, b):
+    N1 = a.bit_length()
+    N2 = b.bit_length()
+    ab = a << N2 | b
+    ba = b << N1 | a
+    return ba - ab
+
+  nums.sort(key=cmp_to_key(cmp))
+
+  ans = 0
+  for n in nums:
+    ans = ans << n.bit_length() | n
+
+  return ans
+```
+
+Q2. Remove Methods From Project
+```py
+def remainingMethods(self, n: int, k: int, invocations: List[List[int]]) -> List[int]:
+  sus = set()
+  graph = defaultdict(list)
+
+  for [m1, m2] in invocations:
+    graph[m1].append(m2)
+  
+  q = deque([k])
+
+  while q:
+    bad = q.popleft()
+    if bad not in sus:
+      sus.add(bad)
+      q.extend(graph[bad])
+
+  canRemove = True
+
+  for [m1, m2] in invocations:
+    if m1 not in sus and m2 in sus:
+      canRemove = False
+
+  if canRemove:
+    return [v for v in range(n) if v not in sus]
+  else:
+    return [v for v in range(n)]
+```

@@ -22,12 +22,11 @@ def coinChange(self, coins: List[int], amount: int) -> int:
         dp[i] = min(dp[i], dp[i - c] + 1)
 
   return dp[amount] if dp[amount] != 10001 else -1
-```
 
-| tc                               | sc   |
-| -------------------------------- | ---- |
-| O(n\*m)                          | O(n) |
-| n: amount<br/>m: length of coins |      |
+# time complexity:  O(n * m)
+# space complexity: O(n)
+# n: amount, m: length of coins
+```
 
 17. Longest Increasing Subsequence
 
@@ -44,11 +43,10 @@ def f(arr):
                 dp[i] = max(dp[i], 1 + dp[j])
 
     return max(dp)
-```
 
-| tc       | sc   |
-| -------- | ---- |
-| O($n^2$) | O(n) |
+# time complexity: O(n^2)
+# space complexity: O(n)
+```
 
 18. Longest Common Subsequence
 
@@ -73,13 +71,12 @@ def lcs(text1, text2):
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
 
     return dp[len(text1) - 1][len(text2) - 1]
+
+# time complexity: O(n * m)
+# space complexity: O(n^2)
+# n: length of text1
+# m: length of text2
 ```
-
-| tc        | sc       |
-| --------- | -------- |
-| O(n \* m) | O($n^2$) |
-
-n, m: length of text1 and text2
 
 19. Word Break
 
@@ -100,14 +97,12 @@ def wordBreak(s, wordDict):
                 dp[i] = dp[i] or dp[i + wordLen]
 
     return dp[0]
+
+# time complexity: O(m * n)
+# space complexity: O(m)
+# m: string length
+# n: wordDict length
 ```
-
-| tc      | sc   |
-| ------- | ---- |
-| O(m\*n) | O(m) |
-
-m: string length\
-n: wordDict length
 
 21. House Robber
 
@@ -163,13 +158,10 @@ def uniquePaths(self, m: int, n: int) -> int:
     dfs(m, n)
 
     return dp[m][n]
+  
+# time complexity: O(m * n) 
+# space complexity: O(m * n) 可以優化成 O(n)
 ```
-
-| tc      | sc      |
-| ------- | ------- |
-| O(m\*n) | O(m\*n) |
-
-sc: 可以優化成 O(n)
 
 25. Jump Game
 
@@ -191,28 +183,20 @@ def canJump(self, nums: List[int]) -> bool:
 
 ```py
 def canJump(self, nums: List[int]) -> bool:
-    goal = len(nums) - 1
+  goal = len(nums) - 1
 
-    for i in range(len(nums) - 1, -1, -1):
-        if i + nums[i] >= goal:
-            goal = i
-    return True if goal == 0 else False
+  for i in range(len(nums) - 1, -1, -1):
+    if i + nums[i] >= goal:
+      goal = i
+  return True if goal == 0 else False
 
-    # tc: O(n)
-    # sc: O(1)
+  # tc: O(n)
+  # sc: O(1)
 ```
 
 26. Clone graph
 
 ```py
-"""
-# Definition for a Node.
-class Node:
-    def __init__(self, val = 0, neighbors = None):
-        self.val = val
-        self.neighbors = neighbors if neighbors is not None else []
-"""
-
 def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
     dp = {}
 
@@ -231,8 +215,8 @@ def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
 
     return dfs(node)
 
-time  complexity: O(n)
-space complexity: O(n) dp + O(n) dfs stack?
+# time  complexity: O(n)
+# space complexity: O(n) dp + O(n) dfs stack?
 ```
 
 37. Meeting Rooms
@@ -284,6 +268,65 @@ def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
     return p
 ```
 
+40. Linked List Cycle
+
+first pass answer
+
+```py
+def hasCycle(self, head: Optional[ListNode]) -> bool:
+  slow = fast = head
+
+  while slow and fast:
+    if not slow or not fast or not fast.next or not fast.next.next:
+      return False
+
+    slow = slow.next
+    fast = fast.next.next
+
+    if slow.val == fast.val:
+      return True
+
+    return False
+
+# Time complexity: O(n)
+# Space complexity: O(1)
+```
+
+improvement
+
+```py
+def hasCycle(self, head: Optional[ListNode]) -> bool:
+  slow = fast = head
+
+  while fast and fast.next:
+    slow = slow.next
+    fast = fast.next.next
+
+    if slow == fast:
+      return True
+
+    return False
+```
+
+41. Merge Two Sorted Linked Lists
+```py
+def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+  if not list1:
+    return list2
+  if not list2:
+    return list1
+
+  if list1.val <= list2.val:
+    list1.next = self.mergeTwoLists(list1.next, list2)
+    return list1
+  else:
+    list2.next = self.mergeTwoLists(list1, list2.next)
+    return list2
+
+# Time complexity: O(n)
+# Space complexity: O(n + m) recursive call stack ?
+```
+
 49. Longest Substring Without Duplicates
     tags: `sliding windows`
 
@@ -302,8 +345,8 @@ def lengthOfLongestSubstring(self, s: str) -> int:
         res = max(res, r - l + 1)
     return res
 
-Time complexity: O(n)
-Space complexity: O(n) set
+# Time complexity: O(n)
+# Space complexity: O(n) set
 ```
 
 53. Validate Parenthess
