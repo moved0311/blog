@@ -490,3 +490,15 @@ def isAnagram(self, s: str, t: str) -> bool:
 
   return True if len(cnt) == 0 else False
 ```
+
+75. Sum of Two Integers
+```js:js
+  getSum(a, b) {
+    while(b){
+      let tmp = (a & b) << 1
+      a = a ^ b
+      b = tmp
+    }
+    return a
+  }
+```
