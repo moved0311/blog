@@ -1,0 +1,59 @@
+---
+title: 開發環境設定
+date: 2024-10-12
+---
+
+
+## Node.js
+
+https://nodejs.org/zh-tw
+
+## nvm  
+管理不同版本的nodejs
+
+https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
+
+`xcode-select --install`
+
+## Slack
+
+https://slack.com/intl/zh-tw/downloads/mac
+
+
+## Homebrew 
+https://brew.sh/
+
+## Oh-my-zsh
+
+https://ohmyz.sh/#install
+
+theme: [powerlevel10k](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#getting-started)
+
+plugins:
+	* [auto suggestions](https://github.com/zsh-users/zsh-autosuggestions/tree/master)
+		* `.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh`修改提示文字顏色
+
+
+## Iterm2
+
+`https://iterm2.com/`
+
+下載配色檔[item2-color-schemes](https://github.com/mbadolato/iTerm2-Color-Schemes/tree/master/schemes)，\
+`Settings > Profiles > Colors > 右下角下拉選單import檔案`
+
+## Generate ssh key and add it to github
+ssh-keygen -t ed25519 -C "your_email@example.com" \
+在 https://github.com/settings/keys \
+New SSH key > `.ssh/id_ed25519.pub` 的內容貼上
+
+## tmux
+`brew install tmux`
+
+* plugins manager: [tpm](https://github.com/tmux-plugins/tpm)
+* themes: [Nord tmux](https://www.nordtheme.com/ports/tmux)
+
+## neovim
+`brew install neovim`
+
+* lazyvim
+https://www.lazyvim.org/installation
