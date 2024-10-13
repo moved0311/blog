@@ -209,3 +209,29 @@ def remainingMethods(self, n: int, k: int, invocations: List[List[int]]) -> List
   else:
     return [v for v in range(n)]
 ```
+
+## 419
+Q1(3318). Find X-Sum of All K-Long Subarrays I
+
+```py
+def findXSum(self, nums: List[int], k: int, x: int) -> List[int]:
+  ans = []
+  N = len(nums)
+
+  def cmp(a, b):
+    if a[1] != b[1]:
+      return b[1] - a[1]
+    else:
+      return b[0] - a[0]
+
+  for i in range(N - k + 1):
+    freq = Counter(nums[i:i+k])
+    common = freq.most_common()
+    common.sort(key=cmp_to_key(cmp))
+    cnt = 0
+    for (a, b) in common[:x]:
+        cnt += a * b
+    ans.append(cnt)
+
+  return ans
+```

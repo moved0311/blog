@@ -6,23 +6,23 @@ date: 2024-09-29
 
 ## 140
 
-Q2. Maximize the Total Height of Unique Towers
+Q2(3301). Maximize the Total Height of Unique Towers
 
 ```py
 def maximumTotalSum(self, maximumHeight: List[int]) -> int:
-	res = []
-	picked = set()
+  res = []
+  picked = set()
 
-	for n in maximumHeight:
-		tmp = n
-		while tmp in picked:
-			tmp -= 1
-		if tmp <= 0:
-			return -1
-		picked.add(tmp)
-		res.append(tmp)
+  for n in maximumHeight:
+    tmp = n
+    while tmp in picked:
+      tmp -= 1
+    if tmp <= 0:
+      return -1
+    picked.add(tmp)
+    res.append(tmp)
 
-	return sum(res)
+  return sum(res)
 
 # Time Limit Exceeded
 ```
@@ -43,10 +43,41 @@ def maximumTotalSum(self, maximumHeight: List[int]) -> int:
   return res
 ```
 
-Q3. [Find the Lexicographically Smallest Valid Sequence](https://leetcode.com/contest/biweekly-contest-140/problems/find-the-lexicographically-smallest-valid-sequence/)
+Q3(3302). [Find the Lexicographically Smallest Valid Sequence](https://leetcode.com/contest/biweekly-contest-140/problems/find-the-lexicographically-smallest-valid-sequence/)
 
 [前后缀分解 子序列匹配 Z函数 | LeetCode Biweekly Contest 140 - YouTube](https://www.youtube.com/watch?v=vej0IdBZVw4)
 
-Similar Question: [2124](https://leetcode.com/problems/check-if-all-as-appears-before-all-bs/description/), [1653](https://leetcode.com/problems/minimum-deletions-to-make-string-balanced/description/)
+Q4(3303). [Find the Occurrence of First Almost Equal Substring - LeetCode](https://leetcode.com/contest/biweekly-contest-140/problems/find-the-occurrence-of-first-almost-equal-substring/)
 
-Q4. [Find the Occurrence of First Almost Equal Substring - LeetCode](https://leetcode.com/contest/biweekly-contest-140/problems/find-the-occurrence-of-first-almost-equal-substring/)
+## 141
+
+Q1(3314). Construct the Minimum Bitwise Array I\
+Q2(3315). Construct the Minimum Bitwise Array II
+
+```py
+def minBitwiseArray(self, nums: List[int]) -> List[int]:
+  ans = []
+  N = len(nums)
+
+  for i in range(N):
+    for j in range(nums[i]):
+      if j | j + 1 == nums[i]:
+        ans.append(j)
+        break
+      if j == nums[i] - 1:
+        ans.append(-1)
+    return ans
+```
+
+```py
+def minBitwiseArray(self, nums: List[int]) -> List[int]:
+  for i, x in enumerate(nums):
+    if x == 2:
+      nums[i] = -1
+    else:
+      t = ~x
+      lb = t & -t
+      nums[i] ^= lb >> 1
+
+    return nums
+```
