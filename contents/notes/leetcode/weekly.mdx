@@ -235,3 +235,40 @@ def findXSum(self, nums: List[int], k: int, x: int) -> List[int]:
 
   return ans
 ```
+
+Q2(3319). K-th Largest Perfect Subtree Size in Binary Tree
+
+```py
+class Solution:
+  def kthLargestPerfectSubtree(self, root: Optional[TreeNode], k: int) -> int:
+    hs = []
+
+    def f(node):
+      if not node:
+        return 0
+
+      l = f(node.left)
+      r = f(node.right)
+
+      if l == -1 or r == -1:
+        return -1
+
+      if abs(l - r) > 0:
+        return -1
+
+      if l == r:
+        hs.append(l + 1)
+        return l + 1 
+
+      return -1
+    
+    f(root)
+    
+    hs.sort(reverse=True)
+    print(hs)
+    
+    return (1 << hs[k - 1]) - 1 if len(hs) >= k else -1
+```
+
+the number of nodes in a perfect/full/complete binary tree is $2^h - 1$\
+h: the height of the tree
