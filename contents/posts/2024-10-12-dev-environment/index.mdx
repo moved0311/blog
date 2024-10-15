@@ -15,7 +15,7 @@ https://brew.sh/
 ### nvm
 https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
 
-管理不同版本的nodejs
+Manage different versions of nodejs.
 
 ```sh
 xcode-select --install
@@ -32,9 +32,9 @@ git config --global alias.co checkout
 git config --global alias.st status
 ```
 
-改動內容存在`~/.gitconfig`
+Changes will be saved in `~/.gitconfig`
 
-## 編輯器
+## Editor 
 
 ### Oh-my-zsh
 https://ohmyz.sh/#install
@@ -57,13 +57,35 @@ https://iterm2.com/
 brew install tmux
 ```
 
-plugins manager: [tpm](https://github.com/tmux-plugins/tpm)\
+plugins manager: [tpm](https://github.com/tmux-plugins/tpm)
+
+```config:~/.tmux.conf
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+run '~/.tmux/plugins/tpm/tpm'
+```
+
 themes: [Nord tmux](https://www.nordtheme.com/ports/tmux)
+
+```diff:~/.tmux.conf
+# plugins
++ set -g @plugin "arcticicestudio/nord-tmux"
+
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+run '~/.tmux/plugins/tpm/tpm'
+```
+
+Press `prefix + I` to install plugins
 
 ### neovim
 ```sh
 brew install neovim
+brew install ripgrep  # search words in files
 ```
+* [keymaps](/notes/neovim/keymaps)
 
 ### lazyvim
 https://www.lazyvim.org/installation
@@ -78,18 +100,19 @@ New SSH key > `.ssh/id_ed25519.pub` 的內容貼上
 * 區分個人和工作上的ssh key
   * [Enable Multiple SSH Keys for MacOS/ Ubuntu/ Debian etc.](https://gist.github.com/bonnopc/c78920431284ce3fc2a5270016205116)
 
-## 應用程式
+## App 
 ### Slack
 https://slack.com/intl/zh-tw/downloads/mac
 
 ### Vscode
 https://code.visualstudio.com/download
 
-extensions:
+Extensions:
 1. Prettier - Code formatter
 2. Vim
+3. ES7+ React/Redux/React-Native snippets
 
-shortcut:
+Shortcut:
 ```json
 // 左右移動分頁
 [
