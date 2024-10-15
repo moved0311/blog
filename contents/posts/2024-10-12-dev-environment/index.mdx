@@ -3,28 +3,40 @@ title: 開發環境設定
 date: 2024-10-12
 ---
 
-
-## Node.js
-
+## 環境
+### Node.js
 https://nodejs.org/zh-tw
 
-## nvm  
-管理不同版本的nodejs
+## 套件管理工具
 
-https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
-
-`xcode-select --install`
-
-## Slack
-
-https://slack.com/intl/zh-tw/downloads/mac
-
-
-## Homebrew 
+### Homebrew
 https://brew.sh/
 
-## Oh-my-zsh
+### nvm
+https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
 
+管理不同版本的nodejs
+
+```sh
+xcode-select --install
+```
+
+### pnpm
+```sh
+npm install -g pnpm
+```
+
+### Git
+```sh
+git config --global alias.co checkout
+git config --global alias.st status
+```
+
+改動內容存在`~/.gitconfig`
+
+## 編輯器
+
+### Oh-my-zsh
 https://ohmyz.sh/#install
 
 theme: [powerlevel10k](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#getting-started)
@@ -33,27 +45,90 @@ plugins:
 	* [auto suggestions](https://github.com/zsh-users/zsh-autosuggestions/tree/master)
 		* `.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh`修改提示文字顏色
 
-
-## Iterm2
-
-`https://iterm2.com/`
+### Iterm2
+https://iterm2.com/
 
 下載配色檔[item2-color-schemes](https://github.com/mbadolato/iTerm2-Color-Schemes/tree/master/schemes)，\
 `Settings > Profiles > Colors > 右下角下拉選單import檔案`
 
-## Generate ssh key and add it to github
+### tmux
+
+```sh
+brew install tmux
+```
+
+plugins manager: [tpm](https://github.com/tmux-plugins/tpm)\
+themes: [Nord tmux](https://www.nordtheme.com/ports/tmux)
+
+### neovim
+```sh
+brew install neovim
+```
+
+### lazyvim
+https://www.lazyvim.org/installation
+
+
+## SSH
+* Generate ssh key and add it to github
 ssh-keygen -t ed25519 -C "your_email@example.com" \
 在 https://github.com/settings/keys \
 New SSH key > `.ssh/id_ed25519.pub` 的內容貼上
 
-## tmux
-`brew install tmux`
+* 區分個人和工作上的ssh key
+  * [Enable Multiple SSH Keys for MacOS/ Ubuntu/ Debian etc.](https://gist.github.com/bonnopc/c78920431284ce3fc2a5270016205116)
 
-* plugins manager: [tpm](https://github.com/tmux-plugins/tpm)
-* themes: [Nord tmux](https://www.nordtheme.com/ports/tmux)
+## 應用程式
+### Slack
+https://slack.com/intl/zh-tw/downloads/mac
 
-## neovim
-`brew install neovim`
+### Vscode
+https://code.visualstudio.com/download
 
-* lazyvim
-https://www.lazyvim.org/installation
+extensions:
+1. Prettier - Code formatter
+2. Vim
+
+shortcut:
+```json
+// 左右移動分頁
+[
+  {
+      "key": "shift+cmd+]",
+      "command": "workbench.action.nextEditor"
+  },
+  {
+      "key": "shift+cmd+[",
+      "command": "workbench.action.previousEditor"
+  }
+]
+```
+
+```json
+// cmd + 數字鍵跳到第n個分頁
+[
+  {
+      "key": "cmd+0",
+      "command": "workbench.action.openLastEditorInGroup"
+  },
+  {
+      "key": "cmd+1",
+      "command": "workbench.action.openEditorAtIndex1"
+  },
+  {
+      "key": "cmd+2",
+      "command": "workbench.action.openEditorAtIndex2"
+  },
+  {
+      "key": "cmd+3",
+      "command": "workbench.action.openEditorAtIndex3"
+  },
+  {
+      "key": "cmd+4",
+      "command": "workbench.action.openEditorAtIndex4"
+  }
+]
+```
+
+### Obsidian
+https://obsidian.md/download
