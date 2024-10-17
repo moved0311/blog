@@ -7,6 +7,10 @@ date: 2024-10-12
 ### Node.js
 https://nodejs.org/zh-tw
 
+### Python
+舊專案需要2.7版
+* https://stackoverflow.com/questions/71739870/how-to-install-python-2-on-macos-12-3
+
 ## 套件管理工具
 
 ### Homebrew
@@ -21,8 +25,9 @@ Manage different versions of nodejs.
 xcode-select --install
 ```
 
-### pnpm
+### yarn/pnpm
 ```sh
+npm install -g yarn
 npm install -g pnpm
 ```
 
@@ -57,7 +62,7 @@ https://iterm2.com/
 brew install tmux
 ```
 
-plugins manager: [tpm](https://github.com/tmux-plugins/tpm)
+#### plugins manager: [tpm](https://github.com/tmux-plugins/tpm)
 
 ```config:~/.tmux.conf
 set -g @plugin 'tmux-plugins/tpm'
@@ -66,7 +71,7 @@ set -g @plugin 'tmux-plugins/tmux-sensible'
 run '~/.tmux/plugins/tpm/tpm'
 ```
 
-themes: [Nord tmux](https://www.nordtheme.com/ports/tmux)
+#### themes: [Nord tmux](https://www.nordtheme.com/ports/tmux)
 
 ```diff:~/.tmux.conf
 # plugins
@@ -79,6 +84,12 @@ run '~/.tmux/plugins/tpm/tpm'
 ```
 
 Press `prefix + I` to install plugins
+
+#### 使用目前路徑分割視窗
+```config
+bind-key - split-window -v -c '#{pane_current_path}'
+bind-key | split-window -h -c '#{pane_current_path}'
+```
 
 ### neovim
 ```sh
@@ -111,6 +122,7 @@ Extensions:
 1. Prettier - Code formatter
 2. Vim
 3. ES7+ React/Redux/React-Native snippets
+4. GitLens
 
 Shortcut:
 ```json
@@ -152,6 +164,9 @@ Shortcut:
   }
 ]
 ```
+
+* Launching from the command line
+`cmd+shift+p` and type `shell command` find `Shell Command: Install 'code' command in PATH`
 
 ### Obsidian
 https://obsidian.md/download
