@@ -272,3 +272,95 @@ class Solution:
 
 the number of nodes in a perfect/full/complete binary tree is $2^h - 1$\
 h: the height of the tree
+
+## 420
+Q1(3324). Find the Sequence of Strings Appeared on the Screen
+```py
+def stringSequence(self, target: str) -> List[str]:
+  ans = ["a"]
+  current = "a"
+  i = 0
+
+  while ans[-1] != target:
+    if current[i] != target[i]:
+      prefix = current[0: -1] if len(current) > 0 else ''
+      last = chr(ord(current[-1]) + 1)
+      current = prefix + last
+    else:
+      current += 'a'
+      i += 1
+    ans.append(current)
+
+  return ans
+```
+```py
+def stringSequence(self, target: str) -> List[str]:
+  ans = []
+  s = []
+
+  for c in target:
+    c = ord(c) - ord('a')
+    s.append('a')
+
+    for s[-1] in ascii_lowercase[:c+1]:
+      ans.append(''.join(s))
+
+  return ans
+
+# ascii_lowercase[0: 5] -> "abcd"
+```
+
+Q2(3325). Count Substrings With K-Frequency Characters I
+```py
+def numberOfSubstrings(self, s: str, k: int) -> int:
+  ans = 0
+  l = 0
+  cnt = Counter()
+  N = len(s)
+
+  for r in range(len(s)):
+    cnt[s[r]] += 1
+
+    if any(v >= k for _, v in cnt.items()):
+      ans += (N - r)
+      print(cnt, N - r, ans)
+      cnt[s[l]] -= 1
+      l += 1
+
+    while any(v >= k for _, v in cnt.items()):
+      cnt[s[l]] -= 1
+      l += 1
+      ans += N - r
+  return ans
+```
+```py
+def numberOfSubstrings(self, s: str, k: int) -> int:
+  ans = left = 0
+  cnt = defaultdict(int)
+
+  for c in s:
+    cnt[c] += 1
+    while cnt[c] >= k:
+      cnt[s[left]] -= 1
+      left += 1
+    ans += left
+  
+  return ans
+
+"""
+cabacb, k = 2
+1. add 'c' {c: 1}
+2. add 'a' {a: 1, c: 1}
+3. add 'b' {a: 1, b: 1, c: 1}
+4. add 'a' {a: 2, b: 1, c: 1} <- legal
+   remove 'c' {a: 2, b: 1} left = 1
+   remove 'a' {a: 1, b: 1} left = 2
+    ans += 2 ("caba", "aba")
+5. add 'c' {a: 1, b: 1, c: 1}
+    ans += 2 ("cabac", "abac") left = 2
+6. add 'b' {a: 1, b: 2, c: 1} <- legal
+   remove 'b' {a: 1, b: 1, c: 1} left = 3
+   ans += 3 ("cabacb", "abacb", "bacb")
+ans = 7
+"""
+```
