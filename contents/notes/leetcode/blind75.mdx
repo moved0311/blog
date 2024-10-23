@@ -398,6 +398,36 @@ def isPalindrome(self, s: str) -> bool:
   return True
 ```
 
+56. Palidromic Substrings
+
+```py
+def countSubstrings(self, s: str) -> int:
+  def checkIsPalindromic(s):
+    j = len(s) - 1
+    for i in range(len(s)):
+      if s[i] != s[j]:
+        return False
+      j -= 1
+    return True
+
+  size = 1
+  ans = 0
+  for i in range(len(s)):
+    for size in range(1, len(s) - i + 1):
+      if checkIsPalindromic(s[i: i + size]):
+        ans += 1
+  return ans
+
+# Time Complexity: O(n^3) for * for * checkIsPalindromic
+# Space Complexity: O(1)
+```
+```py
+
+
+# Time Complexity: O(n^2)
+# Space Complexity: O(1)
+```
+
 58. Depth of Binary Tree
 
 ```py
