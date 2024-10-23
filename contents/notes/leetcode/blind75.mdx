@@ -422,7 +422,23 @@ def countSubstrings(self, s: str) -> int:
 # Space Complexity: O(1)
 ```
 ```py
+def countSubstrings(self, s: str) -> int:
+  ans = 0
+  for i in range(len(s)):
+    ans += 1
 
+    # odd
+    size = 1
+    while i >= size and i + size < len(s) and s[i - size] == s[i + size]:
+      ans += 1
+      size += 1
+    
+    # even
+    size = 0
+    while i >= size and i + size + 1 < len(s) and s[i - size] == s[i + 1 + size]:
+      ans += 1
+      size += 1
+  return ans
 
 # Time Complexity: O(n^2)
 # Space Complexity: O(1)
@@ -501,6 +517,16 @@ def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bo
       return self.isSubtree(root.left, subRoot) or (
         self.isSubtree(root.right, subRoot)
       )
+```
+
+72. Top K Frequent Elements
+
+```py
+def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+  cnt = Counter()
+  for c in nums:
+    cnt[c] += 1
+  return [v for (v, _) in cnt.most_common(k)]
 ```
 
 74. Valid Anagram
