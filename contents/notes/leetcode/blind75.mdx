@@ -4,6 +4,8 @@ category: note
 date: 2024-09-03
 ---
 
+題目列表: https://leetcode.com/problem-list/oizxjoit/
+
 16. Coin Change
 
 tags: `dp`
@@ -347,6 +349,75 @@ def lengthOfLongestSubstring(self, s: str) -> int:
 
 # Time complexity: O(n)
 # Space complexity: O(n) set
+```
+
+50. Longest Repeating Substring With Replacement
+```py
+def characterReplacement(self, s: str, k: int) -> int:
+  cnt = Counter()
+  tmpK = k
+
+  for c in s:
+    cnt[c] += 1
+
+  ans = 0
+  for target in cnt.keys():
+    count = 0
+    l = 0
+    k = tmpK
+    for r in range(len(s)):
+      if s[r] == target:
+        count += 1
+      else:
+        if k > 0:
+          k -= 1
+          count += 1
+        else:
+          while s[l] == target:
+            l += 1
+            count -= 1
+          l += 1
+      ans = max(ans, count)
+  return ans
+
+# First thought is replace character to most common character (it will fail with edge case)
+# so I add possible replace character outside cause O(26)
+# use slide window right and left to count freq O(n^2)
+
+# Time complexity: O(26 * n^2) A-Z * len(n) * while loop
+# Space complexity: O(n) counter
+```
+
+```py
+def characterReplacement(self, s: str, k: int) -> int:
+  cnt = Counter()
+  l = 0
+  ans = 0
+  for r in range(len(s)):
+    cnt[s[r]] += 1
+    max_freq = max(cnt.values())
+    max_len = sum(cnt.values())
+    if max_len - max_freq <= k:
+      ans = max(ans, max_len)
+    else:
+      cnt[s[l]] -= 1
+      l += 1
+      r -= 1
+  return ans
+
+# Time complexity: O(26n)
+# Space complexity: O(n)
+```
+
+52. Group Anagrams
+```py
+def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+  dicts = defaultdict(list)
+  for word in strs:
+    w = list(word)
+    w.sort()
+    dicts[''.join(w)].append(word)
+  return dicts.values()
 ```
 
 53. Validate Parenthess
