@@ -1,0 +1,119 @@
+---
+title: 30 Days of JavaScript
+category: note
+date: 2024-10-25
+---
+
+題目列表: https://leetcode.com/studyplan/30-days-of-javascript/
+
+1. Create Hello World Function
+```ts
+function createHelloWorld() {
+  return function (...args): string {
+    return "Hello World"
+  };
+};
+```
+
+2. Counter
+```ts
+function createCounter(n: number): () => number {
+  let count = n
+  return function() {
+    return count++        
+  }
+}
+```
+
+3. To Be Or Not To Be
+```ts
+type ToBeOrNotToBe = {
+  toBe: (val: any) => boolean;
+  notToBe: (val: any) => boolean;
+};
+
+function expect(val: any): ToBeOrNotToBe {
+  return {
+    toBe: (n) => {
+      if(val === n){
+        return true
+      }
+      throw new Error("Not Equal")           
+    },
+    notToBe: (n) => { 
+      if(val !== n){
+        return true
+      }
+      throw new Error("Equal")
+    }
+  }
+};
+```
+
+4. Counter II
+```ts
+type Counter = {
+  increment: () => number,
+  decrement: () => number,
+  reset: () => number,
+}
+
+function createCounter(init: number): Counter {
+  let count = init
+
+  return {
+    increment: () => ++count,
+    decrement: () => --count,
+    reset: () => {
+      count = init
+      return count
+    }
+  }
+};
+```
+
+5. Apply Transform Over Each Element in Array
+```ts
+function map(arr: number[], fn: (n: number, i: number) => number): number[] {
+  const res = []
+  
+  for(let i = 0; i < arr.length; i++){
+    res.push(fn(arr[i], i))
+  }
+
+  return res
+};
+```
+
+6. Filter Elements from Array
+
+```ts
+type Fn = (n: number, i: number) => any
+
+function filter(arr: number[], fn: Fn): number[] {
+  const res = []
+
+  for (let i = 0; i < arr.length; i++) {
+    if (fn(arr[i], i)) {
+      res.push(arr[i])
+    }
+  }
+  return res
+};
+```
+
+7. Array Reduce Transfromation
+
+```ts
+type Fn = (accum: number, curr: number) => number
+
+function reduce(nums: number[], fn: Fn, init: number): number {
+  let res = init
+
+  for (let i = 0; i < nums.length; i++){
+    res = fn(res, nums[i])
+  }
+
+  return res
+};
+```
