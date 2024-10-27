@@ -103,3 +103,41 @@ Q3(3316). Find Maximum Removals From Source String
 
     return f(len(source) - 1, len(pattern) - 1)
 ```
+
+## 142
+
+Q1(3330). Find the Original Typed String I
+
+```py
+def possibleStringCount(self, word: str) -> int:
+  ans = 1
+
+  for i in range(1, len(word)):
+    if word[i - 1] == word[i]:
+      ans += 1
+  return ans
+```
+
+Q3(3332). Maximum Points Tourist Can Earn
+```py
+def maxScore(self, n: int, k: int, stayScore: List[List[int]], travelScore: List[List[int]]) -> int:
+  if k == 1:
+    return max(stayScore[0] + [max(t) for t in travelScore])
+
+  @cache
+  def f(d, city):
+    if d > k - 1:
+      return 0
+    res = 0
+    for i in range(n):
+      if i == city:
+        res = max(res, f(d + 1, i) + stayScore[d][i])
+      else:
+        res = max(res, f(d + 1, i) + travelScore[city][i])
+    return res
+
+  res = 0
+  for i in range(n):
+    res = max(res, f(0, i))
+  return res
+```
