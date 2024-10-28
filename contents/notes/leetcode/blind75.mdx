@@ -6,7 +6,7 @@ date: 2024-09-03
 
 題目列表: https://leetcode.com/problem-list/oizxjoit/
 
-16. Coin Change
+322. Coin Change
 
 tags: `dp`
 
@@ -30,7 +30,7 @@ def coinChange(self, coins: List[int], amount: int) -> int:
 # n: amount, m: length of coins
 ```
 
-17. Longest Increasing Subsequence
+300. Longest Increasing Subsequence
 
 tags: `dp`
 
@@ -50,7 +50,7 @@ def f(arr):
 # space complexity: O(n)
 ```
 
-18. Longest Common Subsequence
+1143. Longest Common Subsequence
 
 tags: `2d-dp`
 
@@ -106,7 +106,7 @@ def wordBreak(s, wordDict):
 # n: wordDict length
 ```
 
-21. House Robber
+198. House Robber
 
 My first thought is to use recursion: each time, remove the i-th element and also remove i - 1 and i + 1 from the array. Recursively do this until the array length is 0, then return the maximum value. but this method will time out.
 
@@ -124,7 +124,7 @@ def rob(nums):
   return r2
 ```
 
-22. House RobberII
+213. House RobberII
     Consider it in two parts: the first part includes the first element, and the second part does not include the first element.
 
 ```py
@@ -140,7 +140,7 @@ def robII(nums):
     return max(robI(nums[2: -1]) + nums[0], robI(nums[1:]))
 ```
 
-24. Count Paths
+62. Unique Paths
 
 ```py
 def uniquePaths(self, m: int, n: int) -> int:
@@ -196,7 +196,7 @@ def canJump(self, nums: List[int]) -> bool:
   # sc: O(1)
 ```
 
-26. Clone graph
+133. Clone graph
 
 ```py
 def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
@@ -221,7 +221,7 @@ def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
 # space complexity: O(n) dp + O(n) dfs stack?
 ```
 
-37. Meeting Rooms
+252. Meeting Rooms
 ```py
 def canAttendMeetings(self, intervals: List[Interval]) -> bool:
   cnt = Counter()
@@ -256,8 +256,7 @@ def canAttendMeetings(self, intervals: List[Interval]) -> bool:
 # Space complexity: O(1)
 ```
 
-
-39. Reverse a Linked List
+206. Reverse a Linked List
 
 ```py
 def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
@@ -270,7 +269,7 @@ def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
     return p
 ```
 
-40. Linked List Cycle
+141. Linked List Cycle
 
 first pass answer
 
@@ -310,7 +309,7 @@ def hasCycle(self, head: Optional[ListNode]) -> bool:
     return False
 ```
 
-41. Merge Two Sorted Linked Lists
+21. Merge Two Sorted Linked Lists
 ```py
 def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
   if not list1:
@@ -329,8 +328,9 @@ def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) ->
 # Space complexity: O(n + m) recursive call stack ?
 ```
 
-49. Longest Substring Without Duplicates
-    tags: `sliding windows`
+3. Longest Substring Without Repeating Characters
+
+tags: `sliding windows`
 
 ```py
 def lengthOfLongestSubstring(self, s: str) -> int:
@@ -351,7 +351,7 @@ def lengthOfLongestSubstring(self, s: str) -> int:
 # Space complexity: O(n) set
 ```
 
-50. Longest Repeating Substring With Replacement
+424. Longest Repeating Character Replacement
 ```py
 def characterReplacement(self, s: str, k: int) -> int:
   cnt = Counter()
@@ -409,7 +409,7 @@ def characterReplacement(self, s: str, k: int) -> int:
 # Space complexity: O(n)
 ```
 
-52. Group Anagrams
+49. Group Anagrams
 ```py
 def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
   dicts = defaultdict(list)
@@ -420,7 +420,7 @@ def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
   return dicts.values()
 ```
 
-53. Validate Parenthess
+20. Valid Parentheses
 
 ```py
 def isValid(self, s: str) -> bool:
@@ -449,7 +449,7 @@ def isValid(self, s: str) -> bool:
 # Space complexity: O(n)
 ```
 
-54. Valid Palindrome
+125. Valid Palindrome
 ```py
 def isPalindrome(self, s: str) -> bool:
   t = []
@@ -469,7 +469,7 @@ def isPalindrome(self, s: str) -> bool:
   return True
 ```
 
-56. Palidromic Substrings
+647. Palindromic Substrings
 
 ```py
 def countSubstrings(self, s: str) -> int:
@@ -515,7 +515,7 @@ def countSubstrings(self, s: str) -> int:
 # Space Complexity: O(1)
 ```
 
-58. Depth of Binary Tree
+104. Maximum Depth of Binary Tree
 
 ```py
 def maxDepth(self, root: Optional[TreeNode]) -> int:
@@ -530,7 +530,7 @@ def maxDepth(self, root: Optional[TreeNode]) -> int:
 # space complexity: O(n) worst case
 ```
 
-59. Same Tree
+100. Same Tree
 
 ```py
 def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
@@ -545,7 +545,7 @@ def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         return False
 ```
 
-60. Invert a Binary Tree
+226. Invert Binary Tree
 
 ```py
 def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
@@ -563,7 +563,7 @@ def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
 # space complexity: O(n) recursion stask
 ```
 
-64. Subtree of a Binary Tree
+572. Subtree of Another Binary Tree
 
 ```py
 def isSameTree(self, s, t):
@@ -590,7 +590,7 @@ def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bo
       )
 ```
 
-72. Top K Frequent Elements
+347. Top K Frequent Elements
 
 ```py
 def topKFrequent(self, nums: List[int], k: int) -> List[int]:
@@ -600,7 +600,7 @@ def topKFrequent(self, nums: List[int], k: int) -> List[int]:
   return [v for (v, _) in cnt.most_common(k)]
 ```
 
-74. Valid Anagram
+242. Valid Anagram
 ```py
 def isAnagram(self, s: str, t: str) -> bool:
   cnt = Counter()
@@ -618,7 +618,7 @@ def isAnagram(self, s: str, t: str) -> bool:
   return True if len(cnt) == 0 else False
 ```
 
-75. Sum of Two Integers
+371. Sum of Two Integers
 ```js:js
   getSum(a, b) {
     while(b){
