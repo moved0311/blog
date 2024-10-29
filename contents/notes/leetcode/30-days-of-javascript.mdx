@@ -203,3 +203,10 @@ function cancellable(fn: Fn, args: JSONValue[], t: number): Function {
   return () => clearInterval(time)
 };
 ```
+
+20. Is Object Empty
+```ts
+var isEmpty = function(obj) {
+  return ["{}", "[]"].includes(JSON.stringify(obj))
+};
+```
