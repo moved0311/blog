@@ -204,9 +204,52 @@ function cancellable(fn: Fn, args: JSONValue[], t: number): Function {
 };
 ```
 
+16. Promise Time Limit
+```ts
+var timeLimit = function (fn, t) {
+  return async function (...args) {
+    const timeout = new Promise((_, reject) => {
+      setTimeout(() => {
+        reject("Time Limit Exceeded")
+      }, t);
+    })
+
+    return Promise.race([fn(...args), timeout])
+  }
+};
+
+```
+
 20. Is Object Empty
 ```ts
 var isEmpty = function(obj) {
   return ["{}", "[]"].includes(JSON.stringify(obj))
+};
+```
+
+21. Chunk Array
+```ts
+var chunk = function(arr, size) {
+  const res = []
+  let i = 0
+  while(i < arr.length){
+    const sub = []
+    for (let j = 0; j < size; j++){
+      if(i < arr.length) sub.push(arr[i++])
+    }
+    res.push(sub)
+  }
+  return res
+};
+```
+```ts
+var chunk = function(arr, size) {
+  const res = []
+  let i = 0
+  while(i < arr.length){
+    res.push(arr.slice(i, i + size))
+    i += size
+  }
+  return res
 };
 ```
