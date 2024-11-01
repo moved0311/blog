@@ -220,6 +220,40 @@ var timeLimit = function (fn, t) {
 
 ```
 
+18. Debounce
+```ts
+var debounce = function(fn, t) {
+  let timer = null
+  return function(...args) {
+    clearTimeout(timer)
+    timer = setTimeout(() => fn(...args), t)
+  }
+};
+```
+
+19. Execute Asynchronous Functions in Parallel (implement Promise.all)
+```ts
+var promiseAll = function(functions) {
+  return new Promise((resolve, reject) => {
+    const results = Array({from: functions.length})
+    let count = 0
+
+    functions.forEach((fn, index) => {
+      fn().then(v => {
+        results[index] = v
+        count += 1
+        if (count === functions.length) {
+          resolve(results)
+        }
+      })
+      .catch(reject)
+    })
+  })
+};
+```
+
+You can't use `results.push` here because you need to keep the order of functions call.
+
 20. Is Object Empty
 ```ts
 var isEmpty = function(obj) {
@@ -251,5 +285,16 @@ var chunk = function(arr, size) {
     i += size
   }
   return res
+};
+```
+
+22. Array Prototype Last
+
+```ts
+Array.prototype.last = function() {
+  const length = this.length
+  if(length === 0) return -1
+  
+  return this[length - 1]
 };
 ```

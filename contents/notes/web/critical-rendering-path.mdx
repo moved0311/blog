@@ -1,0 +1,19 @@
+---
+title: Critical rendering path
+category: note
+date: 2024-11-01
+---
+
+從瀏覽器下載HTML、CSS和JS到使用者可以瀏覽網站、與網站互動的路徑
+
+1. 下載解析HTML產生DOM
+2. 下載解析CSSS產生CSSOM
+3. 下載執行JS
+4. Render Tree(DOM + CSSOM)
+5. Layout
+6. Paint
+
+## Reference
+* [什麼是關鍵渲染路徑 (critical rendering path)?｜ExplainThis](https://www.explainthis.io/zh-hant/swe/critical-rendering-path)
+* [Critical rendering path - Web performance | MDN](https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path)
+ 
