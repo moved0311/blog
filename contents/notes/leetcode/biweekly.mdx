@@ -118,6 +118,17 @@ def possibleStringCount(self, word: str) -> int:
   return ans
 ```
 
+```py
+def possibleStringCount(self, word: str) -> int:
+  ans = 1
+
+  for x, y in pairwise(word):
+    if x == y:
+      ans += 1
+  return ans
+```
+
+
 Q3(3332). Maximum Points Tourist Can Earn
 ```py
 def maxScore(self, n: int, k: int, stayScore: List[List[int]], travelScore: List[List[int]]) -> int:

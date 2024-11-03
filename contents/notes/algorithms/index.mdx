@@ -1,0 +1,31 @@
+---
+title: Algorithms
+category: note
+date: 2024-11-03
+---
+
+## Graph
+
+### Dijkstra
+```py
+def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+	edges = defaultdict(list)
+	for [s, d, w] in times:
+		edges[s].append((d, w))
+
+	visited = set()
+	ans = 0
+	minHeap = [(0, k)]
+
+	while minHeap:
+		(w1, n1) = heapq.heappop(minHeap)
+		if n1 in visited:
+			continue
+		ans = max(ans, w1)
+		visited.add(n1)
+
+		for (n2, w2) in edges[n1]:
+			if n2 not in visited:
+				heapq.heappush(minHeap, (w1 + w2, n2))
+	return ans if len(visited) == n else -1
+```

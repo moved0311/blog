@@ -53,6 +53,37 @@ x & (x + 1)
 # 1111
 ```
 
+## Iterator
+
+### pairwise
+```py
+for x, y in pairwise("abbcccc"):
+  print(x, y)
+"""
+a b
+b b
+b c
+c c
+c c
+c c
+"""
+```
+
+### zip
+```py
+la = ['a1', 'a2', 'a3']
+lb = ['b1', 'b2', 'b3']
+lc = ['c1', 'c2', 'c3']
+
+for a, b, c in zip(la, lb, lc):
+	print(a, b, c)
+"""
+a1 b1 c1
+a2 b2 c2
+a3 b3 c3
+"""
+```
+
 ## Sort
 ```py
 list.sort()

@@ -220,6 +220,39 @@ var timeLimit = function (fn, t) {
 
 ```
 
+17. Cache With Time Limit
+```ts
+class TimeLimitedCache {
+  cache: Record<number, number>
+  timer: Record<number, ReturnType<typeof setTimeout>>
+  constructor() {
+    this.cache = {}
+    this.timer = {}
+  }
+  
+  set(key: number, value: number, duration: number): boolean {
+    let isCache = false
+    if(key in this.cache) {
+      isCache = true
+      clearTimeout(this.timer[key])
+    }
+    this.cache[key] = value
+    this.timer[key] = setTimeout(() => {
+      delete this.cache[key]
+    }, duration)
+    return isCache
+  }
+  
+  get(key: number): number {
+    return this.cache[key] || -1
+  }
+  
+  count(): number {
+    return Object.keys(this.cache).length
+  }
+}
+```
+
 18. Debounce
 ```ts
 var debounce = function(fn, t) {
@@ -296,5 +329,66 @@ Array.prototype.last = function() {
   if(length === 0) return -1
   
   return this[length - 1]
+};
+```
+
+23. Group By
+
+```ts
+Array.prototype.groupBy = function(fn) {
+  return this.reduce((groups, item) => {
+    const key = fn(item)
+    if(groups[key]){
+      groups[key].push(item)
+    }else {
+      groups[key] = [item]
+    }
+    return groups
+  }, {})
+}
+```
+
+24. Sort By
+```ts
+function sortBy(arr: JSONValue[], fn: Fn): JSONValue[] {
+  arr.sort((a, b) => fn(a) - fn(b))
+  return arr
+};
+```
+
+25. Join Two Arrays by ID
+```ts
+var join = function(arr1, arr2) {
+  res = {}
+  for(let item of arr1){
+    res[item.id] = item
+  }
+  for(let item of arr2){
+    if(item.id in res) {
+      Object.keys(item).forEach(key => res[item.id][key] = item[key])
+    }else{
+      res[item.id] = item
+    }
+  }
+  return Object.values(res)
+};
+```
+
+26. Flatten Deeply Nested Array
+```ts
+var flat = function (arr, n) {
+  const res = []
+
+  const dfs = (arr, times) => {
+    for(let item of arr) {
+      if(Array.isArray(item) && times > 0){
+        dfs(item, times - 1)
+      }else {
+        res.push(item)  
+      }
+    }
+  }
+  dfs(arr, n)
+  return res
 };
 ```

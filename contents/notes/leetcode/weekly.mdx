@@ -384,3 +384,18 @@ def lengthAfterTransformations(self, s: str, t: int) -> int:
       res = [0] + res
   return sum(res) % (pow(10, 9) + 7)
 ```
+
+
+## 422
+Q1(3340). Check Balanced String
+```py
+def isBalanced(self, num: str) -> bool:
+  odd = 0
+  even = 0
+  for i in range(len(num)):
+    if i % 2 == 0:
+      even += int(num[i])
+    else:
+      odd += int(num[i])
+  return odd == even
+```
