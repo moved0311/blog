@@ -1,7 +1,7 @@
 ---
 title: 30 Days of JavaScript
 category: note
-date: 2024-10-25
+date: 2024-11-04
 ---
 
 題目列表: https://leetcode.com/studyplan/30-days-of-javascript/
@@ -391,4 +391,31 @@ var flat = function (arr, n) {
   dfs(arr, n)
   return res
 };
+```
+
+29. Array Wrapper
+
+```ts
+class ArrayWrapper {
+  nums: number[]
+  constructor(nums: number[]) {
+    this.nums = nums
+  }
+  
+  valueOf(): number {
+    return this.nums.reduce((a, b) => a + b, 0)
+  }
+  
+  toString(): string {
+    return JSON.stringify(this.nums)
+  }
+};
+
+/**
+ * const obj1 = new ArrayWrapper([1,2]);
+ * const obj2 = new ArrayWrapper([3,4]);
+ * obj1 + obj2; // 10
+ * String(obj1); // "[1,2]"
+ * String(obj2); // "[3,4]"
+ */
 ```

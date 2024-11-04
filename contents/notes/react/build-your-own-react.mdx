@@ -1,0 +1,146 @@
+---
+title: Build your own react
+category: note
+date: 2024-11-04
+---
+
+## Source
+* [Build Your Own X - Front-end Framework / Library](https://build-your-own-x.vercel.app/#build-your-own-front-end-framework--library)
+* [Build your own React (2019)](https://pomb.us/build-your-own-react/)
+  * [pomber/didact: A DIY guide to build your own React](https://github.com/pomber/didact)
+  * [codesandbox-demo](https://codesandbox.io/p/sandbox/didact-8-21ost?file=%2Fsrc%2Findex.js)
+
+## TODO
+
+- [ ]  **Step IV**: Fibers
+- [ ]  **Step V**: Render and Commit Phases
+- [ ]  **Step VI**: Reconciliation
+- [ ]  **Step VII**: Function Components
+- [ ]  **Step VIII**: Hooks
+
+
+使用[Vite](/notes/vite)建立一個環境測試
+```sh
+pnpm create vite
+
+# build-your-own-react
+# vanillaJS
+```
+
+## Step 0
+```js:main.js
+const element = {
+  type: "h1",
+  props: {
+      title: "foo",
+      children: "Hello1"
+  }
+}
+
+const node = document.createElement(element.type)
+node["title"] = element.props.title
+
+const text = document.createTextNode("")
+text["nodeValue"] = element.props.children
+node.appendChild(text)
+
+const container = document.getElementById('app')
+container.appendChild(node)
+```
+
+## Step I: createElement() 
+## Step II: render()
+
+```js:my-react.js
+const TEXT_ELEMENT = "TEXT ELEMENT";
+
+const createElement = (type, props, ...children) => {
+  return {
+    type,
+    props: {
+      ...props,
+      children: children.map(child => typeof child === "object"
+        ? child : createTextElement(children)
+      )
+    }
+  }
+}
+
+const createTextElement = text => ({
+  type: TEXT_ELEMENT,
+  props: {
+    nodeValue: text,
+    children: []
+  }
+})
+
+const render = (element, container) => {
+  const dom =
+    element.type == TEXT_ELEMENT
+      ? document.createTextNode("")
+      : document.createElement(element.type)
+
+
+  Object.keys(element.props)
+    .filter(key => key !== "children")
+    .forEach(name => {
+      dom[name] = element.props[name]
+    })
+
+  element.props.children.forEach(child =>
+    render(child, dom)
+  )
+
+  container.appendChild(dom)
+}
+
+const MyReact = {
+  createElement,
+  render
+}
+
+export default MyReact
+```
+
+```jsx:main.jsx
+import MyReact from './my-react'
+
+/** @jsx MyReact.createElement */
+const element = (
+  <div style="background: salmon">
+    <h1>Hello World</h1>
+    <h2 style="text-align:right">from Didact</h2>
+  </div>
+)
+
+const container = document.getElementById('app')
+MyReact.render(element, container)
+```
+
+## Step III: Concurrent Mode
+
+```jsx
+const performUnitOfWork = (nextUnitOfWork) => {
+  console.log('performUnitOfWord...')
+}
+
+let nextUnitOfWork = null
+const workLoop = (deadline) => {
+  let shouldYield = false
+  while (nextUnitOfWork && !shouldYield) {
+    nextUnitOfWork = performUnitOfWork(nextUnitOfWork)
+  }
+  shouldYield = deadline.timeRemaining() < 1
+}
+
+requestIdleCallback(workLoop)
+```
+
+之前的`render()`沒辦法中斷，tree很大時會卡住call stack，無法停止render去執行優先性更高的任務。
+
+* [requestIdleCallback - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)
+  * Similar to `setTimeout`,but the difference is the function will be called during a browser's idle periods.
+
+
+
+
