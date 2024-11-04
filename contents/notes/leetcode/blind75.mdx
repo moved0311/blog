@@ -29,6 +29,24 @@ def coinChange(self, coins: List[int], amount: int) -> int:
 # space complexity: O(n)
 # n: amount, m: length of coins
 ```
+```py
+def coinChange(self, coins: List[int], amount: int) -> int:
+  N = len(coins)
+  
+  @cache
+  def f(i, c):
+    if i < 0:
+      return 0 if c == 0 else inf
+    if c < coins[i]:
+      return f(i - 1, c)
+    return min(f(i, c - coins[i]) + 1, f(i - 1, c))
+  
+  ans = f(N - 1, amount)
+  return ans if ans < inf else -1
+```
+
+參考: [0-1背包 完全背包](https://www.bilibili.com/video/BV16Y411v7Y6/?vd_source=dd17785051618d4f071d13ac54fdc780&spm_id_from=333.788.videopod.sections)\
+相關題目: [494](https://leetcode.com/problems/target-sum/description/)
 
 300. Longest Increasing Subsequence
 
