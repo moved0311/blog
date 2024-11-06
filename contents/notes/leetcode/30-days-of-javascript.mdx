@@ -440,6 +440,45 @@ var compactObject = function(obj) {
 };
 ```
 
+28. Event Emitter
+
+```ts
+type Callback = (...args: any[]) => any;
+type Subscription = {
+  unsubscribe: () => void
+}
+
+class EventEmitter {
+  list: {eventName: string, callback: Callback}[]
+
+  constructor() {
+    this.list = []
+  }
+  subscribe(eventName: string, callback: Callback): Subscription {
+    this.list.push({eventName, callback})
+
+    return {
+      unsubscribe: () => {
+        const pos = this.list.findIndex(v => v.callback === callback)
+        this.list.splice(pos, 1)
+        return undefined
+      }
+    };
+  }
+  
+  emit(eventName: string, args: any[] = []): any[] {
+    const res = []
+    this.list?.forEach(subscriber => {
+      if(subscriber.eventName === eventName){
+        res.push(subscriber.callback(...args))
+      }
+    })
+    return res
+  }
+}
+```
+
+
 29. Array Wrapper
 
 ```ts

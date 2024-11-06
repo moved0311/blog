@@ -1,0 +1,39 @@
+---
+title: Reconciliation
+category: note
+date: 2024-11-06
+---
+Reconciliation is the process React uses to efficiently update the DOM by comparing changes in the Virtual DOM and only applying necessary updates to the real DOM.
+
+## Reconciliation Algorithms
+1. Stack Reconciliation (react < 16.8)
+2. Fiber Reconciliation (react >= 16.8)
+
+
+## Fiber Reconciliation
+
+### Why Fiber ?
+1. split work into chunks and prioritize tasks
+2. pause work and come back to it later
+3. reuse work or abort it if it's not needed
+4. Fiber is asynchronous (render phase)
+
+### 2 phases
+1. render phase(asynchronous)
+2. commit phase(synchronous)
+
+
+## Works
+1. Fiber Root會維持兩個樹的結構(current, workInProgress)
+	* current(Browser上目前的樣子)
+	* 在背後的更新會在workInProgress上(render phase)
+2. 當workInProgress更新好後,進入commit phase
+	* Fiber Root會指向workInProgress並更新為current
+	* 原本的current就變為workInProgress
+
+## Reference
+* [Reconciliation](https://17.reactjs.org/docs/reconciliation.html)
+- [What Is React Fiber? React.js Deep Dive #2](https://www.youtube.com/watch?v=0ympFIwQFJw)
+- [React Fiber Reconciliation: How it Works (Part 1) - YouTube](https://www.youtube.com/watch?v=rKk4XJYzSQA)
+- [Inspecting React Fiber Reconciliation: Deep Dive (Part 2) - YouTube](https://www.youtube.com/watch?v=Zan16X8VvGM)
+
