@@ -1,0 +1,42 @@
+---
+title: HTTP Cache
+category: note
+date: 2024-11-08
+---
+
+## Why Cache
+1. Reduce latency
+2. Cut down the bandwidth
+3. Reduced load on the server
+
+## Type
+- Browser Cache
+- Proxy / Reverse Proxy Cache
+
+## Caching Headers
+* caching header
+  * expires
+  * pragma
+  * content-control
+* validator
+  * etag (entity tags)
+  * last-modified
+  * if-none-match
+  * if-modified-since
+
+## Cache-Control
+|||
+|--|--|
+|max-age|content can be cached for given number of seconds|
+|s-maxage|content can be cached at public places for given number of seconds. s: share|
+|private|only cached in the client/browser|
+|public|cache in client/browser and also be cached in the proxies|
+|no-cache|content can be cached but must require validation|
+|no-store|content is not to be cached|
+|must-revalidate||
+|proxy-revalidate||
+
+
+## Reference:
+- [Everything you need to know about HTTP Caching - YouTube](https://www.youtube.com/watch?v=HiBDZgTNpXY)
+- [Remix Run - Introduction to HTTP Caching - YouTube](https://www.youtube.com/watch?v=3XkU_DXcgl0)

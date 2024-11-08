@@ -1,0 +1,34 @@
+---
+title: Puppeteer
+category: note
+date: 2024-11-07
+---
+
+## Document
+- https://pptr.dev/
+
+## Install
+```sh
+pnpm i puppeteer
+```
+
+## Usage
+```js
+const browser = await puppeteer.launch({
+  headless: false,
+});
+const page = await browser.newPage();
+await page.goto("http://localhost:5173");
+
+// find dom element and fill data
+await page.locator("#email").fill("taiyi");
+await page.locator("#password").fill("123");
+
+// click link
+await page.locator("a").click();
+
+// screenshot
+await page.screenshot({ path: "screenshot.png" });
+
+await browser.close();
+```

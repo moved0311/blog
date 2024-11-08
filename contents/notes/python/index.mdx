@@ -84,6 +84,19 @@ a3 b3 c3
 """
 ```
 
+## Search
+### bisect
+```py
+arr = [1, 2, 3, 3, 3, 5, 6]
+
+print(bisect_left(arr, 3)) # 2
+print(bisect_right(arr, 3)) # 5
+
+arr = [1, 2, 3, 5, 6]
+print(bisect_left(arr, 4)) # 3
+print(bisect_right(arr, 4)) # 3
+```
+
 ## Sort
 ```py
 list.sort()
