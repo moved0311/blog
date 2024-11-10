@@ -399,3 +399,43 @@ def isBalanced(self, num: str) -> bool:
       odd += int(num[i])
   return odd == even
 ```
+
+## 423
+Q1(3349). Adjacent Increasing Subarrays Detection I
+```py
+def hasIncreasingSubarrays(self, nums: List[int], k: int) -> bool:
+  n = len(nums)
+  def isIncrease(arr):
+    for i in range(len(arr) - 1):
+      if arr[i] >= arr[i + 1]:
+        return False
+    return True
+  for i in range(n):
+    s1 = nums[i: i + k]
+    s2 = nums[i + k: i + 2 * k]
+    if len(s1) < k or len(s2) < k:
+      break
+    if isIncrease(s1) and isIncrease(s2):
+      return True
+  return False
+```
+
+Q2(3350). Adjacent Increasing Subarrays Detection II
+```py
+def maxIncreasingSubarrays(self, nums: List[int]) -> int:
+  n = len(nums)
+  c = 0
+  res = []
+  for i in range(n):
+    if i + 1 < n and nums[i] < nums[i + 1]:
+      c += 1
+    else:
+      res.append(len(nums[i - c : i + 1]))
+      c = 0
+  ans = 0
+  if len(res) == 1:
+    return res[0] // 2
+  for a, b in pairwise(res):
+    ans = max(ans, min(a, b), max(a, b) // 2)
+  return ans
+```

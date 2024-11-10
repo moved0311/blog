@@ -152,3 +152,22 @@ def maxScore(self, n: int, k: int, stayScore: List[List[int]], travelScore: List
     res = max(res, f(0, i))
   return res
 ```
+
+## 143
+Q1(3345). Smallest Divisible Digit Product I
+
+```py
+def smallestNumber(self, n: int, t: int) -> int:
+  def digit(num):
+    s = 1
+    while num:
+      s *= num % 10
+      num //= 10
+    return s
+
+  i = 0
+  while True:
+    if digit(n + i) % t == 0:
+      return n + i
+    i += 1
+```
