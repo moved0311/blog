@@ -202,3 +202,16 @@ nums = [3,2,1,5]
 
 numsOr = reduce(ior, nums) # 7
 ```
+
+## Others
+
+### Primes
+```py
+PRIMES = []
+for i in range(2, 1001):
+  for j in range(2, i):
+    if not i % j:
+      break
+  else:
+      PRIMES.append(i)
+```

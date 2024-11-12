@@ -1,22 +1,33 @@
-'use client'
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 
-const DarkModeSwitch = () => {
-	const onClick = () => {
-		if (localStorage.theme === 'light') {
-			document.documentElement.classList.add('dark')
-			localStorage.theme = 'dark'
-		} else {
-			document.documentElement.classList.remove('dark')
-			localStorage.theme = 'light'
-		}
-	}
-
-	return (
-		<button onClick={onClick} className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center dark:bg-gray-300">
-			<Image src="/icons/dark-mode.png" width={20} height={20} alt="dark-mode-icon" />
-		</button>
-	)
+enum Mode {
+  LIGHT = 'light',
+  DARK = 'dark' 
 }
 
-export default DarkModeSwitch
+const DarkModeSwitch = () => {
+  const [mode, setMode] = useState(Mode.LIGHT);
+
+  const src = `/icons/${mode}-mode.svg`;
+  const onClick = () => {
+    if (localStorage.theme === Mode.LIGHT) {
+      document.documentElement.classList.add(Mode.DARK);
+      localStorage.theme = Mode.DARK;
+      setMode(Mode.LIGHT);
+    } else {
+      document.documentElement.classList.remove(Mode.DARK);
+      localStorage.theme = Mode.LIGHT;
+      setMode(Mode.DARK);
+    }
+  };
+
+  return (
+    <button onClick={onClick}>
+      <Image src={src} width={20} height={20} alt="mode-icon" priority/>
+    </button>
+  );
+};
+
+export default DarkModeSwitch;
