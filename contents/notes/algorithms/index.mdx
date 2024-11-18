@@ -4,6 +4,27 @@ category: note
 date: 2024-11-03
 ---
 
+## 差分
+例如給一個陣列 `nums = [[3,6],[1,5],[4,7]]`, 包含多組`[start, end]`需要累加在範圍內的值。
+可以使用到差分的特性，可以從原本brute force需要$O(n^2)$時間降為$O(n)$。
+
+```py
+nums = [1, 2, 3, 4, 5]
+diff = [1, 1, 1, 1, 1] 
+# 如果要針對[nums[1], nums[3]]範圍內加1
+# 可以對diff做操作，最後再用累加方式還原
+# 對diff的start(nums[1])做+1, 對end+1(nums[3+1])做-1
+diff = [1, 2, 1, 1, 0]
+# 再做累加還原成原本想要的操作
+acc = [1, 3, 4, 5, 5]
+
+# brute force: O(n^2)
+for i in range(len(nums)):
+  for k in range(start, end + 1):
+	  if start <= i <= end:
+		  nums[i] += 1
+```
+
 ## Graph
 
 ### Dijkstra
