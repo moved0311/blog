@@ -1,16 +1,17 @@
 ---
 title: Algorithms
 category: note
-date: 2024-11-03
+date: 2024-11-18
 ---
 
 ## 差分
+
 例如給一個陣列 `nums = [[3,6],[1,5],[4,7]]`, 包含多組`[start, end]`需要累加在範圍內的值。
 可以使用到差分的特性，可以從原本brute force需要$O(n^2)$時間降為$O(n)$。
 
 ```py
 nums = [1, 2, 3, 4, 5]
-diff = [1, 1, 1, 1, 1] 
+diff = [1, 1, 1, 1, 1]
 # 如果要針對[nums[1], nums[3]]範圍內加1
 # 可以對diff做操作，最後再用累加方式還原
 # 對diff的start(nums[1])做+1, 對end+1(nums[3+1])做-1
@@ -28,6 +29,7 @@ for i in range(len(nums)):
 ## Graph
 
 ### Dijkstra
+
 ```py
 def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
 	edges = defaultdict(list)
