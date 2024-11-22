@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import cx from "classnames";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "@/styles/prism-plus.css";
-import "@/styles/prism-vsc-dark-plus.css"
+import "@/styles/prism-vsc-dark-plus.css";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,7 +16,11 @@ export const metadata: Metadata = {
   icons: { icon: { url: "/favicon.svg" } },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="zh-tw" className="dark">
       <head>
@@ -27,11 +31,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
         />
       </head>
-      <body className={cx(inter.className, "mx-auto max-w-3xl px-4 pb-8 lg:px-0 dark:bg-[#0d1117]")}>
+      <body
+        className={cx(
+          inter.className,
+          "mx-auto max-w-3xl px-4 pb-8 lg:px-0 dark:bg-[#0d1117]",
+        )}
+      >
         <Header />
         {children}
       </body>
-      <GoogleAnalytics gaId="G-P6ZZ0ZGEV8" />
+      <GoogleAnalytics gaId={String(process.env.GA4)} />
     </html>
   );
 }
