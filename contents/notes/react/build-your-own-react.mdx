@@ -5,13 +5,14 @@ date: 2024-11-04
 ---
 
 ## Source
-* [Build Your Own X - Front-end Framework / Library](https://build-your-own-x.vercel.app/#build-your-own-front-end-framework--library)
-* [Build your own React (2019)](https://pomb.us/build-your-own-react/)
-  * [pomber/didact: A DIY guide to build your own React](https://github.com/pomber/didact)
-  * [didact-codesandbox](https://codesandbox.io/p/sandbox/didact-8-21ost?file=%2Fsrc%2Findex.js)
 
+- [Build Your Own X - Front-end Framework / Library](https://build-your-own-x.vercel.app/#build-your-own-front-end-framework--library)
+- [Build your own React (2019)](https://pomb.us/build-your-own-react/)
+  - [pomber/didact: A DIY guide to build your own React](https://github.com/pomber/didact)
+  - [didact-codesandbox](https://codesandbox.io/p/sandbox/didact-8-21ost?file=%2Fsrc%2Findex.js)
 
 使用[Vite](/notes/vite)建立一個環境測試
+
 ```sh
 pnpm create vite
 
@@ -20,6 +21,7 @@ pnpm create vite
 ```
 
 ## Step 0
+
 ```js:main.js
 const element = {
   type: "h1",
@@ -40,7 +42,8 @@ const container = document.getElementById('app')
 container.appendChild(node)
 ```
 
-## Step I: createElement() 
+## Step I: createElement()
+
 ## Step II: render()
 
 ```js:my-react.js
@@ -97,7 +100,7 @@ export default MyReact
 ```jsx:main.jsx
 import MyReact from './my-react'
 
-/** @jsx MyReact.createElement */
+/* @jsx MyReact.createElement */
 const element = (
   <div style="background: salmon">
     <h1>Hello World</h1>
@@ -109,35 +112,38 @@ const container = document.getElementById('app')
 MyReact.render(element, container)
 ```
 
+為什麼加上註解 `/* @jsx MyReact.createElement */` 就可以將jsx轉換成vdom? \
+這種註解稱為**jsx pragma**, 讓transpiler知道每個jsx需要執行MyReact.createElement
+
+參考: [WTF is JSX](https://jasonformat.com/wtf-is-jsx/)
+
 ## Step III: Concurrent Mode
 
 ```jsx
 const performUnitOfWork = (nextUnitOfWork) => {
-  console.log('performUnitOfWord...')
-}
+  console.log("performUnitOfWord...");
+};
 
-let nextUnitOfWork = null
+let nextUnitOfWork = null;
 const workLoop = (deadline) => {
-  let shouldYield = false
+  let shouldYield = false;
   while (nextUnitOfWork && !shouldYield) {
-    nextUnitOfWork = performUnitOfWork(nextUnitOfWork)
+    nextUnitOfWork = performUnitOfWork(nextUnitOfWork);
   }
-  shouldYield = deadline.timeRemaining() < 1
-}
+  shouldYield = deadline.timeRemaining() < 1;
+};
 
-requestIdleCallback(workLoop)
+requestIdleCallback(workLoop);
 ```
 
 之前的`render()`沒辦法中斷，tree很大時會卡住call stack，無法停止render去執行優先性更高的任務。
 
-* [requestIdleCallback - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)
-  * Similar to `setTimeout`,but the difference is the function will be called during a browser's idle periods.
+- [requestIdleCallback - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback)
+  - Similar to `setTimeout`,but the difference is the function will be called during a browser's idle periods.
 
 ## Step IV - VIII
+
 - [didact-codesandbox](https://codesandbox.io/p/sandbox/didact-8-21ost?file=%2Fsrc%2Findex.js)
 - [didact/didact.js](https://github.com/pomber/didact/blob/master/didact.js)
 
 ![build-you-own-react.png](/images/build-you-own-react.png)
-
-
-
