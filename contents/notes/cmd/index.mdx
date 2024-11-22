@@ -4,31 +4,48 @@ category: note
 date: 2024-09-05
 ---
 
+## Move
+
+- `cd -` : go to previous directory
+
+## Type
+- `C-u` : delete all line 
+- `C-w` : delete word
+
 ## Search
 
+- ctrl + r `type keyword to search history command`
+- `!nvim <tab>`
+- `!! <Enter>`
+
+
+
+## Kill process running port
+
+```sh
+lsof -i:3000
+kill <PID>
+```
+
+## 目錄大小
+
+```sh
+du -sh <path>
+```
+
+## Library
 ### ripgrep
 
 `brew install ripgrep`
 
 usage:
 
-```
+```sh
 rg <word>
 ```
 
-### ctrl + r 
-type keyword to search history command
 
 
-## Kill process running port
+## Reference
 
-```
-lsof -i:3000
-kill <PID>
-```
-
-## 目錄大小
-```sh
-du -sh <path>
-```
-
+- [The Zsh Shell Tricks I Wish I'd Known Earlier: Boost Terminal Productivity - YouTube](https://www.youtube.com/watch?v=45Yiq2q_hMA)
