@@ -61,7 +61,9 @@ const Stopwatch = () => {
       { end: now, duration: time, title: inputRef.current?.value },
     ]);
     onReset();
-    if (inputRef.current) inputRef.current.value = "";
+    setTimeout(() => {
+      if (inputRef.current) inputRef.current.value = "";
+    }, 0);
   };
 
   return (
@@ -103,7 +105,7 @@ const Records = memo(({ records }: { records: Record[] }) => {
     return format;
   };
 
-  Records.displayName = 'Records'
+  Records.displayName = "Records";
 
   return (
     <ul className="mt-3 text-lg">
