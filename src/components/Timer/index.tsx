@@ -103,6 +103,8 @@ const Records = memo(({ records }: { records: Record[] }) => {
     return format;
   };
 
+  Records.displayName = 'Records'
+
   return (
     <ul className="mt-3 text-lg">
       {records.map(({ title, end, duration }) => (
