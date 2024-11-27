@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "@/components/Header";
 import cx from "classnames";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
@@ -37,7 +36,6 @@ export default function RootLayout({
           "mx-auto max-w-3xl px-4 pb-8 lg:px-0 dark:bg-[#0d1117]",
         )}
       >
-        <Header />
         {children}
       </body>
       <GoogleAnalytics gaId={String(process.env.GA4)} />
