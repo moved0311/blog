@@ -31,26 +31,35 @@ for i in range(len(nums)):
 ## Graph
 
 ### Dijkstra
+- 解決問題: 從0到n-1的最短路徑
+- 步驟
+  1. 將原點加到minheap中
+  2. 每次從minheap中拿出cost最小的節點A
+  3. 將節點A可接觸到的節點B, C, D...分別計算新的cost後(cost + new edge weight)，放回minheap中
+  4. 當到達n-1節點後返回cost
+
 
 ```py
-def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-  edges = defaultdict(list)
-  for [s, d, w] in times:
-    edges[s].append((d, w))
-
+def dijkstra():
+  heap = [(0, 0, 0)] # cost, row, col
   visited = set()
-  ans = 0
-  minHeap = [(0, k)]
 
-  while minHeap:
-    (w1, n1) = heapq.heappop(minHeap)
-    if n1 in visited:
+  while heap:
+    cost, r, c = heapq.heappop(heap)
+
+    # reach end
+    if r = ROW - 1 and c = COL - 1:
+      return cost
+
+    if (r, c) in visited:
       continue
-    ans = max(ans, w1)
-    visited.add(n1)
 
-    for (n2, w2) in edges[n1]:
-      if n2 not in visited:
-        heapq.heappush(minHeap, (w1 + w2, n2))
-  return ans if len(visited) == n else -1
+    # logic
+    heapq.headpush(heap, (newCost, r, c))
+
+    # add to visited
+    visited.add((r, c))
 ```
+
+- [Dijkstra algorithm | Single source shortest path algorithm - YouTube](https://www.youtube.com/watch?v=Sj5Z-jaE2x0)
+- 相關題目: [2290. Minimum Obstacle Removal to Reach Corner](https://leetcode.com/problems/minimum-obstacle-removal-to-reach-corner/description/)
