@@ -4,8 +4,8 @@ import { useState, useRef, useEffect, memo } from "react";
 import Image from "next/image";
 
 import Play from "/public/icons/play.svg";
-import Restart from "/public/icons/restart.svg";
 import Stop from "/public/icons/stop.svg";
+import Pause from "/public/icons/pause.svg";
 import Record from "/public/icons/record.svg";
 
 type Record = { end: number; duration: number; title?: string };
@@ -66,19 +66,39 @@ const Stopwatch = () => {
     }, 0);
   };
 
+  // let compositionType: string | undefined = undefined;
+  const [isCompositionEnd, setIsCompositionEnd] = useState(false);
+  const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const key = event.key;
+    if (key === "Enter" && isCompositionEnd) {
+      onRecord();
+    }
+  };
+
+  const onComposition = (event: React.KeyboardEvent) => {
+    if (event.type === "compositionend") {
+      setIsCompositionEnd(true);
+    } else if (event.type === "compositionstart") {
+      setIsCompositionEnd(false);
+    }
+  };
+
   return (
     <div className="mt-4">
       <div className="flex items-center">
         <div className="text-[32px] w-[150px]">{formatTime(time)}</div>
         <div className="flex items-center gap-2">
-          <button onClick={onStart}>
-            <Image src={Play} alt="play-icon" />
-          </button>
-          <button onClick={onStop}>
-            <Image src={Stop} alt="stop-icon" />
-          </button>
+          {isRunning ? (
+            <button onClick={onStop}>
+              <Image src={Pause} alt="pause-icon" />
+            </button>
+          ) : (
+            <button onClick={onStart}>
+              <Image src={Play} alt="play-icon" />
+            </button>
+          )}
           <button onClick={onReset}>
-            <Image src={Restart} alt="restart-icon" />
+            <Image src={Stop} alt="stop-icon" />
           </button>
           <button onClick={onRecord}>
             <Image src={Record} alt="record-icon" />
@@ -86,6 +106,9 @@ const Stopwatch = () => {
         </div>
         <input
           ref={inputRef}
+          onCompositionStart={onComposition}
+          onCompositionEnd={onComposition}
+          onKeyDown={onKeyDown}
           className="ml-4 w-[100px] h-6 bg-transparent text-white text-sm px-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
         />
       </div>
