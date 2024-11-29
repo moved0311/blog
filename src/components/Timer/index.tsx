@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, memo } from "react";
+import type { CompositionEvent } from "react";
 import Image from "next/image";
 
 import Play from "/public/icons/play.svg";
@@ -75,7 +76,7 @@ const Stopwatch = () => {
     }
   };
 
-  const onComposition = (event: React.KeyboardEvent) => {
+  const onComposition = (event: CompositionEvent<HTMLInputElement>) => {
     if (event.type === "compositionend") {
       setIsCompositionEnd(true);
     } else if (event.type === "compositionstart") {
