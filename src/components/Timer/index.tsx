@@ -65,14 +65,17 @@ const Stopwatch = () => {
     setTimeout(() => {
       if (inputRef.current) inputRef.current.value = "";
     }, 0);
+
   };
 
-  // let compositionType: string | undefined = undefined;
-  const [isCompositionEnd, setIsCompositionEnd] = useState(false);
+  const [isCompositionEnd, setIsCompositionEnd] = useState(true);
   const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const key = event.key;
     if (key === "Enter" && isCompositionEnd) {
       onRecord();
+    }
+    if (key === "Enter" && !isRunning) {
+      onStart()
     }
   };
 

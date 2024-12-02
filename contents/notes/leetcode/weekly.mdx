@@ -464,3 +464,42 @@ def countValidSelections(self, nums: List[int]) -> int:
         ans += 1
   return ans
 ```
+
+## 426
+Q1(3370). Smallest Number With All Set Bits
+
+```py
+def smallestNumber(self, n: int) -> int:
+  N = (n).bit_length()
+  ans = 0
+  for i in range(N):
+    ans = (ans << 1) | 1
+      
+  return ans
+```
+```py
+def smallestNumber(self, n: int) -> int:
+  N = (n).bit_length()
+  return (1 << N) - 1
+```
+
+Q2(3371). Identify the Largest Outlier in an Array
+```py
+def getLargestOutlier(self, nums: List[int]) -> int:
+  N = len(nums)
+  cnt = Counter(nums)
+  total = sum(nums)
+  outlier = -inf
+
+  for n in nums:
+    cnt[n] -= 1
+    remain = total - n
+    # if remove n
+    # n, [t, ...rest] and sum(rest) == t
+    # n, [t, t]
+    if remain % 2 == 0:
+      half = remain / 2
+      if half in cnt and cnt[half] > 0:
+        outlier = max(outlier, n)
+    cnt[n] += 1
+```
