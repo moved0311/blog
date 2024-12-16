@@ -503,3 +503,34 @@ def getLargestOutlier(self, nums: List[int]) -> int:
         outlier = max(outlier, n)
     cnt[n] += 1
 ```
+
+## 427
+
+Q1(3379). Transformed Array
+
+```py
+def constructTransformedArray(self, nums: List[int]) -> List[int]:
+  ans = []
+  N = len(nums)
+  for i in range(N):
+    n = nums[i]
+    pos = (i + n) % N
+    ans.append(nums[pos])
+  return ans
+```
+
+## 428
+
+Q1(3386). Button with Longest Push Time
+
+```py
+def buttonWithLongestTime(self, events: List[List[int]]) -> int:
+  key, time = events[0]
+
+  for [k1, t1], [k2, t2] in pairwise(events):
+    diff = t2 - t1
+    if (diff > time) or (diff == time and k2 < key):
+      key = k2
+      time = diff
+    return key
+```
