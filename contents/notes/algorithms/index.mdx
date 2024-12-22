@@ -73,13 +73,33 @@ def dijkstra():
   - 所有節點的indegree都是偶數
 - Hierholzer's algorithm
   1. build adj, indegree, outdegree
+    ```py
+    adj = defaultdict(list)
+    indegree = defaultdict(int)
+    outdegree = defaultdict(int)
+
+    for u, v in pairs:
+      adj[u].append(v)
+      indegree[v] += 1
+      outdegree[u] += 1
+    ```
   2. find start node
     - 如果 outdegree[i] - indegree[i] == 1 只能由i作為start node
     - 其他任何outdegree > 0都可以作為start node
+  ```py
+  startNode = None
+  for node in outdegree:
+    if outdegree[node] - indegree[node] == 1:
+      startNode = node
+      break
+    if outdegree[node] > 0:
+      startNode = node
+  ```
   3. 使用dfs建立eulerian path(順序會是反的)
     - 從start node i開始，outdegree[i] -= 1，找到相鄰node adj[i][outdegree[i]]
     - 遇到outdegree[i]為0時，將i加入到eulerian path
     ```py
+    eulerian_path = []
     def dfs(node, eulerian_path):
       while outdegree[node] > 0:
         outdegree[node] -= 1

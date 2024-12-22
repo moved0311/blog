@@ -234,3 +234,39 @@ def minOperations(self, nums: List[int], k: int) -> int:
   nums = set(nums)
   return len(nums) - 1 if min(nums) == k else len(nums)
 ```
+
+## 146
+
+Q1(3392). Count Subarrays of Length Three With a Condition
+```py
+def countSubarrays(self, nums: List[int]) -> int:
+  ans = 0
+
+  for i in range(len(nums) - 2):
+    if nums[i + 1] == 2 * (nums[i] + nums[i + 2]):
+      ans += 1
+  return ans
+```
+
+Q2(3393). Count Paths With the Given XOR Value
+
+```py
+def countPathsWithXorValue(self, grid: List[List[int]], k: int) -> int:
+  ROW = len(grid)
+  COL = len(grid[0])
+  MOD = 10 ** 9 + 7
+
+  @cache
+  def dfs(i, j, v):
+    if i >= ROW or j >= COL:
+      return 0
+    v ^= grid[i][j]
+
+    if i == ROW - 1 and j == COL - 1:
+      if v == k:
+        return 1
+      return 0
+    return (dfs(i + 1, j, v) + dfs(i, j + 1, v)) % MOD
+
+  return dfs(0, 0, 0) % MOD
+```

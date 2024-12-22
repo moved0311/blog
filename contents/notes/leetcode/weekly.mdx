@@ -534,3 +534,55 @@ def buttonWithLongestTime(self, events: List[List[int]]) -> int:
       time = diff
     return key
 ```
+
+## 429
+
+Q1(3396) Minimum Number of Operations to Make Elements in Array Distinct
+
+```py
+def minimumOperations(self, nums: List[int]) -> int:
+  ans = 0
+
+  if len(set(nums)) == len(nums):
+    return ans
+
+  while len(set(nums)) < len(nums) and len(nums) > 0:
+    if len(nums) < 3:
+      nums = []
+    else:
+      nums = nums[3:]
+    ans += 1
+  return ans
+```
+
+Q2(3397). Maximum Number of Distinct Elements After Operations
+
+```py
+def maxDistinctElements(self, nums: List[int], k: int) -> int:
+  nums.sort()
+  cnt = []
+
+  for v in nums:
+    if cnt:
+      if cnt[-1] >= v + k:
+        continue
+      else:
+        cnt.append(max(cnt[-1] + 1, v - k))
+    else:
+      cnt.append(v - k)
+
+  return len(cnt)
+```
+
+```py
+# O(n^2) TLE
+def maxDistinctElements(self, nums: List[int], k: int) -> int:
+  cnt = defaultdict(int)
+  nums.sort()
+  for n in nums:
+    for i in range(n - k, n + k + 1):
+      if i not in cnt:
+        cnt[i] += 1
+        break
+  return min(len(cnt), len(nums))
+```
