@@ -270,3 +270,49 @@ def countPathsWithXorValue(self, grid: List[List[int]], k: int) -> int:
 
   return dfs(0, 0, 0) % MOD
 ```
+
+## 147
+Q1(3407). Substring Matching Pattern
+```py
+def hasMatch(self, s: str, p: str) -> bool:
+  [l, r] = p.split('*')
+
+  l_index = s.find(l)
+  r_index = s.find(r, l_index + len(l))
+
+  if l_index == -1 or r_index == -1:
+    return False
+  
+  return l_index < r_index or (p.replace('*', '') in s)
+```
+
+## 148
+Q1(3423). Maximum Difference Between Adjacent Elements in a Circular Array
+```py
+def maxAdjacentDistance(self, nums: List[int]) -> int:
+  ans = abs(nums[0] - nums[-1])
+
+  for i in range(len(nums) - 1):
+    ans = max(ans, abs(nums[i] - nums[i + 1]))
+
+  return ans
+```
+
+Q2(3424). Minimum Cost to Make Arrays Identical
+```py
+def minCost(self, arr: List[int], brr: List[int], k: int) -> int:
+  ans = 0
+
+  for a, b in zip(arr, brr):
+    ans += abs(a - b)
+  
+  arr.sort()
+  brr.sort()
+
+  diff = k
+  for a, b in zip(arr, brr):
+    diff += abs(a - b)
+  ans = min(ans, diff) 
+
+  return ans
+```

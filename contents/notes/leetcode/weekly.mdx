@@ -582,3 +582,80 @@ def maxDistinctElements(self, nums: List[int], k: int) -> int:
         break
   return min(len(cnt), len(nums))
 ```
+
+## 431
+
+Q1(3411). Maximum Subarray With Equal Products
+```py
+def maxLength(self, nums: List[int]) -> int:
+  ans = 0
+
+  for i in range(len(nums)):
+    for j in range(i, len(nums)):
+      sub = nums[i: j + 1]
+      gcd_sub = reduce(lambda x,y:gcd(x,y),sub)
+      lcm_sub = reduce(lambda x,y:lcm(x,y),sub)
+      if prod(sub) == gcd_sub * lcm_sub:
+        ans = max(ans, j - i + 1)
+
+  return ans
+```
+
+Q2(3412). Find Mirror Score of a String
+```py
+def calculateScore(self, s: str) -> int:
+  marks = defaultdict(list)
+  score = 0
+
+  for i in range(len(s)):
+    index = ord(s[i]) - ord('a')
+    mirror = 25 - index
+    
+    if mirror in marks and len(marks[mirror]):
+      score += i - marks[mirror].pop()
+    else:
+      marks[index].append(i)
+  return score
+```
+
+## 432.
+
+Q1(3417). Zigzag Grid Traversal With Skip
+```py
+def zigzagTraversal(self, grid: List[List[int]]) -> List[int]:
+  ans = []
+  R = len(grid)
+  C = len(grid[0])
+  
+  for i in range(R):
+    colRange = range(C) if i % 2 == 0 else range(C - 1, -1, -1)
+    for j in colRange:
+      if (i + j) % 2 == 0:
+        ans.append(grid[i][j])
+  return ans
+```
+
+Q2(3418). Maximum Amount of Money Robot Can Earn
+```py
+def maximumAmount(self, coins: List[List[int]]) -> int:
+  R = len(coins)
+  C = len(coins[0])
+
+  @cache
+  def dfs(i, j, magic):
+    if (i, j) in ((R, C - 1), (R - 1, C)):
+      return 0
+    if i == R or C == j:
+      return -inf
+        
+    v = coins[i][j]
+
+    value = v + max(dfs(i, j + 1, magic), dfs(i + 1, j, magic))
+    if magic > 0:
+      magic_value = max(dfs(i, j + 1, magic - 1), dfs(i + 1, j, magic - 1))
+      value = max(value, magic_value)
+        
+    return value
+
+  return dfs(0, 0, 2)
+```
