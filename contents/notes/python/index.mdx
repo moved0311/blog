@@ -271,7 +271,7 @@ nums = [3,2,1,5]
 numsOr = reduce(ior, nums) # 7
 ```
 
-## Others
+## Templates
 
 ### Primes
 
@@ -283,4 +283,26 @@ for i in range(2, 1001):
       break
   else:
       PRIMES.append(i)
+```
+
+## Combination
+```py
+MOD = 10**9 + 7
+MX = 10**5
+
+# fac[i] = i!
+fac = [0] * MX
+fac[0] = 1
+for i in range(1, MX):
+  fac[i] = fac[i - 1] * i % MOD
+
+# inv_f[i] = 1/i!
+inv_f = [0] * MX  
+inv_f[-1] = pow(fac[-1], -1, MOD)
+for i in range(MX - 1, 0, -1):
+  inv_f[i - 1] = inv_f[i] * i % MOD
+
+# n取m
+def comb(n: int, m: int) -> int:
+  return fac[n] * inv_f[m] * inv_f[n - m] % MOD if 0 <= m <= n else 0
 ```
