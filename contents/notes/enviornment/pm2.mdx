@@ -1,0 +1,23 @@
+---
+title: pm2
+category: note
+date: 2025-02-20
+---
+
+## Basic
+```sh
+pm2 ls
+pm2 stop <id>
+pm2 delete <id>
+```
+
+## Start
+```sh
+pm2 start pnpm --name <project-name> -- <scripts>
+# pnpm start pnpm --name frontend -- start
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 2  │ frontend           │ fork     │ 0    │ online    │ 0%       │ 69.9mb   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+```

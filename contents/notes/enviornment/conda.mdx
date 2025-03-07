@@ -1,0 +1,28 @@
+---
+title: Anaconda
+category: note
+date: 2025-01-20
+---
+
+目的: 管理不同版本開發環境，例如不同版本的python，可以為每一個版本開一個虛擬環境。
+
+```sh
+conda -V # conda 24.9.2
+```
+
+```sh
+conda env list 
+
+# conda environments:
+base                  *  /home/ubuntu/anaconda3
+py310                    /home/ubuntu/anaconda3/envs/py310
+```
+
+```sh
+source activate py310  # switch to py310 env
+conda deactivate       # go back to base
+```
+
+```sh
+conda list # list all packages
+```
