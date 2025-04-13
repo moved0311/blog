@@ -29,6 +29,8 @@ chr(98) # b
 "hello".index("world") # exception substring not found
 "hello".find("hel") # 0
 "hello".find("world") # -1
+
+"123".zfill(5) # 00123
 ```
 
 ## Bit
@@ -166,6 +168,13 @@ def cmp(a, b):
   return a.bit_length() - b.bit_length()
 
 nums.sort(key=cmp_to_key(cmp))
+```
+
+排序字串
+```py
+s = "54321"
+sorted(s) # ['1', '2', '3', '4', '5']
+''.join(sorted(s)) # '12345'
 ```
 
 ## Data Structure
@@ -328,6 +337,11 @@ for i in range(MX - 1, 0, -1):
 # n取m
 def comb(n: int, m: int) -> int:
   return fac[n] * inv_f[m] * inv_f[n - m] % MOD if 0 <= m <= n else 0
+```
+
+預先計算階層
+```py
+fac = [factorial(i) for i in range(n + 1)]
 ```
 
 ## Union Find
