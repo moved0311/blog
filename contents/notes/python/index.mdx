@@ -189,6 +189,11 @@ b.extend([4, 5, 6])
 b # [1, 2, 3, 4, 5, 6]
 ```
 
+```py
+stacks = [[0, 1], [2], [], []]
+sorted(chain.from_iterable(stacks)) # [0, 1, 2]
+```
+
 ### 2d Array
 ```py
 # M * N
@@ -339,9 +344,31 @@ def comb(n: int, m: int) -> int:
   return fac[n] * inv_f[m] * inv_f[n - m] % MOD if 0 <= m <= n else 0
 ```
 
+* math.comb(n, k) 
+
+
 預先計算階層
 ```py
 fac = [factorial(i) for i in range(n + 1)]
+```
+
+### 矩陣運算
+```py
+MOD = 10**9 + 7
+# 矩陣乘法
+def mul(a: List[List[int]], b: List[List[int]]) -> List[List[int]]:
+    return [[sum(x * y for x, y in zip(row, col)) % MOD for col in zip(*b)]
+            for row in a]
+
+# a^n @ f0 (@: 矩陣乘法)
+def pow_mul(a: List[List[int]], n: int, f0: List[List[int]]) -> List[List[int]]:
+    res = f0
+    while n:
+        if n & 1:
+            res = mul(a, res)
+        a = mul(a, a)
+        n >>= 1
+    return res
 ```
 
 ## Union Find

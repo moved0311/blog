@@ -4,6 +4,7 @@ import { Post } from "contentlayer/generated";
 
 const PostCard = (post: Post) => {
   const tags = post.tags || [];
+  const lastUpdate = post.lastUpdate
 
   return (
     <div className="mb-8">
@@ -17,7 +18,7 @@ const PostCard = (post: Post) => {
       </h2>
       <div className="flex items-center">
         <time dateTime={post.date} className="block text-sm text-slate-500">
-          {format(parseISO(post.date), "LLLL d, yyyy")}
+          {lastUpdate ? format(parseISO(lastUpdate), "LLLL d, yyyy") : format(parseISO(post.date), "LLLL d, yyyy")}
         </time>
         <ul className="list-none flex items-center gap-1 ml-2 font-medium">
           {tags.map((tag) => (
