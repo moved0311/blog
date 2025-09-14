@@ -33,7 +33,7 @@ const Page = ({ params }: PageProps) => {
 
   if (!post) notFound();
 
-  const { title, date, body } = post;
+  const { title, date, body, lastUpdate } = post;
 
   const MDXContent = useMDXComponent(body.code);
 
@@ -42,6 +42,7 @@ const Page = ({ params }: PageProps) => {
       <div className="mb-8">
         <time dateTime={date} className="mb-1 text-xs text-gray-500">
           {format(parseISO(date), "LLLL d, yyyy")}
+          {lastUpdate ? `  (Last update: ${format(parseISO(lastUpdate), "LLLL d, yyyy")})` : ''}
         </time>
         <h1 className="text-3xl font-bold dark:text-white">{title}</h1>
       </div>

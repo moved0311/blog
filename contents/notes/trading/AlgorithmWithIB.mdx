@@ -1,0 +1,416 @@
+---
+title: Algorithmic Trading with Interactive Brokers
+category: note
+date: 2025-09-08
+---
+
+## 文件連結
+- [Option名詞解釋](/notes/trading/glossary)
+- API文件
+	- [TWS API Documentation | IBKR API | IBKR Campus](https://ibkrcampus.com/campus/ibkr-api-page/twsapi-doc/#api-introduction)
+	- [Python TWS API | Trading Course | Traders' Academy](https://www.interactivebrokers.com/campus/trading-course/python-tws-api/)
+- 下載TWS(Trader Workstation)
+	- [Download TWS Stable | Interactive Brokers LLC](https://www.interactivebrokers.com/en/index.php?f=16042)
+- 下載TWS API
+	- [TWS API Download (ibapi)](https://interactivebrokers.github.io/#)
+
+## CH2
+介紹下單種類 / 債券
+
+## CH3 Options
+premium / exercise / expiration / assignment
+
+#### Moneyness
+	- out of the money(OTM)
+	- at the money(ATM)
+	- in the money(ITM)
+
+#### Option value
+- intrinsic value
+- time value
+	- historical volatility(HV)
+	- implied volatility(IV)
+
+#### [Greeks](/notes/trading/greeks)
+
+## Ch4 Option Trading Strategies
+- Covered calls
+- Protective puts
+- Spreads
+	- Vertical spreads
+	- Horizontal spreads
+	- Diagonal spreads
+- Delta Neutral Strategies
+	- Straddles
+	- Strangles
+- Advanced Spreads
+	- Butterfly spreads
+	- Iron Butterfly spreads
+	- Condors Spreads and Iron Condor Spreads
+	- Box Spread
+	- Ratio Spreads
+
+## Ch5 Trading Futures Contracts
+Codes for futures contracts expiration months
+- Jan: F
+- Feb: G
+- Mar: H
+- Apr: J
+- May: K
+- Jun: M
+- Jul: N
+- Aug: Q
+- Sep: U
+- Oct: V
+- Nov: X
+- Dec: Z
+
+## Ch6 Fundamental Classes of the TWS API
+在 TWS/Gateway 中啟用 API 連接:
+- TWS: 前往 "File" -> "Global Configuration" -> "API" -> "Settings"。
+	勾選 "Enable ActiveX and Socket Clients"。
+- Gateway: 設定方式類似。
+
+TWS/Gateway 的 API 連接埠號 (port)。
+- TWS: 7496 (正式帳戶), 7497 (模擬帳戶)
+- Gateway: 4001 (正式帳戶), 4002 (模擬帳戶)
+
+Simple Client Example
+
+```py
+from ibapi.client import EClient
+from ibapi.wrapper import EWrapper
+from ibapi.utils import iswrapper
+from threading import Thread
+import time
+from datetime import datetime
+
+class SimpleClient(EWrapper, EClient):
+	def __init__ (self, addr, port, client_id):
+		EWrapper.__init__(self)
+		EClient.__init__(self, self)
+		# Connect to TWS
+		self.connect(addr, port, client_id)
+		# Launch the client thread
+		thread = Thread(target=self.run, daemon=True)
+		thread.start()
+	
+	@iswrapper
+	def currentTime(self, cur_time):
+		t = datetime.fromtimestamp(cur_time)
+		print('Current time: {}'.format(t))
+			
+	@iswrapper
+	def error(self, req_id, code, msg, advancedOrderReject=""):
+		if code in (2104, 2106, 2158):
+			print(f"Info: {msg}")
+		else:
+			print(f"Error. Id: {req_id}, Code: {code}, Msg: {msg}")
+        
+def main():
+	client = SimpleClient('127.0.0.1', 7497, 1)
+	client.reqCurrentTime()
+	time.sleep(1)
+	if client.isConnected():
+		client.disconnect()
+
+if __name__ == "__main__":
+    main()
+
+"""
+Current time: 2025-09-09 10:46:02
+Info: Market data farm connection is OK:usfarm.nj
+Info: Market data farm connection is OK:usfuture
+Info: Market data farm connection is OK:usopt.nj
+Info: Market data farm connection is OK:cashfarm
+Info: Market data farm connection is OK:usfarm
+Info: HMDS data farm connection is OK:ushmds
+Info: Sec-def data farm connection is OK:secdefnj
+"""
+```
+
+## Ch7 Contracts and Orders
+#### fields of a contract
+- symbol
+- secType: contract's type
+	- STK: stock / BOND: bond / IND: index / FUND: mutual fund / OPT: option / FUT: future / WAR: warrant / FOP: futures option / CASH: forex pair / CMDTY: commodity / NEWS: news / BAG: combo
+- currency: Currency in which the contract is traded (eg. USD)
+- exchange: Exchange through which the contract can be accessed (eg. SMART)
+	- ISLAND: NASDAQ / NYSE: New York Stock Exchange , ...
+
+
+contract reader example
+```py
+class ContractReader(EWrapper, EClient):
+	def __init__(self, addr, port, client_id):
+		EWrapper.__init__(self)
+		EClient.__init__(self, self)
+		self.connect(addr, port, client_id)
+		self.symbol = None
+		thread = Thread(target=self.run, daemon=True)
+		thread.start()
+
+	@iswrapper
+	def symbolSamples(self, reqId, descs):
+		print('Number of descriptions: {}'.format(len(descs)))
+		for desc in descs:
+			print('Symbol: {}'.format(desc.contract.symbol))
+		if descs:
+			self.symbol = descs[0].contract.symbol
+
+	@iswrapper
+	def contractDetails(self, reqId, details):
+		print('Long name: {}'.format(details.longName))
+		print('Category: {}'.format(details.category))
+		print('Subcategory: {}'.format(details.subcategory))
+		print('Contract ID: {}\n'.format(details.contract.conId))
+
+	@iswrapper
+	def contractDetailsEnd(self, reqId):
+		print('The End')
+
+	@iswrapper
+	def error(self, req_id, code, msg, advancedOrderReject=""):
+		# 過濾掉非真正的錯誤
+		if code in (2104, 2106, 2158):
+			print(f"Info: {msg}")
+		else:
+			print(f"Error. Id: {req_id}, Code: {code}, Msg: {msg}")
+
+def main():
+	client = ContractReader('127.0.0.1', 7497, 1)
+	time.sleep(1)
+	# Request descriptions of contracts related to cheesecake
+	client.reqMatchingSymbols(0, 'Cheesecake')
+	time.sleep(3)
+
+	# Request details for the stock (先檢查 symbol 是否有找到)
+	if client.symbol:
+		contract = Contract()
+		contract.symbol = client.symbol
+		contract.secType = "OPT" # 選擇權
+		contract.exchange = "SMART"
+		contract.currency = "USD"
+		client.reqContractDetails(1, contract)
+		time.sleep(3)
+
+	client.disconnect()
+
+if __name__ == "__main__":
+	main()
+
+"""
+Info: Market data farm connection is OK:usfarm.nj
+Info: Market data farm connection is OK:usfuture
+Info: Market data farm connection is OK:usopt.nj
+Info: Market data farm connection is OK:cashfarm
+Info: Market data farm connection is OK:usfarm
+Info: HMDS data farm connection is OK:ushmds
+Info: Sec-def data farm connection is OK:secdefnj
+Number of descriptions: 3
+Symbol: CAKE
+Symbol: CF2
+Symbol: CAKE
+"""
+```
+
+Order fields
+- action: "BUY" or "SELL"
+- totalQuantity: The quantity to be bought or sold
+- orderType: The type of order to be executed
+	- MKT / STP / LMT
+
+#### Submitting Orders in Code
+1. Create a contract representing shares of Apple stock
+and an order to buy 200 shares.
+2. Get a suitable order ID by calling reqIds.
+3. Submit the order by calling placeOrder.
+4. Print order information provided in the openOrder
+and orderStatus callbacks.
+5. Obtain information about current positions by calling
+reqPositions.
+6. Obtain information about the account by calling
+reqAccountSummary.
+
+```py
+from ibapi.client import EClient
+from ibapi.wrapper import EWrapper
+from ibapi.utils import iswrapper
+from ibapi.contract import Contract
+from ibapi.order import Order
+
+import time
+from datetime import datetime
+from threading import Thread
+import sys
+
+class SubmitOrder(EWrapper, EClient):
+	def __init__(self, addr, port, client_id):
+		EWrapper.__init__(self)
+		EClient.__init__(self, self)
+		self.order_id = None
+		# Connect to TWS
+		self.connect(addr, port, client_id)
+		
+		# Launch the client thread
+		thread = Thread(target=self.run, daemon=True)
+		thread.start()
+	
+	@iswrapper
+	def nextValidId(self, order_id):
+		self.order_id = order_id
+		print(f"Order ID received: {order_id}")
+
+		# 建立 E-mini NASDAQ 100 期貨合約
+		contract = Contract()
+		contract.symbol = "NQ"
+		contract.secType = "FUT"
+		contract.exchange = "CME"
+		contract.currency = "USD"
+		contract.lastTradeDateOrContractMonth = "202512"  # Dec 2025
+
+		# 建立市價單
+		order = Order()
+		order.action = "BUY"
+		order.totalQuantity = 1  # 買一口
+		order.orderType = "MKT"
+		order.transmit = True
+
+		# 下單
+		self.placeOrder(self.order_id, contract, order)
+		print("市價單已送出！")
+			
+	@iswrapper
+	def openOrder(self, order_id, contract, order, state):
+		print('Order status: {}'.format(state.status))
+		print('Commission charged: {}'.format(state.commission))
+	
+	@iswrapper
+	def orderStatus(self,order_id,status,filled,remaining,avgFillPrice,permId,parentId,lastFillPrice,clientId,whyHeld,mktCapPrice):
+		print('Number of filled positions:{}'.format(filled))
+		print('Average fill price:{}'.format(avgFillPrice))
+	
+	@iswrapper
+	def position(self,account, contract, pos, avgCost):
+		print('Position in {}: {}'.format(contract.symbol,pos))
+	
+	@iswrapper
+	def accountSummary(self, req_id, account, tag, value, currency):
+		print('Account {}: {} = {}'.format(account, tag, value))
+	
+	@iswrapper
+	def error(self, req_id, code, msg, advancedOrderReject=""):
+		if code in (2104, 2106, 2158):
+			print(f"Info: {msg}")
+		else:
+			print(f"Error. Id: {req_id}, Code: {code}, Msg: {msg}")
+
+def main():
+	client = SubmitOrder('127.0.0.1', 7497, 3)  # client_id 改成唯一值
+	time.sleep(10)
+	client.disconnect()
+
+if __name__ == '__main__':
+	main()
+
+"""
+Order ID received: 2
+市價單已送出！
+Info: Market data farm connection is OK:usfarm.nj
+Info: Market data farm connection is OK:usfuture
+Info: Market data farm connection is OK:usopt.nj
+Info: Market data farm connection is OK:cashfarm
+Info: Market data farm connection is OK:usfarm
+Info: HMDS data farm connection is OK:ushmds
+Info: Sec-def data farm connection is OK:secdefnj
+Order status: PreSubmitted
+Commission charged: 1.7976931348623157e+308
+Number of filled positions:0
+Average fill price:0.0
+Order status: Filled
+Commission charged: 1.7976931348623157e+308
+Number of filled positions:1
+Average fill price:24084.0
+Order status: Filled
+Commission charged: 2.25
+Number of filled positions:1
+Average fill price:24084.0
+"""
+```
+
+
+## Ch8 Accessing Financial Data
+
+#### reqHistoricalData
+
+```py
+class MarketReader(EWrapper, EClient):
+	def __init__(self, addr, port, client_id):
+		EWrapper.__init__(self)
+		EClient.__init__(self, self)
+		self.ready = False
+		# Connect to TWS
+		self.connect(addr, port, client_id)
+		
+		# Launch the client thread
+		thread = Thread(target=self.run, daemon=True)
+		thread.start()
+			
+	@iswrapper
+	def nextValidId(self, orderId):
+		print(f"✅ Next valid ID received: {orderId}")
+		self.ready = True
+	
+	@iswrapper
+	def historicalData(self, reqId, bar):
+		print(f"[{reqId}] {bar.date} - O:{bar.open} H:{bar.high} L:{bar.low} C:{bar.close}")
+
+	@iswrapper
+	def historicalDataEnd(self, reqId, start, end):
+		print(f"[{reqId}] Historical data finished. {start} -> {end}")
+
+	@iswrapper
+	def error(self, req_id, code, msg, advancedOrderReject=""):
+		if code in (2104, 2106, 2158):
+			print(f"Info: {msg}")
+		else:
+			print(f"Error. Id: {req_id}, Code: {code}, Msg: {msg}")
+            
+def main():
+	client = MarketReader('127.0.0.1', 7497, 1)  # client_id 改成唯一值
+	
+	# 等待 client 準備好
+	for i in range(20):
+		if client.ready:
+			break
+		time.sleep(1)
+
+	if not client.ready:
+		print("❌ Client not ready, exiting...")
+		return
+	
+	con = Contract()
+	con.symbol = "NQ"
+	con.secType = "FUT"
+	con.exchange = "CME"
+	con.currency = "USD"
+	con.lastTradeDateOrContractMonth = "202512"  # Dec 2025
+
+	client.reqHistoricalData(
+		reqId=3,
+		contract=con,
+		endDateTime="",
+		durationStr="1 W",
+		barSizeSetting="1 day",
+		whatToShow="TRADES",
+		useRTH=0,
+		formatDate=1,
+		keepUpToDate=False,
+		chartOptions=[]
+	)
+	time.sleep(10)
+	client.disconnect()
+
+if __name__ == '__main__':
+	main()
+```

@@ -41,10 +41,11 @@ const Page = ({ params }: PageProps) => {
       <div className="mb-8">
         <time dateTime={date} className="mb-1 text-xs text-gray-500">
           {format(parseISO(date), "LLLL d, yyyy")}
+          {lastUpdate ? `  (Last update: ${format(parseISO(lastUpdate), "LLLL d, yyyy")})` : ''}
         </time>
         <h1 className="text-3xl font-bold dark:text-white">{title}</h1>
       </div>
-      <article className="prose md:prose-lg dark:prose-invert prose-a:no-underline prose-th:text-center prose-li:m-0 prose-ul:m-2 prose-h2:mb-2 prose-table:w-auto">
+      <article className="prose md:prose-lg dark:prose-invert prose-a:no-underline prose-th:text-center prose-li:m-0 prose-ul:m-0 prose-h2:mb-2 prose-table:w-auto">
         <MDXContent />
       </article>
     </div>
