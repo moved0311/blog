@@ -4,12 +4,8 @@
 
 body {
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
   font-family: sans-serif;
-}
-
-*::-webkit-scrollbar {
-  display: none;
+  scrollbar-width: none;
 }
 
 article > h2 {
@@ -27,9 +23,6 @@ article > h2::before {
   position: absolute;
   left: -16px;
   top: 2px;
-}
-
-table td {
 }
 
 .rehype-code-title {
