@@ -189,6 +189,12 @@ b.extend([4, 5, 6])
 b # [1, 2, 3, 4, 5, 6]
 ```
 
+copy list
+```py
+copy_row = matrix[r][::]
+```
+
+
 ```py
 stacks = [[0, 1], [2], [], []]
 sorted(chain.from_iterable(stacks)) # [0, 1, 2]
@@ -369,6 +375,10 @@ def pow_mul(a: List[List[int]], n: int, f0: List[List[int]]) -> List[List[int]]:
         a = mul(a, a)
         n >>= 1
     return res
+```
+
+```py
+mat = [list(x) for x in zip(*mat[::-1])]
 ```
 
 ## Union Find
