@@ -1,0 +1,67 @@
+---
+title: System Design
+category: note
+date: 2026-04-29
+---
+
+流程: Clarify → Design → Validation
+
+## Clarify
+- Scenarios Requirements
+	- Functional Requirements
+	- Non-Functional Requirements
+
+#### Functional Requirements
+- 使用者是誰: Real Users / Internal Developers / Internal Services
+- User如何和系統互動: UI / API / IoT
+- 系統要提供什麼功能
+- Read/Write Patttern: Read-Heavy / Write-Heavy
+
+#### Non-Functional Requirements
+- Availability/Reliability
+	- SLO(Service Level Objective)
+	- Database Replication
+	- Blob Storage, PubSub
+	- Retry
+- Scalability
+- Consistency: 如果有很多DB會有數據不一致問題
+- Latency: 99 percentile: 99%的request在多少時間內完成
+	- Read Optimization: Cache, CDN, PubSub
+	- Write Optimization
+- Security,Privacy and Compliance
+- Real Time vs Async
+- Observability
+	- Logging, Monitoring, Alerting
+- Disaster Recovery
+
+## Design
+資料怎麼傳輸怎麼儲存
+
+#### Overall Diagram
+- API Design
+- DB Design
+
+Users/application/services → API Gateway → Servers → Database
+
+#### API Design
+- REST
+- gRPC
+- GraphQL
+
+[API 設計指南  |  Cloud API Design Guide  |  Google Cloud Documentation](https://docs.cloud.google.com/apis/design?hl=zh-tw)
+
+#### DB Design
+- Query Patterns / Data Model
+- SQL vs NoSQL
+	- NoSQL: Blob Storage, Cache, Column Store, Document Store, Graph DB
+- Kafka
+- Replication and Sharding
+
+
+## Validation
+- Go Over the Requirements
+
+## Design Youtube
+## Design Tiny URL
+## Design Twitter
+## Design Rate Limiter
