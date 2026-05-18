@@ -1,0 +1,114 @@
+---
+title: 基礎概念
+category: note
+date: 2026-05-04
+---
+
+## Avalibility
+在一年中系統能正常運作的時間比例
+
+## Reliability
+系統在特定時間內能正常運作的能力
+
+## Consistency
+使用者在同一時間看到的數據是否一致
+
+- Strong Consistency
+- Eventual Consistency: 最終結果會一致，但需要時間
+
+## Scalability
+	- vertical scaling (scaling up)
+	- horizontal scaling (scaling out)
+
+## Redundancy
+## Latency
+## ACID
+	- Atomicity: transcation要麼全部成功，要麼全部失敗
+	- Consistency: valid state → another valid state
+	- Isolation: transcation之間獨立互不干擾
+	- Durability: 數據就會永久保存
+
+## Sharding
+database partition
+
+## Load Balancer
+
+分配Request方法:
+1. Round Robin
+2. Least Connections
+3. Least Response Time
+4. IP Hashing
+5. Geographic Algorithm
+
+Load Balancer怎麼知道Server是否正常運作?
+* Health Check
+
+Example: Nginx, AWS ELB
+
+## Single Point of Failure(SPOF)
+一個元件壞掉會導致整個系統癱瘓
+
+解決辦法: 
+- Redundancy
+- Health Check & Monitor
+- Self-Healing System
+
+## API Design
+API style:
+- REST
+	- Most common
+	- Resource-based
+	- stateless
+	- Standardized Methods (GET, POST, PUT, ...)
+	- Built-in HTTP caching
+- GraphQL
+	- Query Language
+	- Single Endpoint
+	- Operations(Query, Mutation, Subscription)
+	- 可以避免拿不需要的資料
+- gRPC
+	- Protocol Buffers
+	- Service Definition
+	- Communication Type
+	- High Performance
+- WebSocket
+- AMQP(Advanced Message Queuing Protocol)
+
+## Authentication
+> Login Request → Authentication(使用者是誰) → Authorization(使用者可以做什麼)
+
+確認Request是否有權限訪問資源，如果沒有返回401 Unauthorized
+
+#### Basic Authentication:
+	1. Basic Auth (base64)
+	2. Digest Auth (hash)
+	3. Session-based Auth
+		- 需要儲存session在Server端，來驗證使用者身份
+
+#### Token-based Authentication:
+	1. Bearer & JWT Token
+		- Stateless: 不需要在Server端儲存session，token包含使用者信息和權限
+		- Access Token & Refresh Token
+			- Access Token: 15 min-1 hour
+			- Refresh Token: 7-30 days (不會儲存在local storage, 會存在http-only cookie)
+
+#### SSO(Single Sign-On):
+- 登入一次就可以訪問多個相關系統
+	
+## Authorization
+> What are they allowed to do?
+
+1. Role-based Access Control (RBAC)
+2. Attribute-based Access Control (ABAC)
+3. Access Control Lists (ACL)
+
+## DB
+#### indexing 為什麼可以加速查詢?
+	- B+ Tree: 一個節點可以放很多key，樹的高度會比較低，資料都放在葉節點，可以減少磁碟I/O次數
+
+## Idempotency
+同一個Request重複執行多次，結果不會改變
+
+
+## References:
+- [System Design Course – APIs, Databases, Caching, CDNs, Load Balancing & Production Infra - YouTube](https://www.youtube.com/watch?v=C842vFY5kRo)			

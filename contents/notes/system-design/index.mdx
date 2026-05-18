@@ -4,20 +4,21 @@ category: note
 date: 2026-04-29
 ---
 
-流程: Clarify → Design → Validation
+## System Design 面試流程
+Clarify → Design → Validation
 
 ## Clarify
 - Scenarios Requirements
 	- Functional Requirements
 	- Non-Functional Requirements
 
-#### Functional Requirements
+Functional Requirements
 - 使用者是誰: Real Users / Internal Developers / Internal Services
 - User如何和系統互動: UI / API / IoT
 - 系統要提供什麼功能
 - Read/Write Patttern: Read-Heavy / Write-Heavy
 
-#### Non-Functional Requirements
+Non-Functional Requirements
 - Availability/Reliability
 	- SLO(Service Level Objective)
 	- Database Replication
@@ -37,26 +38,18 @@ date: 2026-04-29
 ## Design
 資料怎麼傳輸怎麼儲存
 
-#### Overall Diagram
+Overall Diagram
 - API Design
 - DB Design
 
 Users/application/services → API Gateway → Servers → Database
 
-#### API Design
-- REST
-- gRPC
-- GraphQL
-
-[API 設計指南  |  Cloud API Design Guide  |  Google Cloud Documentation](https://docs.cloud.google.com/apis/design?hl=zh-tw)
-
-#### DB Design
+DB Design
 - Query Patterns / Data Model
 - SQL vs NoSQL
 	- NoSQL: Blob Storage, Cache, Column Store, Document Store, Graph DB
 - Kafka
 - Replication and Sharding
-
 
 ## Validation
 - Go Over the Requirements
@@ -65,3 +58,5 @@ Users/application/services → API Gateway → Servers → Database
 ## Design Tiny URL
 ## Design Twitter
 ## Design Rate Limiter
+
+

@@ -1,15 +1,15 @@
 ---
-title: Agent
+title: AI
 category: note
 date: 2026-04-29
 ---
 
-## Skills
+# Skills
 - SOP
 - 使用者偏好的設定、規範、reference
 - Description: 什麼時候觸發skill
 
-#### Progressive Disclousure 漸進式揭露
+## Progressive Disclousure 漸進式揭露
   - Context Window 大小有限
   - 用不到的東西不帶入prompt
 
@@ -18,3 +18,41 @@ Context Window
 Orchestrator
   - 多個workflow
 
+# Deep Dive into LLMs like ChatGPT
+[Deep Dive into LLMs like ChatGPT - YouTube](https://www.youtube.com/watch?v=7xTGNNLPyMI)
+## Pretrained
+1. download and preprocess the internet
+2. tokenization
+  - 將文字切成token，每一個token對應一個unique id
+  - [Tiktokenizer](https://tiktokenizer.vercel.app/)
+3. neural Network Training
+  - 將Context(一連串token)丟進模型，預測後面可能接的token，計算每個token的機率，然後根據機率調整模型參數
+  - Training: 用資料調整transformer裡面的parameters (weights)
+  - 訓練完的東西稱作 base model
+
+pretrained完的model還不能作為助理，他只是一個token simulator，能夠持續接龍的模型。
+
+## Post-Training
+這步驟要讓base model能夠變成助理，能夠回答問題。\
+用特殊的token來表示現在是使用者說話，還是助理說話。\
+用對話文本來訓練模型，資料來源是human labeler。
+
+避免模型產生幻覺(hallucination)
+1. 允許模型說不知道
+2. 提供外部工具(external tool)來幫助模型回答問題
+  - web search
+
+#### Supervised Fine-Tuning (SFT) 
+用問題和答案來訓練模型
+
+#### Reinforcement learning
+
+同一個prompt，跑很多次會得到不同的結果，標記好的結果，用來調整模型參數，讓模型更傾向於產生好的結果。
+
+#### Reinforcement Learning from Human Feedback(RLHF)
+對於沒有正確答案的問題，像是詩、笑話等等。讓人類評分，然後用這些評分來調整模型參數。
+
+訓練太長會產生特例: adversarial example 
+
+## References
+- [CS146S: The Modern Software Developer](https://themodernsoftware.dev/)

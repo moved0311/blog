@@ -1,0 +1,17 @@
+---
+title: DB
+category: note
+date: 2026-05-12
+---
+
+# PostgreSQL
+
+```sql
+docker exec -it <container_name_or_id> bash 
+psql -U <username> -d <database_name>
+
+\l            -- 列出所有 database
+\c db_name    -- 切換database
+\d            -- 列出所有tables
+\d table_name -- 列出table的schema
+```

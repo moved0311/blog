@@ -1,0 +1,51 @@
+---
+title: Redis
+category: note
+date: 2026-05-08
+---
+
+## Redis (Remote Dictionary Server)
+- Single-threaded
+- In-memory database
+	- RAM : 120 ns
+	- SSD: 50-150 us
+	- HDD: 1-10 ms
+
+## Run on Docker
+
+```yaml
+services:
+	redis:
+		image: redis:7-alpine
+		container_name: redis
+		ports:
+			- "6379:6379"
+```
+
+```shell
+docker compose up -d
+docker exec -it redis redis-cli
+docker compose down
+```
+
+## Commands
+```shell
+SET name Tom
+setex name 10 Tom  # expires in 10 seconds
+GET name
+DEL name
+EXISTS name
+flushall
+ttl name
+expire name 10
+
+lpush names Tom
+lrange names 0 -1
+```
+
+https://youtu.be/jgpVdJB2sKQ?t=594
+
+## Use Cases
+- Caching
+- Rate Limiter
+- Top N ranking
