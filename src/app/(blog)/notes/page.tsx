@@ -1,4 +1,4 @@
-import { allPosts } from "contentlayer/generated";
+import { getAllPosts } from "@/lib/posts";
 import { type Metadata } from "next";
 import clsx from "clsx";
 import Link from "next/link";
@@ -12,6 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const Page = () => {
+  const allPosts = getAllPosts();
   const notes = allPosts.filter((post) =>
     post._raw.flattenedPath.startsWith("notes/"),
   );

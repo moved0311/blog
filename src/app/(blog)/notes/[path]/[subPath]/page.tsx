@@ -1,23 +1,22 @@
 import { format, parseISO } from "date-fns";
-import { allPosts } from "contentlayer/generated";
-import { useMDXComponent } from "next-contentlayer/hooks";
+import { getPost, importMdx } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import { type Metadata } from "next";
 
 type PageProps = {
-  params: {
+  params: Promise<{
     path: string;
     subPath: string;
-  };
+  }>;
 };
 
 type Props = {
-  params: { path: string };
-  searchParams?: { [key: string]: string | string[] };
+  params: Promise<{ path: string; subPath: string }>;
+  searchParams?: Promise<{ [key: string]: string | string[] }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { path } = params;
+  const { path } = await params;
   const title = `${path} | Taiyi | Dev`;
 
   return {
@@ -25,17 +24,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const Page = ({ params }: PageProps) => {
-  const path = params?.path;
-  const subPath = params?.subPath;
+const Page = async ({ params }: PageProps) => {
+  const { path, subPath } = await params;
   const notesPath = `notes/${path}/${subPath}`;
-  const post = allPosts.find((post) => post._raw.flattenedPath === notesPath);
+  const post = getPost(notesPath);
 
   if (!post) notFound();
 
-  const { title, date, body, lastUpdate } = post;
-
-  const MDXContent = useMDXComponent(body.code);
+  const { title, date, relativePath, lastUpdate } = post;
+  const { default: Content } = await importMdx(relativePath);
 
   return (
     <div className="dark:text-white">
@@ -47,7 +44,7 @@ const Page = ({ params }: PageProps) => {
         <h1 className="text-3xl font-bold dark:text-white">{title}</h1>
       </div>
       <article className="prose md:prose-lg dark:prose-invert prose-a:no-underline prose-th:text-center prose-li:m-0 prose-ol:m-0 prose-ul:m-0 prose-h2:mb-2 prose-table:w-auto prose-p:m-1 prose-td:text-center">
-        <MDXContent />
+        <Content />
       </article>
     </div>
   );

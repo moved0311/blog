@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
-import { Post } from "contentlayer/generated";
+import { type Post } from "@/lib/posts";
 
 const PostCard = (post: Post) => {
   const tags = post.tags || [];
