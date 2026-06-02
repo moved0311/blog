@@ -3,6 +3,9 @@ import path from "node:path";
 import matter from "gray-matter";
 
 const contentsDirectory = path.join(process.cwd(), "contents");
+const publicContentDirectories = ["posts", "notes"].map((directory) =>
+  path.join(contentsDirectory, directory),
+);
 
 export type Post = {
   title: string;
@@ -66,7 +69,9 @@ const getMdxFiles = (directory: string): string[] => {
 };
 
 export const getAllPosts = () => {
-  return getMdxFiles(contentsDirectory).map(toPost);
+  return publicContentDirectories.flatMap((directory) =>
+    getMdxFiles(directory).map(toPost),
+  );
 };
 
 export const getPost = (flattenedPath: string) => {
