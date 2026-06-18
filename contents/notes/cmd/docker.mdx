@@ -4,16 +4,8 @@ category: note
 date: 2025-12-16
 ---
 
-- docker ps
-- docker exec -it \<container_id\> bash 進到docker容器內
-- docker compose up -d
-
-```sh
-docker run -it --name ubuntu-dev -v <foldername>:/workspace -w /workspace ubuntu bash
-
-docker start -ai ubuntu-dev
-
-docker exec -it ubuntu-dev bash
+```shell
+docker ps
+docker exec -it \<container_id\> bash 進到docker容器內
+docker compose up -d
 ```
-
-## 用Vscode Remote Explorer連到container內

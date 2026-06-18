@@ -1,0 +1,38 @@
+---
+title: DB
+category: note
+date: 2026-06-13
+---
+
+為什麼需要DB，不用execel就好?
+- Scale
+- Frequency
+- Speed
+
+## Relating
+- Primary key: 每一個table只有一個primary key, 且key值不能重複也不能為null。可以是composite key(多個欄位組合成一個primary key)。primary key會自動有index。
+- Foreign key: 參照另一個table的primary key，建立兩個table之間的關聯。當參照的row被刪除或更新時，可以設定cascade delete/update。
+
+## Transaction
+transaction: 連續對資料庫進行讀寫的行為。只允許全部成功或是全部失敗，成功commit、失敗會回滾(rollback)到transaction開始之前。
+
+例如轉帳: 從A帳戶轉到B帳戶，A帳戶扣款、B帳戶收款，這兩個動作要麼都成功，要麼都失敗。
+
+## ACID
+	- Atomicity(原子性): 整筆交易要麼全部成功，要麼全部失敗
+	- Consistency(一致性): 從一個有效狀態轉(valid state)換到另外一個有效狀態(valid state)。
+		- 例如Alice要轉帳給Bob但轉完錢後Alice帳戶餘額是負數，這就不是一個有效狀態。這時就會revert回轉帳前的狀態。
+	- Isolation(隔離性): 交易之間獨立互不干擾。
+	- Durability(永久性): 資料修改完成，數據就會永久保存。
+
+## PostgreSQL
+
+```sql
+docker exec -it <container_name_or_id> bash 
+psql -U <username> -d <database_name>
+
+\l            -- 列出所有 database
+\c db_name    -- 切換database
+\d            -- 列出所有tables
+\d table_name -- 列出table的schema
+```

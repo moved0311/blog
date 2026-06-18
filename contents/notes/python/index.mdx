@@ -33,6 +33,11 @@ chr(98) # b
 "123".zfill(5) # 00123
 ```
 
+## Digit
+```python
+digit_sum = sum(map(int, str(x)))
+```
+
 ## Bit
 
 ```py
@@ -225,6 +230,10 @@ q.clear()
 ```
 
 ### Dict
+```py
+st = {1,2,3}
+st.clear()
+```
 
 ```py
 graph = defaultdict(list) # key不存在時用空list作為預設值
@@ -242,7 +251,6 @@ cnt['1'].add(2)
 cnt['1'].add(1)
 
 # {'1': SortedSet([1, 2, 3])}
-
 ```
 
 ### Counter
@@ -324,6 +332,14 @@ for i in range(2, 1001):
       break
   else:
       PRIMES.append(i)
+```
+
+```py
+def isPrime(n: int) -> bool:
+    for i in range(2, isqrt(n) + 1):
+        if n % i == 0:
+            return False
+    return n >= 2
 ```
 
 埃式篩([Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes))
@@ -426,6 +442,8 @@ class UnionFind:
         self.parent[y] = x
         self.size[x] += self.size[y]
 ```
+
+
 
 ### 最常公共子序列 (Longest Increasing Subsequence, LIS)
 ```py

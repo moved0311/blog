@@ -1,0 +1,832 @@
+---
+title: 範例
+category: note
+date: 2026-06-12
+---
+
+## URL Shortener(TinyURL)
+
+使用情境: 使用者輸入一串url，系統會回傳一串短網址。
+要避免的情形: 回傳的url發生碰撞，一對多的情形。
+
+實作方式:
+我會建立一個hashmap, 
+key就是原始使用者輸入的url,
+之後產生一個unique的uuid存到value,回傳uuid
+
+目前設計：
+original_url -> uuid
+問題是：使用者拿短網址回來時，系統會收到：
+
+GET /abc123
+這時你需要用 abc123 找回原始網址。所以真正查詢最常用的是：
+short_code -> original_url
+
+你現在的 hashmap 方向反了。
+另外，UUID 通常太長，例如：
+550e8400-e29b-41d4-a716-446655440000
+
+這不像短網址。TinyURL 通常會用比較短的 short_code，例如 6～8 碼：
+https://tiny.ly/a8K2zQ
+
+你可以先想下一版：
+short_code -> original_url
+
+然後回答我 3 個問題：
+Q1. short_code 你會怎麼產生？
+Q2. 如果產生出來的 short_code 已經存在，你怎麼處理？
+Q3. 同一個原始 URL 被輸入兩次，你希望回傳同一個短網址，還是產生新的短網址？
+
+第2版:
+產生short_code: uuid().hex()[:6]   -> 改用Base62
+存到hash table `{short_code: origin_url}`
+return short_code
+當使用者輸入: 類似 https://tiny.ly/a8K2zQ
+用短網址(a8K2zQ)查詢origin_url，並redirect to origin_url
+
+1. short_code 可能會用uuid().hex()[:6] 取6位數
+2. 已經存在在hash table中的話，會重複執行 uuid().hex()[:6] 直到不存在在hash table
+	 -> 若碰撞率升高，可以增加 short_code 長度，例如從 6 碼升到 7 或 8 碼。
+3. 原始 URL 被輸入兩次，理想上是可以對應到同個短網址，但目前實作會是不同的短網址
+
+Q4.假設我們不用 in-memory hashmap，因為服務重啟資料會消失。
+你會選什麼資料庫？資料表會怎麼設計？
+
+我會用relational database如MYSQL
+資料表會設計如
+```sql
+CREATE TABLE tinyurl {
+	origin_url: varchar(255) PRIMARY_KEY, 
+	short_code: varchar(10),
+}
+```
+
+-> origin_url 不適合當 Primary Key 
+一般常見的設計會長的像
+CREATE TABLE tinyurl (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  short_code VARCHAR(10) NOT NULL UNIQUE,
+  origin_url TEXT NOT NULL,
+  created_at DATETIME NOT NULL
+);
+
+Q5. 當使用者建立短網址時，你會怎麼避免兩個 request 同時產生到同一個 short_code？
+會用鎖，確保相同的short_code不會被重複寫入DB
+
+-> 比較推薦靠 DB unique constraint 保證
+1. 產生 short_code
+2. INSERT INTO tinyurl(short_code, origin_url)
+3. 如果成功，回傳 short_code
+4. 如果失敗，代表撞到 UNIQUE constraint
+5. 重新產生 short_code 再 INSERT
+
+Q6. 如果短網址被大量點擊，例如熱門連結每秒 10 萬次 redirect，你會怎麼優化 short_code -> origin_url 查詢？
+
+會加入in memory cache如Redis 避免流量直接呼叫DB
+
+Q7. Redis 的資料要不要設定 TTL？為什麼？
+如果使用者查到不存在的 short_code，例如 /xxxxx，要不要 cache 這個結果？
+
+TTL應該可以設定5分鐘，避免Redis記憶體不斷增長。 
+-> 短網址通常很少修改，short_code -> origin_url 幾乎是 immutable，所以熱門連結其實可以 cache 久一點 1小時/1天
+
+不存在的short_code應該是不用存，可能有惡意使用者會亂輸入short，造成Redis存不必要的資料。
+
+Q8. 如果 Redis 掛掉了，你的系統會怎麼運作？
+會自動啟用repica redis，避免流量直接打到DB
+-> Redis 會用 replica / cluster 提高可用性；如果 primary 掛掉，透過 failover 切到 replica，避免所有流量直接打到 MySQL。
+
+Q9. 如果 Redis 整組掛掉，瞬間 10 萬 QPS 全部打到 MySQL，你怎麼避免 DB 被打爆？
+會使用Rare Limit限制流量
+
+-> 如果 Redis 整組不可用，我會讓服務暫時 fallback 到 MySQL，但會加上 rate limiting、circuit breaker，避免瞬間流量把 DB 打爆。超過負載時可以回傳 503 或顯示暫時無法服務。
+
+Q10. 全球很多使用者都在點短網址，你會怎麼降低不同地區的 redirect 延遲？
+用CDN將服務部署在各個地區國家的節點，request會到離自己最近的節點處理
+
+-> CDN 比較適合快取靜態內容，不一定能直接處理 redirect 查 DB。
+-> 將 redirect service 部署到多個 region，搭配 GeoDNS / Anycast routing，讓使用者連到最近的服務節點。熱門短網址可在 edge cache 或 regional Redis 快取，降低跨區 DB 查詢延遲。
+
+## Design a Rate Limiter
+請設計一個 Rate Limiter，用來限制 API 使用者在固定時間內的請求數量，避免系統被濫用或被瞬間流量打爆。
+
+初始需求：
+1. 每個 user_id 每分鐘最多只能發送 100 個 request。
+2. 超過限制時，API 要回傳 429 Too Many Requests。
+3. 系統需要支援多台 API server。
+4. Rate limit 判斷需要盡量快速，不能每次都查 MySQL。
+5. 可以先假設只有一種規則：100 requests / minute / user。
+
+Q1. 你會把 rate limit 的資料存在哪裡？為什麼？
+
+我會把rate limit存在redis中，透過像是 `{IP: COUNT}`，的方式記錄每個IP呼叫了多少次API。
+如果超過100次回傳429 Too Many Requests
+
+-> IP會有問題 + 還沒處理時間窗口
+`rate_limit:{user_id}:{minute_timestamp} -> count`
+
+Q2. 如果同一個 user 在同一分鐘內打 API，你會怎麼用 Redis 指令做到「+1 並設定過期時間」？
+
+使用
+```shell
+INCR(rate_limit:{user_id}:{minute_timestamp})
+EXPIRE rate_limit:{user_id}:{minute_timestamp} 60
+```
+
+-> 在第一次做EXPIRE
+```shell
+count = INCR(rate_limit:user_123:2026-06-11-10:32)
+
+if count == 1:
+    EXPIRE key 60
+if count > 100:
+    return 429
+```
+
+Q3.
+假設有兩台 API Server：
+API-1
+API-2
+都連到同一個 Redis。
+
+同一個 user 在同一瞬間發送大量請求。
+你覺得下面這段會不會有 race condition？
+
+count = INCR(key)
+if count > 100:
+    return 429
+else:
+    allow()
+如果你認為不會，請說明原因；如果你認為會，請描述可能的情況。
+
+會，原本可能count = 10，但兩個request同時進來，可能會都拿到10去+1
+最後結果是11不是期望的12。
+
+-> 在 Redis INCR裡是 atomic operation，不會兩個都拿到 10 再各自寫回 11
+比較有問題的是：
+```shell
+INCR key
+EXPIRE key 60
+```
+這兩個指令不是同一個 atomic block。假設 INCR 成功後 server 掛掉，EXPIRE 沒執行，key 可能永遠不過期。
+
+Q4. 你會怎麼讓 INCR + 第一次才設定 EXPIRE 變成 atomic？
+不太確定，用transaction包起來嗎 ?
+
+-> 用 Lua 可以保證這段在 Redis 內一次執行完，中間不會被其他 request 插入。
+
+概念像這樣：
+```shell
+local count = redis.call("INCR", KEYS[1])
+
+if count == 1 then
+  redis.call("EXPIRE", KEYS[1], ARGV[1])
+end
+
+return count
+```
+
+Q5. 設計是 Fixed Window Counter。
+例如限制：
+100 requests / minute
+如果使用者在：
+10:32:59 發 100 次
+10:33:00 又發 100 次
+實際上 1 秒內就打了 200 次。
+你覺得這個問題可以怎麼改善？
+
+後面100次應該不會執行，第一次設定EXPIRE時間是在10:32:59
+10:33:00還沒EXPIRE，後面100次應該是會回傳429。
+-> 這是Sliding TTL
+
+Fixed Window Counter是另外一個設計count的實作
+-> 改善方向可以先想 2 種：
+1. Sliding Window Log
+   記錄每次 request timestamp，比較精準，但比較耗記憶體。
+2. Token Bucket
+   固定速度補 token，request 消耗 token，比較適合實務。
+
+Q6. Token Bucket的概念你會怎麼理解？
+類似悠遊卡裡面儲值了100次，每次處理完1個request -1。
+
+-> 桶子最多放 100 個 token
+每個 request 消耗 1 個 token
+token 會固定速度補充，例如每秒補 1.67 個
+如果 token 不夠，就回傳 429
+所以它不是「每分鐘歸零」，而是平滑地控制流量。
+
+Q7. Redis 實作 Token Bucket，你覺得每個 user 至少要存哪兩個資訊？
+user_id和token_amount
+
+-> token_amount 對，但 user_id 通常已經放在 Redis key 裡了，例如：
+`rate_limit:token_bucket:{user_id}`
+
+每個 user 至少要存兩個狀態：
+tokens
+last_refill_timestamp
+
+流程概念：
+1. 讀取 tokens 和 last_refill_timestamp
+2. 根據 now - last_refill_timestamp 計算應補多少 token
+3. tokens = min(capacity, tokens + refill_amount)
+4. 如果 tokens >= 1，扣 1 並 allow
+5. 如果 tokens < 1，回傳 429
+
+Q8.這段 Token Bucket 邏輯在 Redis 裡也有多步驟讀寫。你會怎麼避免 race condition？
+
+類似前面的想法用lua script，讓邏輯變成atomic
+
+->
+```shell
+local tokens = tonumber(redis.call("GET", KEYS[1]))
+
+if tokens >= 1 then
+    redis.call("DECR", KEYS[1])
+    return 1
+else
+    return 0
+end
+```
+
+## Notification System
+
+系統需要能夠發送通知給使用者，例如：
+- App Push Notification
+- Email
+- SMS
+
+例如：
+- 訂單成立
+- 付款成功
+- 密碼重設
+都可能觸發通知。
+
+Q1. API Design
+如果有另一個系統（例如訂單系統）要通知使用者：
+您的訂單已成立
+它應該呼叫什麼 API？
+
+`POST /api/notifications`
+
+request body:
+```json
+{
+  "recipients": {
+    "type": "users",
+    "ids": ["user_1", "user_2"]
+  },
+  "channels": ["email", "push"],
+  "message": "您的訂單已成立"
+}
+```
+
+response:
+```json
+{
+  "notification_id": "notif_123",
+  "status": "accepted",
+  "created_at": "2026-06-11T10:00:00+08:00"
+}
+```
+
+Q2. 如果 API 收到通知請求後，直接在 request 裡寄 Email / SMS / Push，會有什麼問題？
+收到api馬上處理後續任務容易造成Api卡住，
+寄送email,sms,push應該是可以async在背景執行
+
+-> 如果 API request 內同步寄 Email / SMS / Push，會造成 API latency 變高。
+而且外部 provider 可能很慢或失敗，會拖垮主要 API。
+所以我會讓 API 只負責接收通知請求，寫入 queue 後先回 accepted。
+真正寄送由 background worker 非同步處理。
+
+Q3. 如果一則通知要同時發送：Email, SMS, Push\
+你會把它當成 一個 job 放進 queue，還是拆成 三個 job？
+
+會拆成3個jobs放進queue，因為3個jobs彼此互相獨立，拆成3個jobs方便之後水平擴充。
+
+Q4. 系統要怎麼知道：
+```text
+Notification #123
+Email: Success
+SMS: Success
+Push: Failed
+```
+你會如何設計資料結構或資料表來追蹤這件事？
+
+會建立一個NotificationLog 的table， 裡面會有 userid, timestamp, type(email, SMS, Push), status 可以查詢 type = email, status = success 。
+
+-> 如果只有這張表：
+NotificationLog
+------------
+user_id
+timestamp
+type
+status
+
+那怎麼知道這三筆其實是同一則通知？
+-> 缺少notification_id
+
+Q5. 假設：Email Provider 超時
+Worker 不知道到底是：
+  1. Email 已經送出去
+  2. Email 沒送出去
+於是 Worker 決定 Retry。
+結果可能變成：
+同一封 Email 被寄兩次
+你會怎麼避免重複發送通知？
+
+Retry之前，到Log查一下noticiation_id中的email欄位是否有成功送出。
+
+-> 這是個合理的第一反應，但我來挑戰你一下。
+
+假設流程是：
+
+1. Worker 呼叫 Email Provider
+2. Email Provider 實際已寄出
+3. Network Timeout
+4. Worker 沒收到成功回應
+5. Log 仍是 PENDING
+6. Worker Retry
+7. 使用者收到兩封 Email
+
+此時查 Log 沒用，因為：Log 裡根本還沒寫 SUCCESS但 Email 其實已經寄出去了。
+
+-> 所以很多 Notification System 會引入: idempotency key
+Provider 或我們自己的 Email Service 會記錄：
+notif_123 已處理過
+如果同一個 request 再來：notif_123
+直接回成功，不再寄第二次。
+
+Q6. 如果 Push provider 掛掉 30 分鐘，你會怎麼處理 Push Queue 裡持續累積的任務？
+Push Provide掛掉會failover，開啟備援的Push Provider接手處理Push Queue
+
+-> 可以補強成：
+Push Provider A 掛掉
+-> Worker 偵測錯誤率升高
+-> Circuit Breaker 暫停打 A
+-> 切到 Push Provider B
+-> Queue 裡的任務繼續由 B 消化
+
+但還要注意兩點：
+1. 不是所有 provider 都有完全相同能力
+   例如 token 格式、rate limit、錯誤碼可能不同。
+
+2. Queue 已經累積很多任務時，不能瞬間全打到 B
+   否則 B 也可能被打爆。
+
+切換備援 provider 後，我會限制 worker 消費速度，搭配 retry with exponential backoff，避免把備援 provider 也打爆。
+
+Q7.如果某些通知比較重要，例如：
+密碼重設/付款成功
+而促銷通知比較不重要。
+你會怎麼避免促銷通知塞滿 queue，導致重要通知延遲？
+
+依據功能分成不同的queue，比較不重要的queue的comsumer rate可以調慢一些
+
+->
+channel: email / sms / push
+priority: high / normal / low
+我會把通知依 priority 分流，例如 high priority queue 給密碼重設、付款成功，low priority queue 給促銷通知。
+Worker 會優先消費 high priority queue，或給 high priority 更多 consumer。
+low priority 可以限制消費速度，避免塞滿系統資源。
+
+
+Q8. 如果使用者在設定中關掉「促銷 Email」，但仍然允許「付款成功 Email」。
+你會在哪個階段檢查使用者偏好？
+A. API 收到通知時就檢查
+B. Worker 發送前才檢查
+C. 兩邊都檢查
+
+我會在B檢查，避免API還需要額外花費資源查詢使用者偏好，會拖慢API的回應速度。
+Worker是在背景執行，速度可能比較沒有那麼要求，可以在Worker發送再檢查。
+
+-> 但更完整的答案會是：C，兩邊都可以檢查，但目的不同。
+
+API 階段：做粗略檢查
+Worker 階段：做最終檢查
+
+原因：
+
+1. API 可以過濾明顯不該建立的任務，減少 queue 壓力
+2. Worker 發送前一定要再檢查一次，因為使用者偏好可能在排隊期間改變
+
+例如：
+10:00 建立促銷 Email 任務\
+10:01 使用者關掉促銷 Email\
+10:05 Worker 準備寄送
+
+這時應該以 Worker 發送前的最新偏好 為準。
+
+Q9. 如果一則通知在 Worker 處理時失敗了，例如 Email provider timeout。
+你會怎麼設計 retry？
+
+請回答：
+
+1. retry 幾次？
+2. retry 間隔怎麼設計？
+3. retry 到最後還是失敗，要放哪裡？
+
+用一個key-value的資料結構紀錄失敗的worker
+```json
+[notification_id] : {
+    retry_times,
+    last_send_timestamp,
+}
+```
+retry_times可能設定3次，超過3次就從資料結構移除，記錄到DB中。
+retry間隔設定1分鐘retry一次
+
+
+-> 1. 固定 1 分鐘 Retry 可能造成雪崩
+因此業界更常見： Exponential Backoff
+例如：
+第1次失敗 -> 1分鐘
+第2次失敗 -> 2分鐘
+第3次失敗 -> 4分鐘
+第4次失敗 -> 8分鐘
+
+2. 超過 Retry 次數後去哪裡？
+可以，但通常還會有一個概念：
+
+Dead Letter Queue (DLQ)
+
+例如：
+Email Queue
+Push Queue
+SMS Queue
+↓ Retry 3 次失敗
+Dead Letter Queue
+這樣營運人員可以：
+查看失敗通知
+人工重送
+分析原因
+而不是只留下 DB 紀錄。
+
+Q10. 假設公司要求： 99.9% 的通知要在 5 秒內送達
+你會監控哪些 Metrics？
+請列出你最想看的 3~5 個指標。
+
+1. 收到request的時間和send notification之間的時間差 (delay time) 
+2. send notification success rate 
+3. delay time > 5 second notification的比例
+
+->
+1. End-to-end latency
+   request accepted -> notification sent
+2. SLA violation rate
+   超過 5 秒的比例
+3. Success rate
+   Email / SMS / Push 各自成功率
+4. Queue depth / queue lag
+   queue 裡堆了多少任務、最舊任務等了多久
+5. Retry / DLQ count
+   retry 次數、最後進 DLQ 的數量
+
+
+## Design an LRU Cache Service
+設計一個容量為capacity, 支援get, put操作
+且容量滿時，將LRU(Least Recently Use)的元素剔除
+get = O(1)
+put = O(1)
+
+Q1. 先從資料結構開始設計
+應該還是使用HashMap + queue queue紀錄put的順序，如果容量滿的可以依照FIFO的順序剔除 HashMap支援get和put都是O(1)
+
+-> FIFO不是LRU，get也要能影響LRU順序不只是put
+-> 要先想到 HashMap + Doubly Linked List
+
+Q2. cache["A"] = ? 要存什麼東西
+要存 LinkedList `{ prev: LinkedList, next: LinkedList, val: int }`
+
+Q3. 
+```text
+capacity = 3
+put(A)
+put(B)
+put(C)
+
+此時：
+A <-> B <-> C
+
+然後：put(D)
+容量超過了。
+你覺得：
+
+哪個 Node 會被刪掉？
+以及
+HashMap 需要做什麼事情？
+```
+
+1. NodeA 會被刪掉
+2. 
+(1) head移動到下一個位置head=head.next
+(2) 刪除NodeA, del cache["A"]
+(3) 加入D到cache, cahce["D"] = Node(D)
+(4) tail指向Node(D), tail.next = Node(D)
+(5) tail移動到Node(D), tail = tail.next
+
+-> 容量滿時，我會移除 head，也就是 least recently used node。
+移除時同時從 HashMap 刪掉該 node.key。
+接著把新的 node 加到 tail，代表 most recently used。
+HashMap 則存 key -> node，讓 get/put 都可以 O(1) 找到節點。
+
+Q4.
+如果執行：
+```text
+capacity = 3
+put(A, 1)
+put(B, 2)
+put(C, 3)
+put(B, 99)
+
+B 已經存在時，你會怎麼處理？
+請回答：
+1. value 要不要更新？
+2. B 的位置要不要移到 tail？
+```
+
+要更新cache內的值並將B的位置移到tail
+
+
+Q5.
+```text
+如果執行：
+capacity = 2
+
+put(A, 1)
+put(B, 2)
+get(A)
+put(C, 3)
+
+最後 cache 裡會剩下哪些 key？為什麼？
+```
+會剩下 A:1, C:3
+
+1. put(A)  -> A:1
+2. put(B)  -> A:1, B:2
+3. get(A)  -> B:2, A:1  A會變為tail
+4. put(C,3) -> A:1, C:3 移除head B
+
+LRUCache python code
+```py
+class Node:
+    def __init__(self, key=0, val=0):
+        self.key = key
+        self.val = val
+        self.prev = None
+        self.next = None
+
+class LRUCache:
+    def __init__(self, capacity: int):
+        self.capacity = capacity
+        self.cache = {}
+        self.head = None
+        self.tail = None
+
+    def remove(self, node):
+        prev = node.prev
+        nxt = node.next
+
+        if prev:
+            prev.next = nxt
+        else:
+            self.head = nxt
+
+        if nxt:
+            nxt.prev = prev
+        else:
+            self.tail = prev
+
+        node.prev = None
+        node.next = None
+
+    def append(self, node):
+        if not self.tail:
+            self.head = node
+            self.tail = node
+            return
+
+        self.tail.next = node
+        node.prev = self.tail
+        node.next = None
+        self.tail = node
+
+    def get(self, key: int) -> int:
+        if key not in self.cache:
+            return -1
+        node = self.cache[key]
+        self.remove(node)
+        self.append(node)
+        return node.val
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.cache:
+            node = self.cache[key]
+            node.val = value
+            self.remove(node)
+            self.append(node)
+            return
+
+        node = Node(key, value)
+        self.cache[key] = node
+        self.append(node)
+
+        if len(self.cache) > self.capacity:
+            lru = self.head
+            self.remove(lru)
+            del self.cache[lru.key]
+```
+
+## Design Curcuit Breaker
+
+User -> API Server -> Payment Service
+
+當有一天Payment Service壞了
+如果持續有請求進來很快Thread pool滿了、connection pool滿了、CPU飆高、記憶體增加
+最後API Server自己也掛掉
+
+-> Cascading Failure（連鎖故障）
+
+Circuit Breaker像保險絲，當Service B已經壞了，切換成OPEN，不要讓流量在到Service B，直接返回錯誤
+
+Circuit Breaker狀態: Closed, Open, Half-Open
+
+Q1. 什麼情況應該算一次 failure？
+
+- 要算: Timeout 服務沒有回應
+       500 服務內部出現問題
+			 Network Error
+			 Connection Refused
+- 不算: 404 可能是沒有頁面，使用者輸入錯誤 
+       429 Limit rate正常限制
+
+Q2. 你打算如何決定 Circuit Breaker 什麼時候從 CLOSED -> OPEN
+
+最近 1 分鐘 failure rate > 50%
+
+連續失敗5次感覺太容易觸發或是誤判/最近100次請求failure rate > 50% 沒有考慮到時間因素可能不太好
+
+Q3. 除了 failure rate，你覺得還需要加什麼條件，才能避免「流量太少時誤判」？
+
+加一個固定值threshold，當流量大於threshold才啟動
+
+Q4. 當 Circuit Breaker 已經 OPEN 時，
+
+新的 request 進來：
+
+Client
+  ↓
+Service A
+  ↓
+Service B (可能掛掉)
+
+你覺得 A 應該怎麼回應？
+
+會先從Redis查看有沒有cache住的資料，如果有直接從cache返回，miss的話回503
+
+Q5. 你會怎麼決定：
+Circuit Breaker OPEN 時，哪些 API 可以回 cache，哪些 API 應該直接 503？
+
+需要很即時資料的服務直接回503，
+但需要的是不即時也不太影響的可以從cache返回
+
+Q6. 現在 Circuit Breaker 已經 OPEN 了。
+
+你不可能永遠都擋掉 Service B，因為它可能恢復了。
+
+你會怎麼設計：OPEN -> HALF_OPEN
+
+當failure rate可能從50% -> 20%時，可以從OPEN->HALF_OPEN
+假設原來request是100以上才會觸發Circuit Break
+當HAFL_OPEN時，可以先用1/2 request (50) 測試服務穩定度
+
+-> 在 OPEN 狀態下，正常情況 不會再呼叫 Service B，所以你其實拿不到新的 failure rate。
+
+所以通常會用：
+
+OPEN 持續一段時間後
+↓
+自動進入 HALF_OPEN
+↓
+放少量 test request
+
+OPEN:
+    - wait: 5min
+HALF_OPEN:
+    - allow: 50
+    - if success: all success, HAFL_OPEN -> CLOSED
+    - if failure: > 40, HALF_OPEN -> OPEN
+
+-> 如果下游還沒恢復，突然放 50 個 request 可能又造成壓力。Half-Open 通常會更保守，例如先放 1、5、10 個 probe request。
+if success: all success 太嚴格
+
+10 個 probe requests
+成功率 >= 80% -> CLOSED
+否則 -> OPEN
+
+Q7. 接下來考慮多台 Service A：
+
+Client
+  ↓
+Load Balancer
+  ↓
+Service A-1
+Service A-2
+Service A-3
+  ↓
+Service B
+
+Circuit Breaker 的狀態應該怎麼存？
+
+存在 Redis，所有 Service A 共用狀態 感覺可以統一管理，可能還可以把狀態返回給Load Balancer，動態調整分發request
+
+如果 Redis 掛了，Circuit Breaker 也不能判斷狀態，這時候你會怎麼做？ -> 每台 Service A fallback 到 local memory 狀態
+
+
+很多成熟框架（例如 Netflix Hystrix 的思路）其實會選：
+
+每個 instance 自己維護 Circuit Breaker
+
+而不是全域共享。
+
+原因是： Circuit Breaker 本質是保護當前 process不是保護整個系統
+
+
+Q10. 假設 Service B 沒有完全掛掉。
+
+而是：
+
+90% request = 50ms
+10% request = 30s timeout
+
+也就是所謂的：Partial Failure
+
+你覺得：
+
+只看 failure rate 足夠嗎？
+
+
+->
+1. Error Rate
+   5XX
+   Connection Error
+   Timeout
+
+2. Latency
+   P95
+   P99
+   Average
+
+3. Throughpu
+
+
+
+所以業界比較常見的是：
+
+不要把 latency 直接轉換成 success/failure。
+
+而是另外監控：
+
+Error Rate
++
+Latency
+
+例如：
+
+Open if:
+- Error Rate > 50%
+OR
+- P99 > 3s
+
+Q11. 如果用 sliding window，你會怎麼存資料？
+
+例如每個 request 都要記錄：
+
+timestamp
+success/failure
+latency
+
+每個 request 都存一筆 log，計算時掃最近 60 秒 感覺會比較容易實作，邏輯比較單純
+
+優點是直覺、精準、好寫。
+但我會追問效能問題：
+如果 Service A 每秒有：
+10,000 requests / sec
+那最近 60 秒就有：
+600,000 records
+每次判斷都掃最近 60 秒，成本會變很高。
+
+-> 用 bucket，例如每 1 秒一個 bucket，記錄該秒 success_count / failure_count / latency 統計
+
+Q12. 怎麼設計 Timeout？ 也就是：
+Service A -> Service B
+A 最多等 B 幾秒？
+這個 timeout 應該怎麼決定？
+
+所以業界更常看：
+P95 latency
+P99 latency
+
+例如：
+P99 = 300ms
+timeout = 2 * P99
+        = 600ms

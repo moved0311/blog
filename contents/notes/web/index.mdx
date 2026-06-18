@@ -3,3 +3,30 @@ title: Web
 category: note
 date: 2025-02-13
 ---
+## CDN
+
+CDN(Content Delivery/Distribution Network) 內容傳遞網路
+* 快取網頁、圖片、影片至距離使用者最近的伺服器
+* 對網站發送請求時,會先到CDN獲取,如果沒有才會到實際網站伺服器發送請求。
+* 可以分散到網站伺服器的流量,防止DDos攻擊
+
+#### 供應商:
+Akamai(阿卡邁科技), Amazon CloudFront, Cloudflare, Fastly, Google雲端平台, 藍汛, Microsoft Azure, 網宿科技, 阿里雲, 騰訊雲, 百度雲
+
+
+## DNS Records
+- txt: Is used to prove ownership of the domain.
+- mx(mail exchange): Is used to receive emails from external domains.
+- cname: Is used to alias one domain name to another.
+
+
+## Storage
+
+|                    | Cookies            | Local Storage | Session Storage |
+| ------------------ | ------------------ | ------------- | --------------- |
+| Capacity           | 4kb                | 10mb          | 5mb             |
+| Browser            | HTML 4/5           | HTML 5        | HTML 5          |
+| Accessible from    | Any Windows        | Any Windows   | Same tab        |
+| Expires            | Manually set       | Never         | On tab close    |
+| Storage Location   | Browser and Server | Browser only  | Browser only    |
+| Sent with requeset | Yes                | No            | No              |

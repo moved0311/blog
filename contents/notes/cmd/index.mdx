@@ -12,10 +12,9 @@ date: 2024-09-05
 - `C-u` : delete all line 
 - `C-w` : delete word
 
-## Search
+## Search 搜尋
 
 - ctrl + r `type keyword to search history command`
-- `!nvim <tab>`
 - `!! <Enter>`
 - grep -r "keyword" .
 
@@ -44,8 +43,23 @@ usage:
 rg <word>
 ```
 
+## wget
+`wget {url}` 把檔案抓下來
 
 
-## Reference
+## netcat
+TCP/IP 瑞士刀 (Swiss Army Knife)
 
-- [The Zsh Shell Tricks I Wish I'd Known Earlier: Boost Terminal Productivity - YouTube](https://www.youtube.com/watch?v=45Yiq2q_hMA)
+```sh
+nc <host> <port>
+```
+
+## strings
+把binary file -> string
+
+## 讀檔
+```sh
+open('dictionary.txt', 'rb').read()
+open('dictionary.txt', 'r').read().splitlines()
+open('dictionary.txt', 'rb').read().decode('utf-8')
+```
