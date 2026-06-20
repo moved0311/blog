@@ -4,19 +4,35 @@ category: note
 date: 2024-09-05
 ---
 
-## Move
+## File/Folder
+```sh
+touch filename
+mdkir foldername
+```
 
-- `cd -` : go to previous directory
+## Move
+```sh
+cd -      : go to previous directory
+cd / cd ~ : go to home directory
+```
 
 ## Type
 - `C-u` : delete all line 
 - `C-w` : delete word
 
 ## Search 搜尋
-
 - ctrl + r `type keyword to search history command`
 - `!! <Enter>`
-- grep -r "keyword" .
+
+```sh
+grep -r "keyword" .
+
+# brew install ripgrep
+rg <word>
+
+# 在多層目錄中找到filename.txt的路徑
+find . -name {filename.txt}
+```
 
 
 ## Kill process running port
@@ -32,15 +48,11 @@ kill <PID>
 du -sh <path>
 ```
 
-## Library
-### ripgrep
 
-`brew install ripgrep`
 
-usage:
-
+## ssh
 ```sh
-rg <word>
+ssh {url} -l {login_name} -p {port} 
 ```
 
 ## wget
@@ -52,14 +64,46 @@ TCP/IP 瑞士刀 (Swiss Army Knife)
 
 ```sh
 nc <host> <port>
+
+nc example.com 12345
 ```
+
+```python
+import socket
+
+s = socket.socket()
+s.connect(("example.com", 12345))
+
+while True:
+    data = input("> ")
+    s.send(data.encode())
+
+    response = s.recv(4096)
+    print(response.decode())
+```
+
 
 ## strings
 把binary file -> string
+
+```sh
+strings -a -t x file
+-a   : all
+-t x : 十六進位顯示
+```
 
 ## 讀檔
 ```sh
 open('dictionary.txt', 'rb').read()
 open('dictionary.txt', 'r').read().splitlines()
 open('dictionary.txt', 'rb').read().decode('utf-8')
+```
+
+## 更改權限
+```sh
+chmod +x filename
+
+# read    r 4
+# write   w 2
+# execute x 1
 ```

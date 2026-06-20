@@ -7,7 +7,8 @@ const rootDirectory = path.join(__dirname, "..");
 const dailyDirectory = path.join(rootDirectory, "contents", "daily");
 
 const command = process.argv[2];
-const dateArgument = process.argv[3];
+const commandArgument = process.argv[3];
+const dateArgument = command === "days" ? process.argv[4] : commandArgument;
 
 const formatTaipeiDate = (date) => {
   const parts = new Intl.DateTimeFormat("en", {
@@ -28,40 +29,106 @@ const formatTaipeiDate = (date) => {
 
 const isValidDate = (value) => /^\d{4}-\d{2}-\d{2}$/.test(value);
 
-const createDailyNote = () => {
-  const date = dateArgument ?? formatTaipeiDate(new Date());
+const parseDate = (value) => {
+  if (!isValidDate(value)) {
+    return null;
+  }
 
-  if (!isValidDate(date)) {
+  const [year, month, day] = value.split("-").map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+
+  if (
+    date.getUTCFullYear() !== year ||
+    date.getUTCMonth() !== month - 1 ||
+    date.getUTCDate() !== day
+  ) {
+    return null;
+  }
+
+  return date;
+};
+
+const addDays = (date, days) => {
+  const result = new Date(date);
+  result.setUTCDate(result.getUTCDate() + days);
+  return result;
+};
+
+const getDate = () => {
+  const date = dateArgument ?? formatTaipeiDate(new Date());
+  const parsedDate = parseDate(date);
+
+  if (!parsedDate) {
     console.error("Date must use YYYY-MM-DD format.");
     process.exit(1);
   }
 
+  return parsedDate;
+};
+
+const createDailyNote = (date, { skipExisting = false } = {}) => {
   fs.mkdirSync(dailyDirectory, { recursive: true });
 
-  const filePath = path.join(dailyDirectory, `${date}.md`);
+  const formattedDate = formatTaipeiDate(date);
+  const filePath = path.join(dailyDirectory, `${formattedDate}.md`);
 
   if (fs.existsSync(filePath)) {
-    console.error(`Daily note already exists: ${path.relative(rootDirectory, filePath)}`);
+    const message = `Daily note already exists: ${path.relative(rootDirectory, filePath)}`;
+
+    if (skipExisting) {
+      console.log(`Skipped ${path.relative(rootDirectory, filePath)}`);
+      return false;
+    }
+
+    console.error(message);
     process.exit(1);
   }
 
-  const content = `# ${date}
+  const content = `# ${formattedDate}
 [ ] Leetcode daily / Rating 1700以下的題目練習
 [ ] Send resume
-[ ] Do one system design question
+[ ] Do one System Design question
 [ ] Do DB questions or Learn a DB topic
-[ ] Learning English
+[ ] Learning English / write English dairy
 `;
 
   fs.writeFileSync(filePath, content, "utf8");
   console.log(`Created ${path.relative(rootDirectory, filePath)}`);
+  return true;
+};
+
+const createNextDaysNotes = () => {
+  const numberOfDays = Number(commandArgument);
+
+  if (!Number.isInteger(numberOfDays) || numberOfDays < 1) {
+    console.error("Number of days must be a positive integer.");
+    process.exit(1);
+  }
+
+  const referenceDate = getDate();
+  let createdCount = 0;
+
+  for (let day = 1; day <= numberOfDays; day += 1) {
+    if (createDailyNote(addDays(referenceDate, day), { skipExisting: true })) {
+      createdCount += 1;
+    }
+  }
+
+  console.log(
+    `Done. Created ${createdCount}, skipped ${numberOfDays - createdCount}.`,
+  );
 };
 
 switch (command) {
   case "daily":
-    createDailyNote();
+    createDailyNote(getDate());
+    break;
+  case "days":
+    createNextDaysNotes();
     break;
   default:
-    console.error("Usage: pnpm g daily [YYYY-MM-DD]");
+    console.error(
+      "Usage:\n  pnpm gen daily [YYYY-MM-DD]\n  pnpm gen days <number> [YYYY-MM-DD]",
+    );
     process.exit(1);
 }
