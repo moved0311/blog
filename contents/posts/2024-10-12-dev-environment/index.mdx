@@ -5,36 +5,15 @@ date: 2024-10-12
 
 ## 環境
 
-### Node.js
-
-https://nodejs.org/zh-tw
-
-### Python
-
-舊專案需要2.7版
-
-- https://stackoverflow.com/questions/71739870/how-to-install-python-2-on-macos-12-3
-
-## 套件管理工具
-
-### Homebrew
-
-https://brew.sh/
-
 ### nvm
 
 https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
 
 Manage different versions of nodejs.
 
-```sh
-xcode-select --install
-```
-
 ### yarn/pnpm
 
 ```sh
-npm install -g yarn
 npm install -g pnpm
 ```
 
@@ -64,13 +43,6 @@ theme: [powerlevel10k](https://github.com/romkatv/powerlevel10k?tab=readme-ov-fi
 plugins:
 _ [auto suggestions](https://github.com/zsh-users/zsh-autosuggestions/tree/master)
 _ `.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh`修改提示文字顏色
-
-### Iterm2
-
-https://iterm2.com/
-
-下載配色檔[item2-color-schemes](https://github.com/mbadolato/iTerm2-Color-Schemes/tree/master/schemes)，\
-`Settings > Profiles > Colors > 右下角下拉選單import檔案`
 
 ### tmux
 
@@ -106,23 +78,7 @@ Press `prefix + I` to install plugins
 ```config
 bind-key - split-window -v -c '#{pane_current_path}'
 bind-key | split-window -h -c '#{pane_current_path}'
-```
 
-### neovim
-
-```sh
-brew install neovim
-brew install ripgrep  # search words in files
-```
-
-- [keymaps](/notes/neovim/keymaps)
-
-### lazyvim
-
-https://www.lazyvim.org/installation
-
-- plugins: (create files in `.config/nvim/lua/plugins`)
-  - [prettier](https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/formatting/prettier.lua)
 
 ## SSH
 
@@ -134,11 +90,6 @@ https://www.lazyvim.org/installation
 - Distinguish between personal and work ssh key
   - [Enable Multiple SSH Keys for MacOS/ Ubuntu/ Debian etc.](https://gist.github.com/bonnopc/c78920431284ce3fc2a5270016205116)
 
-## App
-
-### Slack
-
-https://slack.com/intl/zh-tw/downloads/mac
 
 ### Vscode
 
@@ -147,9 +98,7 @@ https://code.visualstudio.com/download
 Extensions:
 
 1. Prettier - Code formatter
-2. Vim
-3. ES7+ React/Redux/React-Native snippets
-4. GitLens
+2. GitLens
 
 Shortcut:
 
@@ -195,7 +144,3 @@ Shortcut:
 
 - Launching from the command line
   `cmd+shift+p` and type `shell command` find `Shell Command: Install 'code' command in PATH`
-
-### Obsidian
-
-https://obsidian.md/download

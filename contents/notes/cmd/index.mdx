@@ -4,10 +4,22 @@ category: note
 date: 2024-09-05
 ---
 
+## Which
+```sh
+which <program> # 查program實際位置
+                # which date / which echo
+```
+
 ## File/Folder
 ```sh
 touch filename
+touch test-{a, b, c}.txt  # test-a.txt test-b.txt test-c.txt
 mdkir foldername
+```
+
+## du
+```sh
+du -sh foldername/filename
 ```
 
 ## Move
@@ -26,14 +38,35 @@ cd / cd ~ : go to home directory
 
 ```sh
 grep -r "keyword" .
-
-# brew install ripgrep
-rg <word>
-
-# 在多層目錄中找到filename.txt的路徑
-find . -name {filename.txt}
 ```
 
+## brew install ripgrep
+```sh
+rg <word>
+```
+
+## 在多層目錄中找到filename.txt的路徑
+```sh
+find /usr/bin -type f -name "filename"
+find ~/Downloads -type f -mtime +30  # 30天以上的file
+find ~/Downloads -type f -size +100M -exec ls -lh {} \;
+find . -name "*.md"  -exec grep -l "TODO" {} \;
+```
+
+## Awk
+```sh
+# cat data
+# a b c
+# d e f
+# g h i
+
+awk '{print $2}' data
+# b
+# e
+# h
+
+awk -F , '{print $2}' data # 用','區分
+```
 
 ## Kill process running port
 
@@ -48,11 +81,32 @@ kill <PID>
 du -sh <path>
 ```
 
+## For Loop
+```sh
+for varname in a b c d; do echo "$varname"; done
+# a
+# b
+# c
+# d
 
+for varname in $(seq 1 5); do echo "$varname"; done
+# 1
+# 2
+# 3
+# 4
+# 5
+```
+
+## If
+```sh
+if [ "hello" = "world" ]; then echo "equal"; else echo "not equal"; fi
+# not equal
+```
 
 ## ssh
 ```sh
-ssh {url} -l {login_name} -p {port} 
+ssh {url} -l {login_name} -p {port}
+scp {filename} {user}@{ip}:{path} # 從本地端複製檔案到遠端機器上
 ```
 
 ## wget
@@ -107,3 +161,31 @@ chmod +x filename
 # write   w 2
 # execute x 1
 ```
+
+## Encode/Decode
+
+```sh
+echo "xxxxx" | base64 -d
+```
+
+## 查看檔案
+
+```sh
+xxd filename       # 二進位資料和十六進位之間互相轉換
+exiftool filename  # 看 Metadata
+strings filename   # 從二進位檔案中找出「可列印文字」的工具
+```
+
+## Tmux
+
+| shortcut | description       |
+| -------- | ----------------- |
+| C-b ?    | search command    |
+| C-b ,    | rename window     |
+| C-b c    | create new window |
+| C-b n    | go to next window |
+| C-b p    | go to prev window |
+| C-b z    | zoom pane         |
+
+## Resource
+[Lecture 1: Course Overview + Introduction to the Shell - YouTube](https://www.youtube.com/watch?v=MSgoeuMqUmU&list=PLyzOVJj3bHQunmnnTXrNbZnBaCA-ieK4L)

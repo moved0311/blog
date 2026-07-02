@@ -88,7 +88,6 @@ const createDailyNote = (date, { skipExisting = false } = {}) => {
 [ ] Leetcode daily / Rating 1700以下的題目練習
 [ ] Send resume
 [ ] Do one System Design question
-[ ] Do DB questions or Learn a DB topic
 [ ] Learning English / write English dairy
 `;
 
