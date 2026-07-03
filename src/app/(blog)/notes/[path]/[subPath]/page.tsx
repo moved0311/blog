@@ -43,7 +43,7 @@ const Page = async ({ params }: PageProps) => {
         </time>
         <h1 className="text-3xl font-bold dark:text-white">{title}</h1>
       </div>
-      <article className="prose md:prose-lg dark:prose-invert prose-a:no-underline prose-th:text-center prose-li:m-0 prose-ol:m-0 prose-ul:m-0 prose-h2:mb-2 prose-table:w-auto prose-p:m-1 prose-td:text-center">
+      <article className="prose scroll-smooth md:prose-lg dark:prose-invert prose-a:no-underline prose-th:text-center prose-li:m-0 prose-ol:m-0 prose-ul:m-0 prose-h1:scroll-mt-24 prose-h2:mb-2 prose-h2:scroll-mt-24 prose-table:w-auto prose-p:m-1 prose-td:text-center">
         <Content />
       </article>
     </div>

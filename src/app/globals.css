@@ -72,3 +72,12 @@ input[type="checkbox"]:checked::before {
   color: black;
   font-size: 15px;
 }
+
+.toc-scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.toc-scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
