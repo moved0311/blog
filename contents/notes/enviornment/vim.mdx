@@ -1,0 +1,29 @@
+---
+title: Vim
+category: note
+date: 2024-09-04
+---
+
+## Move
+
+| description           | key        | note         |
+| --------------------- | ---------- | ------------ |
+| 到開頭                | 0          |              |
+| 到結尾頭              | $          |              |
+| 下一個word            | w          |              |
+| word結尾              | e          |              |
+| 下一個`{char}`字元    | f `{char}` |
+| 暫時跳出到外層command | `c-z`      | 跳回vim `fg` |
+
+#### 快速清除括弧內的字並進入insert mode
+`ci{`, `ci[`, `ci"`, `ci'`
+
+## Split vim
+command mode `:vsp {filename}`
+
+```sh
+c-w + hljk # 跳到左右分頁
+```
+
+## Search
+`/word`
