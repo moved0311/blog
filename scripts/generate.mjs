@@ -86,8 +86,6 @@ const createDailyNote = (date, { skipExisting = false } = {}) => {
 
   const content = `# ${formattedDate}
 [ ] Leetcode daily / Rating 1700以下的題目練習
-[ ] Do one System Design question
-[ ] Learning English / write English dairy
 `;
 
   fs.writeFileSync(filePath, content, "utf8");

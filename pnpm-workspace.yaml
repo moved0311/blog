@@ -1,0 +1,3 @@
+allowBuilds:
+  rehype-code-titles: true
+  sharp: true
