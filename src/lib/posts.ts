@@ -37,7 +37,7 @@ const toPost = (filePath: string): Post => {
     .relative(contentsDirectory, filePath)
     .replaceAll(path.sep, "/");
   const flattenedPath = relativePath
-    .replace(/\.mdx$/, "")
+    .replace(/\.mdx?$/, "")
     .replace(/\/index$/, "");
 
   return {
@@ -56,21 +56,23 @@ const toPost = (filePath: string): Post => {
   };
 };
 
-const getMdxFiles = (directory: string): string[] => {
+const isMarkdownFile = (fileName: string) => /\.mdx?$/.test(fileName);
+
+const getMarkdownFiles = (directory: string): string[] => {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const entryPath = path.join(directory, entry.name);
 
     if (entry.isDirectory()) {
-      return getMdxFiles(entryPath);
+      return getMarkdownFiles(entryPath);
     }
 
-    return entry.isFile() && entry.name.endsWith(".mdx") ? [entryPath] : [];
+    return entry.isFile() && isMarkdownFile(entry.name) ? [entryPath] : [];
   });
 };
 
 export const getAllPosts = () => {
   return publicContentDirectories.flatMap((directory) =>
-    getMdxFiles(directory).map(toPost),
+    getMarkdownFiles(directory).map(toPost),
   );
 };
 
