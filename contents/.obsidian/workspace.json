@@ -35,7 +35,8 @@
               "title": "words"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -194,13 +195,14 @@
       "bases:建立新的 base": false
     }
   },
-  "active": "5bb9203aeae51c2b",
+  "active": "82d0a71bfb82d5d1",
   "lastOpenFiles": [
-    "daily/2026/2026.md",
-    "daily/2026-07-08.md",
-    "notes/janpanese/50.md",
     "notes/janpanese/grammar.md",
     "notes/janpanese/words.md",
+    "daily/2026/2026.md",
+    "daily/2026-07-09.md",
+    "daily/2026-07-08.md",
+    "notes/janpanese/50.md",
     "notes/janpanese/years-old.md",
     "notes/janpanese/joshi.md",
     "notes/janpanese/old.md.md",
