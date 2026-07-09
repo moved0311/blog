@@ -3,7 +3,7 @@ title: 大家的日本語
 category: note
 date: 2025-04-09
 ---
-教材:
+**教材**:
 - [\[改訂版\]大家的日本語文法解說 - YouTube](https://www.youtube.com/playlist?list=PLynCeSdpMqxCW-AfMtmIlASAMUVq8wX6k)
 
 ## Lesson 1　肯定句/否定句/疑問句
