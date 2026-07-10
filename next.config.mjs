@@ -2,10 +2,12 @@ import createMDX from "@next/mdx";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypeKatex from "rehype-katex";
 import rehypePrism from "rehype-prism-plus";
+import recmaHtmlStyles from "./src/lib/recma-html-styles.mjs";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkHtmlBreaks from "./src/lib/remark-html-breaks.mjs";
+import remarkHtmlSpans from "./src/lib/remark-html-spans.mjs";
 import remarkWikiLinks from "./src/lib/remark-wiki-links.mjs";
 
 const withMDX = createMDX({
@@ -15,6 +17,7 @@ const withMDX = createMDX({
       remarkFrontmatter,
       remarkGfm,
       remarkHtmlBreaks,
+      remarkHtmlSpans,
       remarkMath,
       remarkWikiLinks,
     ],
@@ -23,6 +26,7 @@ const withMDX = createMDX({
       [rehypeKatex, { strict: false }],
       [rehypePrism, { ignoreMissing: true }],
     ],
+    recmaPlugins: [recmaHtmlStyles],
   },
 });
 
