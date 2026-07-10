@@ -1,0 +1,10 @@
+{
+  "id": "red-span-wrapper",
+  "name": "Red Span Wrapper",
+  "version": "1.0.0",
+  "minAppVersion": "1.5.0",
+  "description": "Wrap selected text in a red HTML span.",
+  "author": "Taiyi",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}
