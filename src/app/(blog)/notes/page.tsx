@@ -60,7 +60,7 @@ const Page = () => {
       groups.set(key, group);
     });
 
-  const sortedGroups = [...groups.values()].sort((a, b) =>
+  const sortedGroups = Array.from(groups.values()).sort((a, b) =>
     a.title.localeCompare(b.title),
   );
 
