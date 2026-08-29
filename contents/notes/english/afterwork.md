@@ -4,23 +4,6 @@ category: note
 date: 2024
 ---
 
-計畫:
-
-1. 每日找一部[VoiceTube](https://tw.voicetube.com/)的影片(聽力練習)
-
-- 第一次不開字幕
-- 第二次開英文字幕
-- 第三次開中英字幕確認理解內容
-- 第四次紀錄不會單字或感興趣的句子
-
-2. 每週挑選一部影集(60-120分鐘)只開英文字幕
-3. 挑選一篇[FORMOSA NEWS英語新聞](https://english.ftvnews.com.tw/)(額外練習)
-
-- 第一次只聽
-- 第二次聽+看英文
-- 第三次只看中文確認理解原文
-- 只看中文，逐句英文口譯，錄下音檔對照原文
-
 ## 10/16
 
 [如何自信地用英語講電話 (How to Speak Confidently in English on the Phone)](https://tw.voicetube.com/videos/70234)
@@ -986,20 +969,10 @@ VoiceTube:
 - cosmopolian / international city
 - great climate / mild(not too hot, not too cold)
 
-## 2025/1/22
-上課: A day in the life  of a surf instructor
-- instructor / teacher
-  - instructor: teach skill like drive car, surfing.
-- sink / tap / faucet
-- plumber / piping
-- welder
-- surfboard / fins / leash
-
 ## 2025/2/3
 上課: Daily route
 - cafeteria
 - uniform
-
 
 ## 2025/2/8
 上課: Weather and seasons
@@ -1832,20 +1805,6 @@ chili pepper辣椒
 - lemon tart
 - tart v.s. pie
 
-## 2025/7/8
-- customs are almost all from Europe
-- Examples of trades
-  - Plumber / Carpenter / Builder(Construction worker) / Mechanic
-  - bricklayer
-- Jobs
-  - Courier / Lifeguard / Receptionist 
-- white-collar & blue-collar
-- formal qualification
-  - degree / diploma / certificate
-- Save time on commuting
-  - commute 通勤
-- Unusal jobs
-  - professional sleeper / car tester / panda sitter
 
 ## 2025/7/15
 - Clothing
@@ -2441,16 +2400,16 @@ direct speech / reported speech
 ## 2025/11/17
 所有格 / 所有格代名詞
 
-|人稱|主格|所有格|受詞|所有格代名詞|反身代名詞|
-|---|---|---|---|---|---|
-|1 單數| I | my | me | mine | myself |
-|1 複數| we | our | us | ours | ourselves |
-|2 單數| you | your | you | yours | yourself |
-|2 複數| you | your | you | yours | yourselves |
-|3 單數| he | his | him | his | himself |
-|3 單數| she | her | her | hers | herself |
-|3 單數| it | its | it | -- | itself |
-|3 複數| they | their | them | theirs | themselves |
+| 人稱   | 主格 | 所有格 | 受詞 | 所有格代名詞 | 反身代名詞 |
+| ------ | ---- | ------ | ---- | ------------ | ---------- |
+| 1 單數 | I    | my     | me   | mine         | myself     |
+| 1 複數 | we   | our    | us   | ours         | ourselves  |
+| 2 單數 | you  | your   | you  | yours        | yourself   |
+| 2 複數 | you  | your   | you  | yours        | yourselves |
+| 3 單數 | he   | his    | him  | his          | himself    |
+| 3 單數 | she  | her    | her  | hers         | herself    |
+| 3 單數 | it   | its    | it   | --           | itself     |
+| 3 複數 | they | their  | them | theirs       | themselves |
 
 
 by oneself 獨自 = on one's own
@@ -2577,21 +2536,6 @@ in an effort to +V 為了
 
 - spacious 寬敞的
 
-## 2025/12/9
-- surfing spot
-- plumber 水電工
-- electrician 電工
-- businessman / businesswoman
-- carpenter 木匠
-- mechanic 技工
-- accountant 會計師
-- commute
-  - how long is your commute to work ?
-- get start work / get off work
-- I drive scotter/car to work.
-- the population is approximately 50 millions
-- surf instructor
-
 ## 2025/12/10
 - customer service representative
 - collocations: 固定搭配詞
@@ -2671,16 +2615,6 @@ such + adj + N
 4. 條件對照 indicated
 
 
-## 2025/12/23
-- Nationality
-- quiet activites
-- studious person : 喜歡讀書的人
-- musical person: 喜歡音樂的人
-- sporty person: 喜歡運動的人
-- active person: 喜歡活動的人
-- adventurous person: 喜歡冒險的人
-- spare time
-
 ## 2025/12/29
 - refrain from 避免
 - venues 場地
@@ -2689,21 +2623,8 @@ such + adj + N
 - make our way to +N 前往
 
 ## 2025/12/30
-- glorious
-- takeout food 外帶食物
-- divivery food 外送食物
-- dairy products 乳製品
-- street food vendor
-- appeal to adults and children
-- family restaurant / diner 小餐館
-- fine dining
-- restaurant chain
-- eat in / eat out
 - Money is no object 錢不是問題
 
-## 2026/01/06
-
-- expire, lapse
 
 #### 連接副詞
 - 因此: therefore, consequently, accordingly, thus, hence, as a result
@@ -2727,10 +2648,6 @@ such + adj + N
 - draw up a new contract
 - if a customer buy in bulk, we usually give them a discount
 
-## 2026/01/13
-- inhabitants (居民)
-- see the sights
-
 
 ## 2026/01/14
 - can you meet me halfway?
@@ -2752,8 +2669,6 @@ such + adj + N
 - controversial
 - compulsory = have to do it
 
-#### noun phrases  
-
 #### compound nouns
 - Noun + noun: coffee maker
 - gerund + noun: washing machine
@@ -2762,24 +2677,6 @@ such + adj + N
 - passerby 行人;過路人
 - rental agreenment 租賃協議
 	- landlady; 
-
-- cereal; grains
-
-## 2026/01/20
-- diet coke/soda
-- pizza
-	- toppings: 配料
-- pizzeria: pizza restaurant
-- prawn; shrimp
-
-## 2026/01/27 
-#### Street
-- Saint = St.
-- At A road and B road
-
-rush hour = peak hour
-
-Sally is showing him around
 
 
 ## 2026/01/28
@@ -2796,11 +2693,6 @@ work benefits
 - pension plan
 - mandatory break times
 
-## 2026/2/3
-
-serving: 一份(食物)
-  - serving for four people.
-
 ## 2026/2/4
 - Bosses want you to account for your time
 - opportunity for advancement
@@ -2808,7 +2700,6 @@ serving: 一份(食物)
 - I left work late
 - I'd like to postpone our meeting.
   - put put off our meeting (not formal)
-
 
 ## 2026/2/9
 - to lift weights / to weightlift
@@ -2836,21 +2727,6 @@ serving: 一份(食物)
 - advice (noun) / advise (verb)
 - Imperative sentence 祈使句
 
-## 2026/3/14 travel agentcy
-- unwind 有點類似relax
-  - 反義詞: wound up 興奮過頭/壓力過大
-- vaccine / get a shot / inoculation
-- locate money
-- resorts 渡假村
-- visa 簽證
-- tour group / package tour
-- deposit money
-- itinerary / schedule for trip
-- sight-seeing
-- go on a trip / go on vacation
-- motion sickness / car sick / seasick
-- bus / coach (long distance)
-
 ## 2026/3/16
 - blazer
 - plush toy
@@ -2875,10 +2751,6 @@ serving: 一份(食物)
 - indefinitely
 - frightened
 
-## 2026/3/23
-- Mardi Gras / New Orleans, USA
-- Tomb Sweeping Festival
-- parade
 
 ## 2026/3/25
 - customer service collocations
@@ -2894,23 +2766,6 @@ serving: 一份(食物)
 - How can I made it up to you ? / How can I made it right ?
 - put towards: part of money
 	- My parants gave me some money to put towards buying a car.
-
-## 2026/3/31
-- migraine = 
-- What seems to be the problem ?
-  - How can I help you ?
-	- What's the matter ?
-- I will call your parent/guardian
-- take a breather = calm down
-- sore throat / tickly throat
-- what are your symptoms
-- musle cramp
-- bring the pain down
-- take plenty of fluids
-- sick certificate
-- I have a  _______. (I've had a runny nose for _____.)
-- My throat hurts/feels sore. 
-- If the symptoms don't get better, you can make a new appointment for next week.
 
 ## 2026/4/8
 - get down to business
@@ -2939,14 +2794,6 @@ prepositions: 介係詞
 - unanimous
 - binding contract
 
-## 2026/4/10
-- examine : check carefully
-- a thing stress you out : gives you stress
-- minor - adj(small, not that important)
-- minor - noun(people under 18)
-- health card: 健保卡
-- cholesterol: the oil in your blood
-
 ## 2026/4/14
 - dormitory (dorm)
 - roommates / flatmates
@@ -2956,11 +2803,6 @@ prepositions: 介係詞
 - financial aid
 - room and board: housing and food
 - If I could go back, I would have done (instead of ...)
-
-## 2026/4/20
-- I'm very flexible
-- eat light/heavy
-- He is giving the impression of ...
 
 ## 2026/4/22
 - What is your greatest strength
@@ -3025,9 +2867,6 @@ prepositions: 介係詞
 ## 2026/4/30
 - lean into it
 
-## 2026/5/2
-- mitigate: 減輕、緩和
-  - How to mitigate it ?
 
 ## 2026/5/4
 - detrimental = harmful
@@ -3035,9 +2874,6 @@ prepositions: 介係詞
 - black sheep
 - run in the family 家族遺傳
 	- Short stature runs in my family
-
-## 2026/5/5
-- consent 同意
 
 ## 2026/5/6
 - impressed with + someone/something
@@ -3051,9 +2887,7 @@ prepositions: 介係詞
 
 - Walk the dog / Take the dog for a walk
 - lab coat / scrubs
-- He examines children
-- time fly
-- pediatrician
+
 - Once a week / every three months / in a while
 - while (means long time)
 	- It's been a little while
@@ -3162,55 +2996,19 @@ Vocab:
 
 I just checked into the Airbnb, and I noticed that the XXX is broken.
 
-## 2026/6/1
-- duh = obviously (not formal)
-- plumber 水電工(唸法"plummer")
-
-
-#### Nationality
-- The United States -> American
-- Mexico -> Mexican
-- Canada -> Canadian
-- Thailand -> Thai
-- Iceland -> Icelandic
-- Switzerland -> Swiss
-- Turkey -> Turkish
-- England -> English
-- Algeria -> Algerian
-- Sudan -> Sudanese
-- Sweden - Swedish
-
 ## 2026/6/3
 - indigenous / aboriginal / tribe
 - in the wild
 - orchid
 - hut 小屋
 
-#### animals
-- mammals (pronunciation: /ˈmæməl/)
-- wild animal is aggressive
-- domesticated / wild animals / strays animals
-- fur 毛/ feather 羽毛 / scales 鱗
-- hamster 倉鼠 / guinea pig 天竺鼠
-- I need to walk my dog
-- whiskers 鬍鬚
-- beak / bills
-- exotic / Unusal
-	- exotic pets
-- amphibian 兩棲動物
-- reptile 爬蟲類
-- aviary 鳥舍
-- lizard 蜥蜴
 
 ## 2026/6/8
-- How do you get to work ?
-  - I get to work by...
 - What do you do on your journey to work ?
 - What do you like about the journey ?
 	- I love / I like
 - What don't you like about the journey ?
 	- I don't like / I dislike / I hate / I'm not a fan of
-
 
 1. How do you get to work?
 - I get to work by...   /  (on foot)
@@ -3228,10 +3026,6 @@ I just checked into the Airbnb, and I noticed that the XXX is broken.
 - I hate...
 - I'm not a fan of...
 
-MRT = metro (subway/underground) 
-eavesdrop
-to sneak a peek 
-
 ## 2026/6/10
 adjective
 形容詞有分為fact和opinion，如果要連接兩個形容詞
@@ -3247,26 +3041,6 @@ she has long black hair.
 what size -> what shape -> How old -> What color -> where from -> made of + noun.
 - a small red metal box
 
-
-## 2026/6/11 Countalbe/Uncountable
-- a item of jewerly
-- a stick of butter
-- a tablespoon/teaspoon of sugar
-- a blob (of toothpaste)
-- would you like a cuppa ? (cup of)
-- a loaf/slice of break
-- a bill/coin of money 
-- a bar of soap
-
-Questions:
-1. How much money do you usually spend when you go to the mall on the weekend?
-2. Do you have much free time during the week, or are you always busy with school or work?
-3. How many burgers or hotdogs do you think you can eat in one single meal?
-4. Think about the last time you had a barbecue. How many friends or family members came to eat with you?
-BONUS: If you were to make a pizza, what toppings would you put on it?
-
-虛擬語氣 (subjunctive mood):
-If you were to V. 
 
 ## 2026/6/17
 red velvet cake
@@ -3312,25 +3086,6 @@ The Hollywood Pitch Movies
 4. The Main Characters: Who are they and a small description
 5. What Happens? ( short summary)
 
-## 2026/07/10
-腳踏車,旅行
-pannier 腳踏車包
-repair kit
-  - screwdriver
-pump
-  - inflate: to put air in
-  - deflate
-  - take the pump and inflate the tires
-  - repair puncturs(make it deflate)
-brakes
-pedal
-  - you have to pedal faster uphill
-tire
-handlebars
-hotel / hostel / accommodations
-steer the bike
-hi-vis clothing (high visibility)
-
 ## 2026/7/13
 
 he should stay home from school
@@ -3364,29 +3119,6 @@ socialising 社群
 demonstrate
 
 picky 挑惕的
-
-## 2026/7/20
-Game: Job Interview
-
-Interview Q's:
-• Do you have any experience in (v-ing)...?
-     ...working with sick people?
-     ...playing professional sports?
-• Do you like to...? 
-     ... help citizens?
-     ... stay up late?
-• Why do you want this job?
-• What is your biggest strength?
-• How many hours a week do you want to work?
-• Do you have any questions for me?
-ANSWERS:
-• "I want this job because I love to ________ [help people / solve problems / fix things]."
-• "My biggest strength is that I am very ________ [hardworking / smart / patient]."
-• "When I am stressed, I usually ________ [take a deep breath / work harder]."
-• "I prefer to work in the ________ [morning / afternoon / evening]."
-- mechanic
-- construction worker
-- pet groomer
 
 ## 2026/7/23
 If I make a miskate so be it
@@ -3489,11 +3221,26 @@ celebrity
 possessive 所有格
 It's his or hers = It's theirs 不知道性別狀況可以使用
 
-dozen = 12
-a backer's dozen = 13
 
-a bar of soap
-a carton of milk
-a dash/drop of olive oil
-a pinch of salt
-a song/album of music
+start small and build up intensity/time.
+You're in for a shock = you will be surprised
+
+I slept in this morning 我今天早上睡過頭了／我今天早上睡得比平常晚
+sleep in → 睡晚一點，可能是故意的
+oversleep → 睡過頭，通常是不小心的，例如因此遲到
+
+mutual friends
+
+
+I haven't seen you for ages
+teasing
+the new person addresses Harry in a formal way
+- address: to speak to someone in a particular way
+- How should/may I address you ? Mr / Mrs / Ms / Miss
+
+
+Yes sounds a bit perfunctory.
+When it came to saying goodbye, I thought of XXX.
+terrific
+
+next-door neighbor

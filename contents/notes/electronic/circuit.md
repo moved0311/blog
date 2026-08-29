@@ -117,12 +117,21 @@ M = B - (N-1)
 ## KVL: Kirchhoff's Voltage Law
 迴圈內的 總壓升=總壓降
 
-
 [單元 5．基本電路觀念 - 2B法 - YouTube](https://www.youtube.com/watch?v=p0OxaKE5Fv8)
 
+優點:
+- 系統化的求解流程
+缺點:
+- 元件數多的話會造成未知數很多
 
+[Lecture 1: Introduction to Power Electronics - YouTube](https://www.youtube.com/watch?v=f7oXhDatwtY&list=PLUl4u3cNGP62UTc77mJoubhDELSC8lfR0)
 
+12V 怎麼轉換成 5V ?
+- 分壓(串一個可變電阻) → 簡單但是效率差
+- PWM: 用一個開關控制開路斷路，在每個週期控制開與關的比例
 
+pulse width modulation(PWM, 脈衝寬度調變)
+pulsating voltage (脈動電壓)
 
 
 
