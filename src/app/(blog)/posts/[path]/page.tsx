@@ -1,5 +1,4 @@
-import { format, parseISO } from "date-fns";
-import { getPost, importMdx } from "@/lib/posts";
+import { formatPostDate, getPost, importMdx } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import { type Metadata } from "next";
 
@@ -31,15 +30,17 @@ const Page = async ({ params }: PageProps) => {
   if (!post) notFound();
 
   const { title, date, tags, lastUpdate, relativePath } = post;
+  const displayDate = formatPostDate(lastUpdate ?? date);
   const { default: Content } = await importMdx(relativePath);
 
   return (
     <div className="dark:text-white">
       <div className="mb-8">
-        <time dateTime={date} className="mb-1 text-xs text-gray-500">
-          {format(parseISO(date), "LLLL d, yyyy")}
-          {lastUpdate ? `  (Last update: ${format(parseISO(lastUpdate), "LLLL d, yyyy")})` : ''}
-        </time>
+        {displayDate && (
+          <time dateTime={lastUpdate ?? date} className="mb-1 text-xs text-gray-500">
+            {displayDate}{lastUpdate && `  (Last update: ${formatPostDate(lastUpdate) ?? lastUpdate})`}
+          </time>
+        )}
         <h1 className="text-3xl font-bold dark:text-white">{title}</h1>
       </div>
       <article className="prose scroll-smooth md:prose-lg dark:prose-invert prose-a:no-underline prose-th:text-center prose-ol:m-0 prose-li:m-0 prose-ul:m-0 prose-h1:scroll-mt-24 prose-h2:mb-2 prose-h2:scroll-mt-24 prose-table:w-auto prose-td:text-center">

@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { format, parseISO } from "date-fns";
-import { type Post } from "@/lib/posts";
+import { formatPostDate, type Post } from "@/lib/posts";
 
 const PostCard = (post: Post) => {
   const tags = post.tags || [];
-  const lastUpdate = post.lastUpdate
+  const displayDate = formatPostDate(post.lastUpdate ?? post.date);
 
   return (
     <div className="mb-8">
@@ -17,9 +16,11 @@ const PostCard = (post: Post) => {
         </Link>
       </h2>
       <div className="flex items-center">
-        <time dateTime={post.date} className="block text-sm text-slate-500">
-          {lastUpdate ? format(parseISO(lastUpdate), "LLLL d, yyyy") : format(parseISO(post.date), "LLLL d, yyyy")}
-        </time>
+        {displayDate && (
+          <time dateTime={post.lastUpdate ?? post.date} className="block text-sm text-slate-500">
+            {displayDate}
+          </time>
+        )}
         <ul className="list-none flex items-center gap-1 ml-2 font-medium">
           {tags.map((tag) => (
             <li

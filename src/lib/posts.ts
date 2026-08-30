@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { format, isValid, parseISO } from "date-fns";
 
 const contentsDirectory = path.join(process.cwd(), "contents");
 const publicContentDirectories = ["posts", "notes"].map((directory) =>
@@ -10,7 +11,7 @@ const publicContentDirectories = ["posts", "notes"].map((directory) =>
 export type Post = {
   title: string;
   description?: string;
-  date: string;
+  date?: string;
   tags?: string[];
   lastUpdate?: string;
   draft?: boolean;
@@ -22,12 +23,23 @@ export type Post = {
   };
 };
 
-const normalizeDate = (value: unknown): string => {
+const normalizeDate = (value: unknown): string | undefined => {
+  if (value === undefined || value === null || String(value).trim() === "") {
+    return undefined;
+  }
+
   if (value instanceof Date) {
-    return value.toISOString().slice(0, 10);
+    return Number.isNaN(value.getTime()) ? undefined : value.toISOString().slice(0, 10);
   }
 
   return String(value);
+};
+
+export const formatPostDate = (value?: string): string | undefined => {
+  if (!value) return undefined;
+
+  const parsedDate = parseISO(value);
+  return isValid(parsedDate) ? format(parsedDate, "LLLL d, yyyy") : undefined;
 };
 
 const toPost = (filePath: string): Post => {

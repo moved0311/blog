@@ -5,10 +5,10 @@ category: note
 ---
 [電路學開放式課程 - YouTube](https://www.youtube.com/playlist?list=PL68D2uCy1WTMtp1m5TEJbKEt4kvlA4jLP)
 
-[單元 1．電路學課程導論 - YouTube](https://www.youtube.com/watch?v=vupQZd8bm8M)
+## [單元 1．電路學課程導論 - YouTube](https://www.youtube.com/watch?v=vupQZd8bm8M)
 KCL, KVL, 節點電壓法, 網路電流法
 
-[單元 2．基本電路觀念：電路變數的定義 - YouTube](https://www.youtube.com/watch?v=EAK3GX2I85s)
+## [單元 2．基本電路觀念：電路變數的定義 - YouTube](https://www.youtube.com/watch?v=EAK3GX2I85s)
 
 電路學的三個假設:
 1. 忽略時間延遲
@@ -24,7 +24,7 @@ $i = \frac{dq}{dt}$
 Voltage:
 $v = \frac{dw}{dq}$
 
-[單元 3．基本電路觀念：元件模型 - YouTube](https://www.youtube.com/watch?v=KzmuQfhxoa8)
+## [單元 3．基本電路觀念：元件模型 - YouTube](https://www.youtube.com/watch?v=KzmuQfhxoa8)
 
 $$p = \frac{dw}{dt} = \frac{dw}{dq} \times \frac{dq}{dt} = vi$$
 計算功率定義電流都由+ → - (Passive sign convention)
@@ -43,7 +43,7 @@ $$p = \frac{dw}{dt} = \frac{dw}{dq} \times \frac{dq}{dt} = vi$$
 | --- | ------ | ---------------------------------------------------- | --------------------------------------------------- |
 | v   | v=Ri   | v(t) = $V(0) + \frac{1}{C}\int_{0}^{t}i(\tau) d\tau$ | $v(t) = L\frac{di(t)}{dt}$                          |
 | i   | i = Gv | $i(t) = C\frac{dv(t)}{dt}$                           | $i(t) =i(0) + \frac{1}{L}\int_{0}^{t} v(\tau)d\tau$ |
-## Resistor 電阻
+### Resistor 電阻
 - R=$\rho\frac{l}{A}$
 	- $\rho$: 電阻率 resistivity
 	- l: 導體長度
@@ -51,7 +51,7 @@ $$p = \frac{dw}{dt} = \frac{dw}{dq} \times \frac{dq}{dt} = vi$$
 - R: resistance(ohms, $\Omega$)
 - G: conductance(siemens, S)
 	- $\sigma$: 導電率 conductivity
-## Capacitor 電容
+### Capacitor 電容
 
 結構: 兩個金屬板中間填充絕緣體
 
@@ -78,7 +78,7 @@ $\int_{-\infty}^{t} \frac{dv(\tau)}{dt} d\tau = \int_{-\infty}^{t} \frac{1}{C}i(
 
 V(t) = $\frac{1}{C}\int_{-\infty}^{0}i(\tau) d\tau + \frac{1}{C}\int_{0}^{t}i(\tau) d\tau$ = $V(0) + \frac{1}{C}\int_{0}^{t}i(\tau) d\tau$
 
-## Inductor 電感
+### Inductor 電感
 
 磁通量: $N\phi \propto i$, N:線圈匝數
 
@@ -98,7 +98,7 @@ $i(t) = \frac{1}{L}\int_{-\infty}^{t} v(\tau)d\tau = \frac{1}{L}\int_{-\infty}^{
 
 $i(t) = i(0)  + \frac{1}{L}\int_{0}^{t} v(\tau)d\tau$
 
-[單元 4．基本電路觀念：元件模型、KCL與KVL - YouTube](https://www.youtube.com/watch?v=yQHMJyqW0K4)
+## [單元 4．基本電路觀念：元件模型、KCL與KVL - YouTube](https://www.youtube.com/watch?v=yQHMJyqW0K4)
 求解電路: 
 
 2B
@@ -110,43 +110,28 @@ $i(t) = i(0)  + \frac{1}{L}\int_{0}^{t} v(\tau)d\tau$
 N節點數, B元件數, M 網目數\
 M = B - (N-1)
 
-## KCL: Kirchhoff's Current Law
+### KCL: Kirchhoff's Current Law
 
 流出節點的電流=流入節點的電流
 
-## KVL: Kirchhoff's Voltage Law
+### KVL: Kirchhoff's Voltage Law
 迴圈內的 總壓升=總壓降
 
-[單元 5．基本電路觀念 - 2B法 - YouTube](https://www.youtube.com/watch?v=p0OxaKE5Fv8)
+## [單元 5．基本電路觀念 - 2B法 - YouTube](https://www.youtube.com/watch?v=p0OxaKE5Fv8)
 
 優點:
 - 系統化的求解流程
 缺點:
 - 元件數多的話會造成未知數很多
+## [單元 6．基本電路觀念 - 簡單電阻網路的速解法 - YouTube](https://www.youtube.com/watch?v=83lApfsCUH4&list=PL68D2uCy1WTMtp1m5TEJbKEt4kvlA4jLP&index=7)
 
-[Lecture 1: Introduction to Power Electronics - YouTube](https://www.youtube.com/watch?v=f7oXhDatwtY&list=PLUl4u3cNGP62UTc77mJoubhDELSC8lfR0)
+分壓/分流定理
+- 串聯等效電阻: $R_{eq} = R_1 + R_2 + ...+ R_n$
+- 並聯等效電阻: $\frac{1}{R_{eq}}=\frac{1}{R_1}+\frac{1}{R2}+...+\frac{1}{R_n}$
+	- $R_a || R_L \to R_{eq}=\frac{R_aR_L}{R_a+R_L}$
 
-12V 怎麼轉換成 5V ?
-- 分壓(串一個可變電阻) → 簡單但是效率差
-- PWM: 用一個開關控制開路斷路，在每個週期控制開與關的比例
-
-pulse width modulation(PWM, 脈衝寬度調變)
-pulsating voltage (脈動電壓)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$\Delta$-Y Equivalent Circuits
+$\Delta$電阻和Y電阻之間的轉換過程
 
 
 

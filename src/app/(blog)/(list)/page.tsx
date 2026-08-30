@@ -5,8 +5,8 @@ import PostCard from "@/components/Post";
 export default function Home() {
   const allPosts = getAllPosts();
   const posts = allPosts.sort((a, b) => {
-    const date_a = new Date(a.lastUpdate || a.date);
-    const date_b = new Date(b.lastUpdate || b.date);
+    const date_a = new Date(a.lastUpdate || a.date || 0);
+    const date_b = new Date(b.lastUpdate || b.date || 0);
     return compareDesc(date_a, date_b);
   });
 
