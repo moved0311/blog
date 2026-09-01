@@ -413,7 +413,6 @@ Past tense = imagined or unlikely.
 - engrave in history / errand / giant canyon / grew a goatee / reminisce / senile / tactics
 - mediate / aversion / relieve pain
 
-
 ## 11/13
 
 2. [效率好差，要怎麼提高生產力？The Science of Productivity](https://tw.voicetube.com/videos/215)
@@ -575,7 +574,6 @@ Past tense = imagined or unlikely.
   - out of the blue
   - humid
 - [幽默感很重要！成為一位喜劇演員的條件是？（How to Be Funny | RMIT University）](https://tw.voicetube.com/videos/101)
-
   - you find the world a bleak and terrible place
   - you don't have to be outgoing and gregarious
   - there's only one rule in comedy - the punchline goes at the end
@@ -680,6 +678,7 @@ Past tense = imagined or unlikely.
   - salon / barbershop
 
 ## 12/04
+
 - 上課: Trip to the hairdresser
   - hair spray
   - fringe: are the hair above your eyes
@@ -695,17 +694,19 @@ Past tense = imagined or unlikely.
   - reporting on the nostalgia
   - begger's belief
   - had a falling out with someone
-  - snatch the lead from 
+  - snatch the lead from
   - That doesn't come by happenstance
   - overseas markets
   - prevalence of allergy
 
 ## 12/05
+
 - [交易心理學 - 戴維-保羅博士 (Trading Psychology - Dr David Paul) - VoiceTube 看影片學英語](https://tw.voicetube.com/videos/184740?utm_source=vtweb&utm_medium=header)
 
 ## 12/07
 
 上課: Idioms-Related to communication
+
 - beat around the bush
   - talking in circle, not answering / 沒說重點 / to stall or waste time to avoid anwsering a question / no direct answer
 - keep me posted on what happens
@@ -731,6 +732,7 @@ Past tense = imagined or unlikely.
 - action speak louder than word
 
 ## 12/09
+
 - [你熱愛的生活究竟該如何規劃？2025 年一起改變你的人生吧！ (How to Design a Life You Love ? Transform Your Life in 2025) - VoiceTube 看影片學英語](https://tw.voicetube.com/videos/184637?utm_medium=header)
   - I'm just joining in
   - honesty, integrity, compassion, passion, action, ambition
@@ -741,7 +743,9 @@ Past tense = imagined or unlikely.
 - 上課: Health and fitness
 
 ## 12/10
-上課: 
+
+上課:
+
 - carry on = hand luggage (行李箱托的)
 - checked luggage = cabin luggage (手提)
 - luggage = baggage
@@ -750,12 +754,13 @@ Past tense = imagined or unlikely.
   - 100ml liquid in clear container
 - passport control / immigration
 - step to the side
-- put your keys bin/tray 
+- put your keys bin/tray
 - check/empty your pockets
 - go through security
 - customs = not allow to carry
 
 ## 12/11
+
 - departure gate
 - go to check-in
 - tax free / tax refund / duty-free zone
@@ -769,12 +774,14 @@ Past tense = imagined or unlikely.
 - passport control
 
 ## 12/15
+
 - [總是不知道如何與人交談？看看如何更好地有效溝通！（Secret To Getting Better At Talking To People） - VoiceTube 看影片學英語](https://tw.voicetube.com/videos/81976?utm_source=vtweb&utm_medium=header)
   - social handicap
   - body language / facial expression / tonality / proimity / eye contact
   - here is a good analogy
 
 ## 12/16
+
 - 上課: Are they shopping?
   - long sleeves / sweater / T-shirt / dress shirt(formal) / goose feather jacket / goose down / hoody (帽T) / sleeveless singlet / costume / pajamas / clothes (don't prononuce es)
   - humid
@@ -782,25 +789,30 @@ Past tense = imagined or unlikely.
 - [這就是我每天要做的(This is what I do everyday...)](https://tw.voicetube.com/videos/184979?utm_source=vtweb&utm_medium=header)
 
 ## 12/23
+
 - 上課: Communicating
   - toddler / kindergarten
   - near-sighted / far-sighted
 
 ## 12/24
+
 - 上課: Christmas
   - christmas carols / sleigh / snowman / mince pie / reindeer / tinsel / stocking / cracker / present / holly
   - Jesus / manger
 
 ## 12/25
+
 - [【阿滴英文】八個聖誕節傳統介紹 (8 Christmas Traditions)](https://tw.voicetube.com/videos/33166)
-  - Santa Claus / eggong 
+  - Santa Claus / eggong
   - The tree is the most iconic item about Christmas
 - 上課: Christmas
 
 ## 12/26
+
 - [18 種亞洲女孩 (18 TYPES OF ASIAN GIRLS) - VoiceTube 看影片學英語](https://tw.voicetube.com/videos/185229?utm_source=vtweb&utm_medium=header)
 
 ## 12/27
+
 - 上課: Idioms related to law and order
   - behind bars: in jail
   - black and white:
@@ -820,7 +832,9 @@ Past tense = imagined or unlikely.
   - benefit of the doubt
 
 ## 2025/1/4
+
 上課: Idioms related to shopping and possessions
+
 - in mint condition: means pristine, undamaged since it was made.
 - less is more
 - collecting dust: hasn't been used for a long time
@@ -842,7 +856,9 @@ Past tense = imagined or unlikely.
 - to shop aound for something
 
 ## 2025/1/7
+
 上課: New Year Celebrations
+
 - New Year's resolution
 - load trip
 - theme park / amusement park
@@ -854,7 +870,8 @@ Past tense = imagined or unlikely.
 - weakness
 - lives aboard
 
-VoiceTube: 
+VoiceTube:
+
 - [如何成為一名副主廚｜餐廳生意 (How to Become a Sous Chef | Restaurant Business) - VoiceTube 看影片學英語](https://tw.voicetube.com/videos/45527?utm_source=vtweb&utm_medium=header)
   - sous chef
 - [【英語字彙】烹飪技巧：炒滷烤煮 (Cooking Vocabulary in English - chop, grill, saute, boil, slice...) - VoiceTube 看影片學英語](https://tw.voicetube.com/videos/13761?utm_source=vtweb&utm_medium=header)
@@ -867,21 +884,24 @@ VoiceTube:
   - chop / dice / slice / fry / deep-fry / stri 攪
 
 [【聽Podcast學英文】如何在 2025 年養成良好習慣？(How to Build Good Habits in 2025) - VoiceTube 看影片學英語](https://tw.voicetube.com/videos/185496?utm_source=vtweb&utm_medium=header)
+
 - uncover the secret to
 - why do we struggle to stick to them
 - they often burn out quickly
 - overtime, these small improvement add up to big result
 
 ## 2025/1/11
+
 上課: Idioms that use home Vocabulary
-- hit close to home: 
+
+- hit close to home:
 - have a skeleton in the closet
 - home away from home: a place where you feel as comfortable as you do in your own home
-- hit close to home: 
+- hit close to home:
 - home free: having successfully completed something
   - I'm home free
 - bring home the bacon: make money
-- make oneself at home: 
+- make oneself at home:
 - home stretch: the final/last part
   - in the home stretch / finish the home stretch
 - nothing to write home about: not exciting
@@ -895,25 +915,31 @@ VoiceTube:
 - feel comforatble in a new place
 
 ## 2025/1/13
+
 [想讓別人喜歡你嗎？其實擁有「魅力」一點都不難！](https://tw.voicetube.com/videos/182803?utm_source=vtweb&utm_medium=header)
-  - charisma / charismatic
-  - resonate
-  - shadow answer
-  - told entertaining stories or cracked a few genuinely funny jokes
-  - because people inherently value those things
-  - everyday person
-  - elevate the other person's experience
-  - give nonverbal cues
-  - with a blank face
-  - vent their emotions
+
+- charisma / charismatic
+- resonate
+- shadow answer
+- told entertaining stories or cracked a few genuinely funny jokes
+- because people inherently value those things
+- everyday person
+- elevate the other person's experience
+- give nonverbal cues
+- with a blank face
+- vent their emotions
 
 ## 2025/1/14
+
 上課: Iterview with Chef Drolet
+
 - culinary school
 - shepherd
 
 ## 2025/1/15
+
 上課: Five things to do in Sydney
+
 - iconic / landmarks
 - hidden gem
 - off-the-beaten track
@@ -924,12 +950,15 @@ VoiceTube:
 - Manly Beach
 
 [澳洲東海岸介紹 (Introducing East Coast Australia) - VoiceTube 看影片學英語](https://tw.voicetube.com/videos/143045?utm_source=vtweb&utm_medium=header)
+
 - hip cities
 - native critters
 - indigenous people
 
 ## 2025/1/18
+
 上課: Common Idiomatic expressions
+
 - about to: planning to do something at the moment
   - The plane is about to take off.
 - for good: forever
@@ -951,7 +980,9 @@ VoiceTube:
   - was for the best
 
 ## 2025/1/20
+
 上課: Plans
+
 - book accommodations/hotel
 - get some local currency
 - apply for a visa
@@ -960,6 +991,7 @@ VoiceTube:
 - tips for a cycling vacation
 
 ## 2025/1/21
+
 - get around
 - Sydney Opera house
 - Harbour Bridge
@@ -970,33 +1002,37 @@ VoiceTube:
 - great climate / mild(not too hot, not too cold)
 
 ## 2025/2/3
+
 上課: Daily route
+
 - cafeteria
 - uniform
 
 ## 2025/2/8
+
 上課: Weather and seasons
 slippery
 sweet bean soup
-windy / hot / cloudy  / stormy / snowy / cold / rainly / sunny
+windy / hot / cloudy / stormy / snowy / cold / rainly / sunny
 heat wave
-skate rink / ice skate / skiing / snowboard 
+skate rink / ice skate / skiing / snowboard
 marine / marine creature / seals
 Drowning / salty
 Vancouver
 wear scarf / muscle and tissue
 
 ## 2025/2/10
+
 上課: Pets and animals
 Make-up day
 reptiles
 hamster
 yard / tail / tiny / tank水族箱 / fur毛
 
-
-
 ## 2025/2/12
+
 上課: Places to see in Perth
+
 - In the west
 - mainland
 - vacation(traveling) / holiday
@@ -1004,7 +1040,9 @@ yard / tail / tiny / tank水族箱 / fur毛
 - 國家有s結尾的，前面要加the表示是很多組合成的
 
 ## 2025/2/15
+
 上課: Multiword verbs with BACK
+
 - back down: stop todo something (停止爭執)
   - arguement, stoping arguement
   - someside need to back down
@@ -1017,7 +1055,7 @@ yard / tail / tiny / tank水族箱 / fur毛
   - backed up so fast (car) 物理倒退
   - have to repeat something
   - provide proof or evidence
-    - back it up 
+    - back it up
     - back [something/someone] up
   - called for backup(help)
     - The army called for backup
@@ -1026,9 +1064,9 @@ yard / tail / tiny / tank水族箱 / fur毛
   - the drains backed up and overflowed
   - backed up the traffice for more than five miles 塞車/堵塞
     - The drain was backed up by the flooding
-    - The line was backed up 
+    - The line was backed up
   - Deniz backed up the program every night before switching off her computer.
-  - Deniz ensured that she made a backup of the data daily  
+  - Deniz ensured that she made a backup of the data daily
   - my family backs me up
   - there was a three-week backup of mail to clear
   - we will need to take a backup because the phone battery will only last 48 hours
@@ -1037,18 +1075,22 @@ paramedics 醫護人員
 temporary backup (second phone)
 
 ## 2025/2/17
+
 上課: Holidays and celebrations
+
 - gatherings
-- Christmas / Halloween / Thanksgiving / birthday / New Year 
+- Christmas / Halloween / Thanksgiving / birthday / New Year
 - Mid-Autumn Festival
 
 ## 2025/2/18
+
 上課: Places to see in Perth
+
 - outback
 - hut
 - tour guide
 - a full-day tour / a half-day tour
-- used to be colony 
+- used to be colony
 - Kings park
 - resident of
 - spectacular view
@@ -1056,10 +1098,12 @@ temporary backup (second phone)
 - voyage on a ship
 - live entertainment: not recorded
 - sunbathing -> tan (most use)
-- cruises 
+- cruises
 
 ## 2025/2/19
-上課: Colombia: Getting There and Getting Around 
+
+上課: Colombia: Getting There and Getting Around
+
 - spanish / Bogotá
 - Medellin (most famous city)
 - bus stations / stops
@@ -1068,12 +1112,16 @@ temporary backup (second phone)
 - how will you move around the country
 
 ## 2025/2/24
+
 上課: Plans
+
 - basketball court
 - grill burger
 
 ## 2025/2/25
+
 上課: Colombia:getting there and getting around
+
 - budget-friendly
 - amenities
 - Low-cost airline / economical
@@ -1089,19 +1137,23 @@ temporary backup (second phone)
 - cheap domestic fights
 
 ## 2025/2/26
+
 上課: Film review-La La Land
+
 - la-la land: Hollywood
 - spectators / crowd / audience
   - audience: watch show
-  - spectacular: watch sport 
+  - spectacular: watch sport
     - sport match/game
 - viewer
 - performance / carnival
 - streaming service/platform
-- main characters / setting / short plot 
+- main characters / setting / short plot
 
 ## 2025/3/3
+
 上課: Travel and vacations
+
 - Orlando, Florida
   - Amusement/theme Park
   - rocket, roller coaster, surfing
@@ -1111,14 +1163,18 @@ temporary backup (second phone)
   - souvenir(from French) / gift
 
 ## 2025/3/4
+
 上課: Film review-La La Land
+
 - make ends meet
 - audition (actors interview)
-- genre 
+- genre
   - What genre does the book fall into - comedy or tragedy?
 
 ## 2025/3/5
+
 上課: Crime
+
 - pickpocket
 - robber
 - fine
@@ -1132,63 +1188,65 @@ temporary backup (second phone)
 - stab to death
 
 ## 2025/3/8
+
 上課: Multiword verbs with BREAK
+
 - break down 東西壞了(可以修) v.
   - John's car broke down
   - broken-down (不能修)
   - The printer has has a breakdown
-	- It rarely breaks down.
+  - It rarely breaks down.
 - break into 闖入(illegally)
   - break into the store
 - breaks down (v.) lose self-control 情緒崩潰highly emotional
 - breakdown extremely upset (n.)
-	- Harry had a breakdown after losing his job
+  - Harry had a breakdown after losing his job
 
 - break [something] down 分解
-	- break down the problem
+  - break down the problem
 
-break a door down 撞破門
-	- the fireman broke down the door to save the children
+break a door down 撞破門 - the fireman broke down the door to save the children
 
 Its a broken-down piece of junk
 she suffered a serious breakdown / burn out
 
-break [something] in 新的東西要磨合
-	- you need to break the car in slowly. For the first few weeks, try not to drive more than 45 miles per hour
+break [something] in 新的東西要磨合 - you need to break the car in slowly. For the first few weeks, try not to drive more than 45 miles per hour
 
-break off 一小塊壞了
-	- break [something] off
-	- break off his engagement 取消婚約
-	- I acciden
+break off 一小塊壞了 - break [something] off - break off his engagement 取消婚約 - I acciden
 
 break out 逃跑
+
 - when you escape from a place, you break out of it
 - the prisoners broke out of jail
 - a breakout is an escape from a prison
 
 break out (suddenly appear) 突然發生
-	a fire broke out break out in the factory
+a fire broke out break out in the factory
 
 break through 突破
+
 - when you break a problem, you find a way to solve it
-breakthrough (n.)
-	- made a promising breakthourgh in cancer research
+  breakthrough (n.) - made a promising breakthourgh in cancer research
 
 break up 阻止
+
 - break up a fight 阻止打架
 - If you break a fligh up, you stop it
-	- broke the brawl up
+  - broke the brawl up
 
 break up (end a relationship) 分手
 
 ## 2025/3/12
+
 上課: WWI trench diary
+
 - we're all given a ration of rum
 - rifle inspection
 
-
 ## 2025/3/15
+
 上課: Multiword verbs COME
+
 - It come off the wall 掉落
 - come across 跨越(1)
   - go from one side of a place to the other
@@ -1200,14 +1258,14 @@ break up (end a relationship) 分手
   - if something came about, it happens after a series of events
 - come apart 分解/壞了/東西品質不好或很舊
 - come down/up (1)電梯往上往下/價錢往上往下
-	- comedown : big life change
-		- a huge comedown for him
-	- The price of oil fell months ago but the cose of plane tickets has not yet come down
-	- (2)生病
-  	- I've come down with the flu
-  	- He is coming down with the cold.
-	- (3)起源 something originates from its source
-  	- the word 'coffee' come from kahve in Turkish
+  - comedown : big life change
+    - a huge comedown for him
+  - The price of oil fell months ago but the cose of plane tickets has not yet come down
+  - (2)生病
+    - I've come down with the flu
+    - He is coming down with the cold.
+  - (3)起源 something originates from its source
+    - the word 'coffee' come from kahve in Turkish
 - come in/into
   - (1) 進入enter a room
     - come into the busstop
@@ -1222,9 +1280,10 @@ break up (end a relationship) 分手
   - the paint is coming off the wall
   - (2) 成功
 
-
 ## 2025/3/17
+
 上課: Sports
+
 - hot pot / cabbage
 - four of them
 - four out of five
@@ -1233,9 +1292,10 @@ break up (end a relationship) 分手
 - guard
 - goalkeeper / defender / midfielder / forward
 
-
 ## 2025/3/18
+
 上課: WWI trench diary
+
 - chores
 - platoon commander
   - platoon: a group of solder
@@ -1244,6 +1304,7 @@ break up (end a relationship) 分手
 - snipers
 
 ## 2025/3/19
+
 - pacific garbage
 - don mask
 - smog
@@ -1257,7 +1318,9 @@ break up (end a relationship) 分手
 - wind farm
 
 ## 2025/3/21
+
 上課: Background to the American revolution
+
 - territory (land)
 - mayor
 - parliament
@@ -1267,16 +1330,18 @@ break up (end a relationship) 分手
 - boycott
 
 ## 2025/3/24
+
 上課: Body
+
 - slow season
 - from now on
 - eyelashes / eyeballs
 - cheeks / face / eye / shoulder
-- mouth / hand / ear / nose / waist 
+- mouth / hand / ear / nose / waist
 - forehead / fingers / ankles
 - knees / nose / skin / lips
 - tongue / foot / feet / back / elbow
-- head / neck / 
+- head / neck /
 - on her head / on my face
 - in my brain
 - around her neck
@@ -1286,6 +1351,7 @@ break up (end a relationship) 分手
 - she has one broken arm
 
 ## 2025/3/25
+
 - Up in the air: when something is uncertain or undecided
 - by air: traveling or sending something by plane
 - walking on air
@@ -1298,22 +1364,26 @@ break up (end a relationship) 分手
 - 90-meter high mound
 
 ## 2025/3/26
+
 上課: In my free time
+
 - surf the net -> go online
 - leisure actvitity / freetime activity / hobby activity
 
 ## 2025/4/7
+
 上課: Food Fruit
+
 - nectarine / peach
-- fig 
-- apricot / pear 
+- fig
+- apricot / pear
 - cranberries
 - stone fruits
 - A group of fruits is called an orchard
 - orchard 果園
 - citrus fruits / citrus juice
 - tropical fruits
-- yellow peel / banana peel 
+- yellow peel / banana peel
 - pomegranate
 - dried fruit
   - banana chips
@@ -1321,15 +1391,19 @@ break up (end a relationship) 分手
   - plums 李子
 
 ## 2025/4/8
+
 上課: Family Values
+
 - big family / extended family / nuclear family
 - dink
 - maternity leave
 - martial status
 
 ## 2025/4/9
+
 上課: A day in the city park
-- national park / city park 
+
+- national park / city park
 - fountain
 - bycicle land / bycicle path
 - bench
@@ -1338,11 +1412,13 @@ break up (end a relationship) 分手
 - escalator
 - disabled / differently abled
 - exhibition
-- Its facilities includes ... 
-- It is located in ... 
+- Its facilities includes ...
+- It is located in ...
 
 ## 2025/4/10
+
 上課: Food-Vegetables
+
 - I'm between jobs
 - I went to traveling to Hokaido
 - green: brocoli / white: cauliflower
@@ -1357,7 +1433,9 @@ break up (end a relationship) 分手
 - guilty pleasure
 
 ## 2025/4/11
+
 上課: Food-Fish and Seafood
+
 - stay at home = (stay in)
 - stalk 跟蹤 / weirdo 怪人
 - high tariffs(n.) 關稅
@@ -1385,19 +1463,23 @@ break up (end a relationship) 分手
 - anchovy 鯷魚
 - squid 小卷魷魚 / cuttlefish 墨魚(花枝)
 - squid game / episods
-- octopush 
+- octopush
 
 ## 2025/4/15
+
 上課: Day In The City Park
+
 - kiosk / cafe 小攤販
 - No littering
 - amusement park / theme park
   - rides / marine animals / rollercoaster / Ferris wheel
-- animatronic 
+- animatronic
 
 ## 2025/4/16
+
 #### Day At The Office
-- law firm / lawyer 
+
+- law firm / lawyer
 - associate
 - former company
 - client(hire/contract) / customer
@@ -1407,12 +1489,14 @@ break up (end a relationship) 分手
 - treadmill desk / standing desk
 
 ## 2025/4/21
+
 上課: Food Nuts and Legumes
+
 - hazelnut 榛果 / peanut 花生
 - chestnut 栗子
 - walnut 胡桃 / pecan 堅果
 - coconut 椰子 / almond 杏仁
-- pistachio 開心果 
+- pistachio 開心果
 - palm / praline candy
 - Mediterranean
 - roasted chestnut
@@ -1426,13 +1510,17 @@ break up (end a relationship) 分手
 - kola nuts 可樂果
 
 ## 2025/4/22
+
 上課: Day At The Office
+
 - downtime
 - burnout
 - camaraderie(friendship)
 
 ## 2025/4/23
+
 上課: Life in the city
+
 - accommodations 住宿 / apartment 公寓
 - housing / residence 住宅
 - terraced house
@@ -1442,11 +1530,13 @@ break up (end a relationship) 分手
 - public apartment
 
 ## 2025/4/24
+
 上課: Food Herbs and Spices
 Bay leaf月桂葉, star anise 八角, parsley歐芹, dill蒔蘿, rosemary迷迭香
 garlic大蒜
 chili pepper辣椒
-- Grind into powder 
+
+- Grind into powder
 - mustard芥末
   - japanese mustard, wasabi
 - cumin小茴香
@@ -1474,7 +1564,9 @@ chili pepper辣椒
 - chutney 酸辣醬
 
 ## 2025/4/25
+
 上課: Food-Bread Cereal Pasta Noodles
+
 - wheat 小麥 / barley 大麥
 - flour 麵粉
 - torilla 玉米餅
@@ -1499,7 +1591,9 @@ chili pepper辣椒
 - tortilla chips 玉米片
 
 ## 2025/4/28
+
 上課: Food-Meat and Delicatessen
+
 - ribs
 - beef / steak / veal / diced beef
   - cattle / cow / bull
@@ -1507,7 +1601,7 @@ chili pepper辣椒
 - chicken
 - pork / bacon / sausage 香腸
 - hamburger patty 漢堡肉餅
-- flesh of animal 
+- flesh of animal
 - a shop that sells meat is called a butcher
 - ground 絞肉
 - back ribs 背肋骨
@@ -1517,7 +1611,9 @@ chili pepper辣椒
 - stew 燉肉 / beef stew rice 牛肉燴飯
 
 ## 2025/4/29
+
 上課: Life in the city
+
 - tuktuk 嘟嘟車
 - lorry 貨車 / truck / delivery truck
 - highway
@@ -1526,28 +1622,31 @@ chili pepper辣椒
 - cricket 板球 / foot
 - cinema / theater
 - movive buff 電影迷
-- shearing 
+- shearing
 - indoor/outdoor activities
 
 ## 2024/4/30
+
 上課: When You Come To Montreal
+
 - Quebec is a province in Canada
 - Montreal is a city in Quebec
 - States / Counties / Cities
- - what is different between states and counties?
+- what is different between states and counties?
 - Terrtories / Provinces
 - Vancouver is in British Columbia
 - autonomous
 - Canada's captial city is Ottawa
 
 ## 2025/5/3
+
 - city building
 - family household
 - connected house
 - live near the ocean
 - in the suburbs 郊區
 - in the quiet neighborhood
-- downtown 市中心 
+- downtown 市中心
 - basement
 - B1, B2 parking garage
 - high rise building 高層建築
@@ -1555,9 +1654,9 @@ chili pepper辣椒
 - histroric building
 - tall and modern apartment building
 - balcony
-- study room 
+- study room
 - kitchen
-- laundry room 
+- laundry room
 - a bedroom
 - living room
 - sofa in the living room
@@ -1565,11 +1664,11 @@ chili pepper辣椒
 - art on the wall , bookshelf
 - rug
 - sofa / couch / light fittings
-- air conditioning 
+- air conditioning
 - painting
 - large closet 衣櫃, walk in closet
 - appliances 電器
-- cabinet 
+- cabinet
 - inteirior design 室內設計
 - tub 浴缸
 - hammock 吊床
@@ -1579,14 +1678,18 @@ chili pepper辣椒
 - quiet / noisy
 
 ## 2025/5/5
+
 上課: The Alphabet
+
 - Alligator 鱷魚
 - plural 複數
 - stress 重音
 - quiz / quizzes
 
 ## 2025/5/6
+
 上課: Socializing
+
 - meeting people for the first time
 - Really ? / That's amazing! / That's incredible!
 - Really ? / Oh no! / That's awful! / That's terrible!
@@ -1594,7 +1697,9 @@ chili pepper辣椒
 - Me neighter
 
 ## 2025/5/7
+
 上課: Socializing
+
 - student accommodation / residences
 - nerve-wracking / nervious
 - Showing interest and asking follow-up questions
@@ -1602,18 +1707,22 @@ chili pepper辣椒
   - You're kidding
   - No way!
   - Really?
-- where are you headed? 
+- where are you headed?
 - I 'm sorry, I have to take this call
 - Ending converation
   - I'm sorry, I have to ...
 - I'm sorry I overheard talking about.....
 
 ## 2025/5/12
+
 上課: Where we live
+
 - bento / lunch box
 
 ## 2025/5/13
+
 上課: Socializing
+
 - catching up :meet someone you haven't seen for a while
 - How often do you catch up with friends?
 - get in touch (on the weekend)
@@ -1625,7 +1734,9 @@ chili pepper辣椒
 - hashtag
 
 ## 2025/5/14
+
 上課: Socializing
+
 - ergency
 - slacker
 - exclamation marks (!)
@@ -1633,19 +1744,22 @@ chili pepper辣椒
 - emojis
 - full stops (.)
 - question marks
-- passive aggressive 
+- passive aggressive
 - abbreviations
 - atm(at the moment)
-   - can't talk atm.
+  - can't talk atm.
 - btw (by the way)
 - idc (I don't care)
 - dw (don't worry)
 
 ## 2025/5/19
+
 上課: Consonants
 
 ## 2025/5/20
+
 上課: Travel adventure
+
 - tick something off your my to-do list
 - achieved their goal
   - wish / goal
@@ -1656,27 +1770,33 @@ chili pepper辣椒
 - accommodation
 
 ## 2025/5/21
+
 上課: Travel adventure
+
 - bucket list
 - hammock
 - kick the bucket = die = pass away
 
 ## 2025/5/26
+
 上課: Let's go shopping
+
 - I'm just browsing
 - don't wear A or B (否定兩個用or)
 
-
 ## 2025/5/27
+
 上課: Travel adventure
+
 - insurance
 - compass
 - get lost in a new city
 - paramedic
 
-
 ## 2025/5/28
+
 上課:
+
 - dehumidifier
 - Lonely Planet
 - seasick / carsick
@@ -1689,26 +1809,33 @@ chili pepper辣椒
 - sneakers / walking shoes / boots
 
 ## 2025/6/2
-上課: The Past 
+
+上課: The Past
+
 - rice dumpling
 - pet's fair 寵物博覽會 / exhibition center
 - 我以為 => I thought
 
 ## 2025/6/3
+
 上課:
+
 - cathedral 大教堂
 - plaza 廣場
-- aqueduct / aqua 
+- aqueduct / aqua
 - Toledo / Madrid
 
 ## 2025/6/4
+
 上課:
+
 - regional train
 - high-speed train
-- outbound / return 
-- class / elige confort 
+- outbound / return
+- class / elige confort
 
 ## 2025/6/11
+
 - travel blog
 - Mexican cartels
 - flight attendant
@@ -1716,6 +1843,7 @@ chili pepper辣椒
 - first / business / economy class
 
 ## 2025/6/17
+
 - present perfect 現在完成式
   - just, already, yet
 - achievement
@@ -1726,6 +1854,7 @@ chili pepper辣椒
 - first aid
 
 ## 2025/6/18
+
 - analyze data / information
 - colleague
 - collaborate
@@ -1740,6 +1869,7 @@ chili pepper辣椒
   - job-specific
 
 ## 2025/6/24
+
 - comparative
   - adj + er
 - superlative
@@ -1748,19 +1878,21 @@ chili pepper辣椒
   - ing 描述即將會結束的事情 / 最近的事情 / 強調改變?
 
 ## 2025/6/25
+
 - syllable
 - two or more syllables using more and most
   - more beautiful
--  irregular adverbs
-  - well / better
+- irregular adverbs
+- well / better
 - open-minded
 - broad
 - cosmetic surgery
 
 ## 2025/6/26
+
 - gadgets
-  -  technology gadgets
-- write some notes down 
+  - technology gadgets
+- write some notes down
 - take down some notes
 - refriderator / freezer / fridge freezer
 - As an engineer, I usually use my laptop throughout the day
@@ -1781,7 +1913,7 @@ chili pepper辣椒
 - out of two
 - faux pas = fo par 失禮行為
   - I just forgot that man's name. That was such a big faux pas.
--phone addict
+    -phone addict
 - glued to their phones
 - Are you addicted to screens
 - there is a time and a place to use my phone
@@ -1790,6 +1922,7 @@ chili pepper辣椒
 - colleague同事 / college大學
 
 ## 2025/7/1
+
 - beverages
 - A drink is a liquid
 - reservoir 水庫
@@ -1797,7 +1930,7 @@ chili pepper辣椒
   - fruit is not ripe
   - turning ripe
   - macchiato
-   - foam on top / steamed milk
+  - foam on top / steamed milk
 - clean and rinse
   - use water to clean mouse
 - plural
@@ -1805,8 +1938,8 @@ chili pepper辣椒
 - lemon tart
 - tart v.s. pie
 
-
 ## 2025/7/15
+
 - Clothing
 - collar
 - stylish / style
@@ -1820,7 +1953,9 @@ chili pepper辣椒
 - tight / loose
 
 ## 2025/7/22
+
 Cloudy with a chance of rain
+
 - weather forecast
 - drizzle
 - overcast sky / clear sky
@@ -1828,6 +1963,7 @@ Cloudy with a chance of rain
 - chilly / warm
 
 ## 2025/7/29
+
 - immigrating to another country
 - country / nationality / offical language
 - Nationality and language
@@ -1836,28 +1972,32 @@ Cloudy with a chance of rain
 - household
 
 ## 2025/8/5
+
 Nationalities
+
 - The resident of Paris
-When in Rome, do as the Romans do
+  When in Rome, do as the Romans do
 - follow their customs
 - adapt
-Washington D.C. is the capital of the United States.
-People in France speak French.
-mutual problem = same problem
-
+  Washington D.C. is the capital of the United States.
+  People in France speak French.
+  mutual problem = same problem
 
 ## 2025/8/11
+
 Ving
+
 - fixed plan
 - at this moment
-What are you doing on the screen ?
+  What are you doing on the screen ?
 
 ## 2025/8/12
+
 transport
 Vehicles : Bus / Coach / Plane / train
-about to = going to 
+about to = going to
 bus fare / train fare / airfare
-fare-evaing passenger 
+fare-evaing passenger
 getting on/off the bus (大型交通工具)
 get in/into/out of the car (小型交通工具)
 (train) platform
@@ -1869,6 +2009,7 @@ tap / scan your phone
 carpool = share a ride with others
 
 ## 2025/8/14
+
 [Cherry lovers delight as prices hit 20-year-low](https://english.ftvnews.com.tw/news/2025813W07EA)
 Sino-US trade war 中美貿易戰
 Sino: 中國相關的
@@ -1884,18 +2025,21 @@ flagship store
 This That These Those (pronouns)
 
 ## 2025/8/15
+
 living expense
 fragrance
 netizens 網民
 become an online sensation
 
 ## 2025/8/18
-ceramics 
-Past simple 
+
+ceramics
+Past simple
 English collocation 搭配詞
 half past three (3:30)
 
 ## 2025/8/19
+
 The US' tariffs
 furloughed 500 employees
 manufacturing sector
@@ -1927,6 +2071,7 @@ kilometer(pronunciation)
 ravioli
 
 ## 2025/8/20
+
 Little did the traveler know (The traveler did little know的倒裝句)
 not having any of it (一點都不想接受)
 
@@ -1938,22 +2083,26 @@ power outage / no power
 quarter/half to eight (7:45/7:30)
 quarter/half past eight (8:15/8:30)
 around six ish
-itinerary 
+itinerary
 
 ## 2025/8/21
+
 sparked outrage 引發眾怒
 compensation 賠償
 vigilant about 警惕
 
 ## 2025/8/22
+
 go to the gangway
 But it’s inevitable that you’ll get a call sometimes
 
 ## 2025/8/25
+
 government subsidies
 as it pleased 隨心所欲
 
 ## 2025/8/26
+
 recall votes 罷免投票
 domestic and international
 cabinet members
@@ -1964,38 +2113,42 @@ aerobics 有氧運動
 Sport
 table tennis
 hockey (ice hockey / field hockey) 曲棍球
-  - (ice) rink
-cricket
-equipment / kit
-golf ball / club
-racquet 球拍 / ball
-paddle
-tennis/basketball/badminton court 球場
-baseball field 
-track 跑道
-PE class
-400m relay 接力
-high jump / long jump
-roll/throw dice
- - 1 die / 2 dice
-wear special kit/gear
-He is a promising runner
- - promising: something or somebody that may be very successful
-boxing ring
-compete / competition
-endurance
-treadmill
-relieve/release stress
+
+- (ice) rink
+  cricket
+  equipment / kit
+  golf ball / club
+  racquet 球拍 / ball
+  paddle
+  tennis/basketball/badminton court 球場
+  baseball field
+  track 跑道
+  PE class
+  400m relay 接力
+  high jump / long jump
+  roll/throw dice
+- 1 die / 2 dice
+  wear special kit/gear
+  He is a promising runner
+- promising: something or somebody that may be very successful
+  boxing ring
+  compete / competition
+  endurance
+  treadmill
+  relieve/release stress
 
 ## 2025/8/27
+
 go on an outing 郊遊
-  - we went on an outing to the zoo.
-  - The students had an outing in the mountains.
+
+- we went on an outing to the zoo.
+- The students had an outing in the mountains.
 
 meeting agenda
 conjugate 詞形變化
 
 The infinitive
+
 - listing in email
 - list tasks
 
@@ -2005,29 +2158,37 @@ we have a lot to cover today
 project budget
 
 at such short notice
+
 - thank you all for comming at such short notice
 
 ## 2025/8/28
+
 Production is slated to begin in 2027
+
 - slated 預定
 
 ## 2025/8/31
+
 Q-tip 棉花棒
 
 ## 2025/9/1
+
 Labour day
 double pay
 cariouse tooth / cavity tooth 蛀牙
+
 - I found out I had some cavities
 - I spent another two weeks getting them filled.
 - residue of the xxx 剩餘的
 
 ## 2025/9/2
+
 Figurative language
 Poetry 詩
 stanza 節 / line / rhyme 押韻
 
 比喻法:
+
 - Simile 明喻
   - comparing two things using like or as
   - His words were as sweet as honey.
@@ -2040,8 +2201,8 @@ stanza 節 / line / rhyme 押韻
   - Using exaggeration
   - My backpack weighs a ton.
 
-
 ## 2025/9/3
+
 died on the vine (idiom: 胎死腹中/無疾而終)
 complimentary breakfast
 Boba shops 手搖飲料店
@@ -2049,12 +2210,14 @@ excessive levels of E. coli
 
 We're on the same page.
 Who is on board with this idea ?
-- on board = agree 
+
+- on board = agree
 
 I agree with you up to a point, but...
 部分同意
 
 ## 2025/9/5
+
 hold
 held ... against ... ever since
 grudge 怨恨
@@ -2073,32 +2236,38 @@ held up the line
 hold up the store 搶劫商店
 
 ## 2025/9/7
+
 on the sly 偷偷的
 
-
 ## 2025/9/8
+
 preliminary/vast topics
 clinch tariff deal 達成關稅協議
- -clinch 成交
+-clinch 成交
 it's easy to get overwhelmed 容易不知所措
 
 ## 2025/9/9
+
 online celebrity
 
 ## 2025/9/10
+
 conduct a study 進行研究
 put up with (phr.) 忍受 = tolerate, endure
+
 - I can't put up with this noise
-relish (v.) 享受
-cringe / embarrassing / awkward
-don't make rash, impulsive decisions
-Are you getting ample rest ?
+  relish (v.) 享受
+  cringe / embarrassing / awkward
+  don't make rash, impulsive decisions
+  Are you getting ample rest ?
 - ample = enough
 
 ## 2025/9/11
+
 feel intimidating 害怕
 
 ## 2025/9/13
+
 - minor scrapes
 - red-handed (adv. phrase)
   - was caught red-handed 被當場抓到
@@ -2116,7 +2285,7 @@ Essential - adj (important, necessary)
 Forefinger - noun (the finger you use to point)
 Arabic numerals - noun (1, 2, 3, 4, etc.)
 1600s - 16 hundreds
-Phobia - noun (a fear you have and it is always present, something you are afraid of) Fear - noun 
+Phobia - noun (a fear you have and it is always present, something you are afraid of) Fear - noun
 Tetraphobia - noun (the fear of the number 4)
 Cynophobia - noun (the fear of dogs)
 Superstition - noun (something you believe in but it cannot be proven by science)
@@ -2124,15 +2293,16 @@ In Thailand 555 means = hahaha
 Hilarious - adj (very funny)
 
 Multiword verbs with go
+
 - go over
-  1. visit a place. 
-  We're going over to Bob's tonight.
+  1. visit a place.
+     We're going over to Bob's tonight.
   2. review something
-  I need to go over this contract carefully before I sign it.
+     I need to go over this contract carefully before I sign it.
   3. explain
-  I'm going to go over this with you again in class tomorrowl, as it's not an easy topic.
+     I'm going to go over this with you again in class tomorrowl, as it's not an easy topic.
   4. goes over well/badly
-  The new drama didn't go over well with the critics.
+     The new drama didn't go over well with the critics.
 - going-over (n.)
   - When you give something a going-over, you examine it for mistakes.
 - go through with
@@ -2140,7 +2310,7 @@ Multiword verbs with go
 - go up
   1. 往上走
   2. increase
-    - The cost of gas went up quickly last year.
+  - The cost of gas went up quickly last year.
   3. schedule goes up
 - go with
   1. includes
@@ -2149,43 +2319,57 @@ Multiword verbs with go
   4. always or normally found with another thing
 
 ## 2025/9/14
+
 backwards 反向 (adv.)
-  - He fell backwards. 
+
+- He fell backwards.
 - backward 反向的 (adj.)
- - a backward ideas 落後的想法
+- a backward ideas 落後的想法
 
 表語(predicative / subject complement)
+
 1. adj
-  - she is happy.
+
+- she is happy.
+
 2. noun
-  - he is a teacher.
+
+- he is a teacher.
+
 3. Prepositionsal phrases (介係詞片語)
-  - the keys are on the table.
+
+- the keys are on the table.
+
 4. adv
-  - The plan is off.
-  - Everything is backwards.
+
+- The plan is off.
+- Everything is backwards.
 
 I would block out a few hours for studying.
+
 - block out 劃出時間
 
 the results were astonishing
+
 - astonishing = amazing
 
 ## 2025/9/16
+
 pharmacy
 
-
 ## 2025/9/17
+
 - 5/12 twelfth
 - I will pencil you in for next Tuesday.
- - pencil in 預定
-- touch base 
- - touch base
+- pencil in 預定
+- touch base
+- touch base
 - attendee : person who attends an event.
 - flight leave for Madrid.
   - leave for = go to
 
 ## 2025/9/23
+
 - sports stadium
 - sport center
 - in the parking lot
@@ -2193,13 +2377,16 @@ pharmacy
 - high-rise building
 
 ## 2025/9/30
+
 - procession 遊行
 
 ## 2025/10/1
+
 - go for one block.
 - suites
 
 ## 2025/10/7
+
 - breeds = different kind
 - golden retriever
   - retrieve 取回
@@ -2207,15 +2394,17 @@ pharmacy
 - aquarium / fish tank
 
 ## 2025/10/8
-- work hub 
+
+- work hub
 - airfair
 - Call the hotel to make a reservation
 - Giving directions
   - bear right: 沿著右邊走(curve road)
 
 ## 2025/10/13
+
 - under repair
-- in a garage 
+- in a garage
 - is/am/are going to
 - was/were going to 原本打算
 - was/were supposed to 原本應該
@@ -2225,7 +2414,7 @@ pharmacy
 - Receptionist 接待員
 - vaccum cleaner 吸塵器
 - malfunctions 故障
-- drop off this parcel 
+- drop off this parcel
 - when will the new shipment arrive ? 何時會到達新的貨物？
 - I'll send it after making revisions.
 - valid warranty
@@ -2233,15 +2422,17 @@ pharmacy
   - sales rep
 
 ## 2025/10/15
+
 - How are things going ?
 - What have you been up to recently ?
   - invite you to have more conversation
 
 ## 2025/10/17
+
 - cut back on sugar
 
-
 ## 2025/10/18
+
 - veto a law 否決
 - pass a law
 - enforce a law 執行法律
@@ -2267,23 +2458,26 @@ pharmacy
 - protest 抗議
 
 ## 2025/10/21
+
 - wool 羊毛
 - cow / calf(calves) / bull / cattle牛群
 - milk / dairy(cheese/cream)
 - plow 犁
 - poultry 家禽
 - hen 母雞 / chicks / rooster 公雞 / goose(geese) / Turkey
-  - hey lay eggs 
+  - hey lay eggs
 - goat / kid
 - piglet / pork / bacon / ham
 - hay 乾草
-- graze 吃草 / field / meadow 
+- graze 吃草 / field / meadow
 
 ## 2025/10/22
-- serendipity 
+
+- serendipity
 
 ## 2025/10/27
-- I'll be on duty this evening. 
+
+- I'll be on duty this evening.
 - the farewell party
 - catering service 外燴服務
 - state-of-the-art 最先進的 / the most advanced
@@ -2300,7 +2494,6 @@ pharmacy
 - workforce 員工 / understaffed 人手不足
 - be promoted to + 職位
 
-
 ## 2025/10/29
 
 - Well, if you'll execuse me, ...
@@ -2309,29 +2502,32 @@ pharmacy
 - follow up with an email
 
 ## 2025/11/3
+
 - The water is boiling -> the boiling water 主動/正在發生
 - The water has been boiled -> the boiled water 被動/已發生
 - 現在分詞/過去分詞 當形容詞用
   - a promising candidate
   - outstanding payment
- - the preferred means
- - finished products
- - qualified applicants
- - a designated seat 指定座
- - limited warranty
- - then revised version
- - then attached document
- - then authorized retailers
- 
- - 有些是固定用法
-  - detailed maps
-  - proposed computer
-  
+- the preferred means
+- finished products
+- qualified applicants
+- a designated seat 指定座
+- limited warranty
+- then revised version
+- then attached document
+- then authorized retailers
+
+- 有些是固定用法
+- detailed maps
+- proposed computer
+
 1. a brief summary
 2. some valuable information
 3. an impressive performance
 4. a well informed traveler 消息靈通的旅客
-  - well, recently, newly + Vpp + N
+
+- well, recently, newly + Vpp + N
+
 5. the recently recovered data 最近被恢復的資料
 6. the newly introduced product 新推出的產品
 
@@ -2356,7 +2552,7 @@ pharmacy
 
 形容詞子句簡化為片語
 
-1. 冠詞/所有格/動詞/限定詞/介係詞+ __ + 名詞
+1. 冠詞/所有格/動詞/限定詞/介係詞+ \_\_ + 名詞
 2. 名詞 + Ving + 名詞
    名詞 + Vpp + 逗介句副
 3. (連接詞) + Ving + 名詞 \
@@ -2366,13 +2562,14 @@ pharmacy
 - entry-level workers are satisfied with the wage offered at the company
 
 #### 副詞子句簡化片語: 逗號前後兩句話主詞相同的話，可將副詞子句簡化為片語
+
 - having done this before, he was still very cautious.
 - Situated on the outskirts of Kaohsiung City, the airport serves travelers in the south of Taiwan
 - before,after,until,since + being + Vpp
   - Before being delivered to the factory, each component is carefully checked.
 
-
 ## 2025/11/4 Insects / bugs
+
 - praying mantis 螳螂
 - dragonfly 蜻蜓
 - crawl under the ground
@@ -2388,6 +2585,7 @@ pharmacy
 - entomophobia 昆蟲恐懼症
 
 ## 2025/11/5
+
 - name tag
 
 write email:
@@ -2398,6 +2596,7 @@ I looked forward to hearing from you.
 direct speech / reported speech
 
 ## 2025/11/17
+
 所有格 / 所有格代名詞
 
 | 人稱   | 主格 | 所有格 | 受詞 | 所有格代名詞 | 反身代名詞 |
@@ -2411,14 +2610,15 @@ direct speech / reported speech
 | 3 單數 | it   | its    | it   | --           | itself     |
 | 3 複數 | they | their  | them | theirs       | themselves |
 
-
 by oneself 獨自 = on one's own
+
 - Mr.Lee himself is doing the dishes.
 
 - one's own + N 自己的
 - one's own 自己的東西
 
 #### 反身代名詞片語
+
 1. 自行取用 help oneself to the food
 2. 以...自豪 pride oneself on this achievement
 3. 熟悉 familiarize oneself with the software program
@@ -2426,6 +2626,7 @@ by oneself 獨自 = on one's own
 5. 過得愉快 enjoy oneself at the party
 
 #### oneself / one's own exercise
+
 1. You will all have to be responsible for yourselves.
 2. It's time I bought myself a new car.
 3. The waiter dreamed of someday working at a restaurant of himself.
@@ -2437,12 +2638,12 @@ by oneself 獨自 = on one's own
 
 take on a task a job 承接工作
 
-
 ## 2025/11/18
+
 - mammals 哺乳類
-- rhino/rhinoceros 犀牛 
+- rhino/rhinoceros 犀牛
 - measurements
-  - gallons of milk/gas 
+  - gallons of milk/gas
   - liters
 - chew 咀嚼
 - creepy 恐怖(not very)
@@ -2452,16 +2653,19 @@ take on a task a job 承接工作
 - phonics 發音法
 
 ## 2025/11/19
+
 - be used to 習慣
-- be getting used to 
+- be getting used to
 - used to 過去做過
 
 ## 2025/11/21
+
 - paycheck 薪資
 - frugal 節儉
 - avarice / ravenous
 
 ## 2025/11/25
+
 - reptiles are cold blooded
 - hatch: from eggs
 - nocturnal animal 夜行性動物
@@ -2472,13 +2676,14 @@ take on a task a job 承接工作
   - it weights
   - 不會使用heavy
 - constriction 收縮
- - 可以形容交通擁擠
+- 可以形容交通擁擠
 - camouflage 偽裝
 
 ## 2025/11/26
 
 #### transitions(change and keep moving)
-- Let's move on to 
+
+- Let's move on to
 - That brings me to my next point
 - That leads me to anthor important point
 - First let's start with
@@ -2491,11 +2696,13 @@ succeed (cc念k的音)
 - individualistic nature
 
 ## 2025/12/1
+
 - sour taste
 - displine
 - cyber monday
 
 ## 2025/12/2
+
 - what is good to see ?
 - indigenous / aborigines
 - skyscraper
@@ -2504,53 +2711,59 @@ succeed (cc念k的音)
 - get stuck on something (like traffic jam)
 - pedestrian : 行人
 - quay 英式 / pier 美式
-- spectacular 壯觀 
+- spectacular 壯觀
 - bay: 海灣
 
 ## 2025/12/3
+
 - etiquette 禮儀
 - exchange gifts (不會說change gitfs)
 - first name (given name) / last name (family name)
 - some flowers are only for funeral service 喪禮
 
-
 ## 2025/12/5
 
 關係代名詞
+
 - 主格: who / which / that
 - 受格: whom(who不正式) / which / that
 - 所有格: whose
 
 that
+
 - that 前面不能有逗點或介係詞
 
 what
+
 - the things(s) that
 - 前面不會有名詞
 
 those who, anyone who
+
 - whoever = anyone who
 
 in an effort to +V 為了
+
 - concerted 共同的
 
 - spacious 寬敞的
 
 ## 2025/12/10
+
 - customer service representative
 - collocations: 固定搭配詞
-- How can we make it up to you? 
+- How can we make it up to you?
   - make it up to sb 彌補某人
 
-
 ## 2025/12/15
+
 - voucher = coupon
 - complimentary 免費的
 - on a/an + adj + basis 以...的方式進行
 - nominal fee 些微費用
 - state-of-the-art 最先進的
 - courteous 禮貌的
-- look  no further
+- look no further
 - filled to capacity 客滿
 - auction 競標
 - will be boosted by
@@ -2563,6 +2776,7 @@ in an effort to +V 為了
 - in an attempt to = in order to
 
 ## 2025/12/16
+
 - 家庭成員: uncle / aunt / cousin / sibling / sister / brother
 - immediate family / extended family
 - drop someone off 送某人到某地
@@ -2578,9 +2792,11 @@ in an effort to +V 為了
 - While I was taking a shower, the phone rang.
 
 as (it is) + Vpp 如同
-  - as planned, as indicated
+
+- as planned, as indicated
 
 whereas 然而
+
 - The sales in Europe are rising, whereas/while sales in Asia are falling.
 
 As soon as 一...就...
@@ -2588,34 +2804,38 @@ As soon as 一...就...
 As long as
 
 Once 一旦
-  - as soon as
-  - Once the order is confirmed, it cannot be changed.
+
+- as soon as
+- Once the order is confirmed, it cannot be changed.
 
 provided (that) 如果
-  - you may extend your stay at the hotel, provided that you rooms are available.
+
+- you may extend your stay at the hotel, provided that you rooms are available.
 
 in case 以防萬一
 
 Unless 除非
-  - Unless you wear your ID badge, you cannot enter the building.
+
+- Unless you wear your ID badge, you cannot enter the building.
 
 whether ... or not 不管
 
 so that / in order that 如此一來 (can, may, will)
-  - Please speak clearly so that everyone can hear you.
+
+- Please speak clearly so that everyone can hear you.
 
 so + adj/adv
 such + adj + N
 
-
 雙篇閱讀
+
 1. most likely, proably, might
 2. impiled, suggested, assumed, inferred
 3. 時間 金錢 數字等
 4. 條件對照 indicated
 
-
 ## 2025/12/29
+
 - refrain from 避免
 - venues 場地
 - pamphlet 小冊子 / brochure
@@ -2623,10 +2843,11 @@ such + adj + N
 - make our way to +N 前往
 
 ## 2025/12/30
+
 - Money is no object 錢不是問題
 
-
 #### 連接副詞
+
 - 因此: therefore, consequently, accordingly, thus, hence, as a result
 - 然而: however, nevertheless, nonetheless
 - 而且: in addition, additionally, moreover, furthermore, conversely, rather
@@ -2639,17 +2860,19 @@ such + adj + N
 - 否則: otherwise
 
 ## 2026/01/06
+
 - on your way to work
 - I watch what I eat
 - whole-wheat bread / white bread
 - nutrition
 
 ## 2026/01/07
+
 - draw up a new contract
 - if a customer buy in bulk, we usually give them a discount
 
-
 ## 2026/01/14
+
 - can you meet me halfway?
 - let's agreee meet halfway
 - it's a deal
@@ -2657,8 +2880,9 @@ such + adj + N
 - starting off on the wrong foot: make a bad start
 
 ## 2026/01/19
-- intuition: 直覺 ; gut feeling 
-	- just felt right
+
+- intuition: 直覺 ; gut feeling
+  - just felt right
 - instincts: 本能
 - although seemingly crazy; it seems crazy
 - empathize, empathy
@@ -2670,20 +2894,23 @@ such + adj + N
 - compulsory = have to do it
 
 #### compound nouns
+
 - Noun + noun: coffee maker
 - gerund + noun: washing machine
 - adjective + noun: blueberry, software
 
 - passerby 行人;過路人
 - rental agreenment 租賃協議
-	- landlady; 
-
+  - landlady;
 
 ## 2026/01/28
+
 - discount (noun.) 重音在前面 (v.) 重音在後面
 
 ## 2026/2/2
+
 work benefits
+
 - annual bonus
 - flexible hours
 - unpaid time off
@@ -2694,6 +2921,7 @@ work benefits
 - mandatory break times
 
 ## 2026/2/4
+
 - Bosses want you to account for your time
 - opportunity for advancement
 - cost of living
@@ -2702,20 +2930,22 @@ work benefits
   - put put off our meeting (not formal)
 
 ## 2026/2/9
+
 - to lift weights / to weightlift
 - subsidized childcare
 - pensioner / pension plan
 - collocations: 搭配詞
-  - have: a problem, lunch, a look, 
-	- do: bussiness, favor, do, research
-	- make: an appointment, progress, money, a point, a difference, a suggestion, a decision
-	- take: take a look at, notes, a rest, a profit, a chance
-	- get: promotion, a raise, opportunity
+  - have: a problem, lunch, a look,
+  - do: bussiness, favor, do, research
+  - make: an appointment, progress, money, a point, a difference, a suggestion, a decision
+  - take: take a look at, notes, a rest, a profit, a chance
+  - get: promotion, a raise, opportunity
 - staff turnover
 - mandatory
 - things are better now than they used to be.
 
 ## 2026/2/10 Columbia
+
 - South America
 - indigenous / original people
 - Metro / Taxi / Taxicab(cab)
@@ -2724,15 +2954,18 @@ work benefits
 - connect flight
 
 ## 2026/2/11 Giving advice
+
 - advice (noun) / advise (verb)
 - Imperative sentence 祈使句
 
 ## 2026/3/16
+
 - blazer
 - plush toy
 - right now / as we speak / at the moment
 
 ## 2026/3/21
+
 - death penalty / capital punishment
 
 - heious 令人髮指的
@@ -2740,34 +2973,35 @@ work benefits
   - horrendous day
 - capable / incapable
 - we are better off without them
-  - deterrent:  to stop
+  - deterrent: to stop
 - enormity / enormous 巨大的
 - inmates
 - psychological torture
 - solitary = by your self = one
-	- solitary confinement
+  - solitary confinement
 - condemn
 - to sentence someone 判刑
 - indefinitely
 - frightened
 
-
 ## 2026/3/25
+
 - customer service collocations
 - 搭配詞(collocations)
-	- gather information
-	- requset a refund
-	- deal with a complaint
-	- vent one's frustration
-	  - I just need to vent.
-	- guarantee quality
-	- offer compensation
-	- demand an explonation
+  - gather information
+  - requset a refund
+  - deal with a complaint
+  - vent one's frustration
+    - I just need to vent.
+  - guarantee quality
+  - offer compensation
+  - demand an explonation
 - How can I made it up to you ? / How can I made it right ?
 - put towards: part of money
-	- My parants gave me some money to put towards buying a car.
+  - My parants gave me some money to put towards buying a car.
 
 ## 2026/4/8
+
 - get down to business
 - meet half-way: compromise
 - show of hands: raising hands to vote for or againist something
@@ -2776,11 +3010,11 @@ work benefits
 
 prepositions: 介係詞
 
-- insisted on 
+- insisted on
 - is everyone here in favor of that ?
 - can I have that offer in writing
 - modal verb
-	- seems rather / barely / hardly / fairly / rather / relatively
+  - seems rather / barely / hardly / fairly / rather / relatively
 - We were thinking of a figure around $1000
 - Actually, we were hoping for
 - there seems to be a problem
@@ -2795,6 +3029,7 @@ prepositions: 介係詞
 - binding contract
 
 ## 2026/4/14
+
 - dormitory (dorm)
 - roommates / flatmates
 - freshman / fresher = 1st year student
@@ -2805,6 +3040,7 @@ prepositions: 介係詞
 - If I could go back, I would have done (instead of ...)
 
 ## 2026/4/22
+
 - What is your greatest strength
 - What is your greatest weakness
 - resourceful / punctual / cooperative / articulate (well-spoken) / meticulous
@@ -2816,6 +3052,7 @@ prepositions: 介係詞
 - job leads
 
 ## 2026/4/24
+
 - armed conflicts
 - World War II
 - war commence
@@ -2833,11 +3070,13 @@ prepositions: 介係詞
   - do you get drafted ?
 
 ## 2026/4/27
+
 - Each to their own = everyone has an opinion
 - an electrian
 - a care assiatant
 
 ## 2026/4/29 Resume
+
 - CV = curriculum vitae
 - personal statement
 - Recent graduate students
@@ -2846,16 +3085,16 @@ prepositions: 介係詞
 - to meet tight deadlines
 - combine a background in journalisam and academeics with expertise in business
 - analytical
-	- With strong analytical skills and a broad range <u>of</u> computer expertise
+  - With strong analytical skills and a broad range <u>of</u> computer expertise
 - more than six years of software engineering experience
 - lowest staff turnover rate: 員工流動率
 - supervised a team
 - overhauled the outdated employee database system
-	- overhauled: big change
+  - overhauled: big change
 - streamlined company operations by removing layers of management
 - chaired a committee to oversee the development of a new facility
 - consulted
-	- consulted on/about ...
+  - consulted on/about ...
 - mediated: 調解衝突
 - formulated
 - addressed
@@ -2865,17 +3104,19 @@ prepositions: 介係詞
 - critiqued 理性分析、評論（較中性/專業） / criticize 批評（可能帶負面）
 
 ## 2026/4/30
+
 - lean into it
 
-
 ## 2026/5/4
+
 - detrimental = harmful
 - nephew 姪子 / niece 侄女
 - black sheep
 - run in the family 家族遺傳
-	- Short stature runs in my family
+  - Short stature runs in my family
 
 ## 2026/5/6
+
 - impressed with + someone/something
 - wish you the best in the future endavours
 - gibberish: nonsense, meaningless talk
@@ -2890,51 +3131,56 @@ prepositions: 介係詞
 
 - Once a week / every three months / in a while
 - while (means long time)
-	- It's been a little while
+  - It's been a little while
 
 ## 2025/5/7
+
 - elucidative
-	- He gave an elucidative explanation of the problem.
-	- He clearly explained the problem.
+  - He gave an elucidative explanation of the problem.
+  - He clearly explained the problem.
 - pervasive
-	- This is a pervasive issue.
+  - This is a pervasive issue.
 - vicinity
-	- in the vicinity of my office
+  - in the vicinity of my office
 
 ## 2026/5/8
+
 - durable
   - This is a durable computer
 
 ## 2026/5/18
+
 - Swings and roundabouts: pro and cons
 - speak of the devil = talk about someone and they arrive
 - traffic light colors: red, amber, green
 - seatbelt
-	- to buckle a seatbelt
-	- to fasten a seatbelt (t不發音)
-	- put on a seatbelt
+  - to buckle a seatbelt
+  - to fasten a seatbelt (t不發音)
+  - put on a seatbelt
 - turn signal / blinker / indicator
 - rearview mirror / sideview mirror
 - brakes: 煞車
-	- to push the brakes
-	- to slam on the brakes 急煞
+  - to push the brakes
+  - to slam on the brakes 急煞
 - gas pedal: 油門
-	- to step on the gas / accelerator
-	- "step on it"
+  - to step on the gas / accelerator
+  - "step on it"
 - to run a red light = to go through a red light
 - change lanes
-	- weave through traffic
+  - weave through traffic
 - pull over 路邊停車
-	- police pull over a car
+  - police pull over a car
 - cones 路障
 
 Police Officer:
+
 - Do you know why I pulled you over today?
 - Do you know what the speed limit is here?
 - You changed lanes, but you forgot to use your turn signal.
 - Can I see your driver's license, please?
 
 Driver:
+
 - I am so sorry, Officer! I forgot to put my lights on!
 - I'm not drunk! I'm just blushing because I ate soup recently.
 - Oh no! Is my seatbeat not fastened in?
@@ -2944,6 +3190,7 @@ You are speeding! You're over the limit
 Can you let me off this time
 
 ## 2026/5/20
+
 - go to my friend's place/house
 - hypothetical situations
 - I don't know what I will do if I lose my passport 未來有可能發生
@@ -2952,6 +3199,7 @@ Can you let me off this time
 - If she called me, I would be very surprised
 
 ## 2026/5/21
+
 - a rack of lamb
 - to peel vegetable skin
 - It is rarely eaten in Taiwan.
@@ -2960,24 +3208,26 @@ Can you let me off this time
 - salmon with veggies
 
 ## 2026/5/25
+
 - skewer 烤串 / grill
 - pepper
 - baking tray
 - I heat pre-made foods.
 - appetizig(adj.) = tasty / looks nice
-- frying pan / wok 
+- frying pan / wok
 - cured in salt
 - pickled cabbage
-	- pickle (v.)
+  - pickle (v.)
 - It depends on the occasion
 - to like what comes out of it
 - meal prep (preperation)
 - experimenting with Japanese dishes
 - when it tastes underwhelming / average
 - 別說so-so
-	- alright / fine / meh / average / mediocre
+  - alright / fine / meh / average / mediocre
 
 ## 2026/5/28
+
 - Rose's ("iz") / James's
 - students' book
 - pillow / cushion
@@ -2986,7 +3236,8 @@ Can you let me off this time
 The Customer Service Drama!
 You just arrived at an AirBNB, but there are many things wrong with it. Things are broken, dirty or missing! You need to call Customer Service right away to complain and get help!
 
-Vocab: 
+Vocab:
+
 - Fridge: leaking
 - Washing Machine / Stove: Broken / won't turn on
 - Plant: Dead
@@ -2997,39 +3248,46 @@ Vocab:
 I just checked into the Airbnb, and I noticed that the XXX is broken.
 
 ## 2026/6/3
+
 - indigenous / aboriginal / tribe
 - in the wild
 - orchid
 - hut 小屋
 
-
 ## 2026/6/8
+
 - What do you do on your journey to work ?
 - What do you like about the journey ?
-	- I love / I like
+  - I love / I like
 - What don't you like about the journey ?
-	- I don't like / I dislike / I hate / I'm not a fan of
+  - I don't like / I dislike / I hate / I'm not a fan of
 
 1. How do you get to work?
-- I get to work by...   /  (on foot)
+
+- I get to work by... / (on foot)
 
 2. What do you do on your journey to work?
-- I (usually)...   /  I (sometimes)... , (sometimes) ...
+
+- I (usually)... / I (sometimes)... , (sometimes) ...
 
 3. What do you like about the journey?
-- I love the (n.) 
-- I like/enjoy (V-ing)...  
+
+- I love the (n.)
+- I like/enjoy (V-ing)...
 - I don't mind...
 
 4. What don't you like about the journey?
+
 - I don't like / I dislike...
 - I hate...
 - I'm not a fan of...
 
 ## 2026/6/10
+
 adjective
 形容詞有分為fact和opinion，如果要連接兩個形容詞
 順序通常是 option adject + fact adject + noun.
+
 - fun English lession (fun是主觀意見, English是事實)
 - beautiful silver necklace
 - She is a kind old woman
@@ -3039,10 +3297,11 @@ she has long black hair.
 
 如果形容詞都是fact的話
 what size -> what shape -> How old -> What color -> where from -> made of + noun.
+
 - a small red metal box
 
-
 ## 2026/6/17
+
 red velvet cake
 
 sense verbs
@@ -3050,15 +3309,14 @@ look / feel / smell / taste / sound
 
 get/become + adj
 
-I get dressed in the morning
-	- get describle change
+I get dressed in the morning - get describle change
 
 He got old (X 太直接不太禮貌)
 He has gotten older
 He is getting old
 
-
 ## 2026/07
+
 the movie trailer
 pop / chart music(n.) - like top 100 songs
 an oldie but a goodie
@@ -3076,10 +3334,11 @@ they are stars of the movie
 is not a movie for faint-hearted 膽小鬼
 worthwhile
 
-
 The Hollywood Pitch Movies
+
 - You are now a team of Hollywood Movie Directors.
 - You must design a brand-new movie idea.
+
 1. The Title:
 2. Genre: (comedy, horror, romance...)
 3. The Setting: Where and when? (e.g., A haunted school at midnight, a broken spaceship in the year 3000)
@@ -3091,8 +3350,9 @@ The Hollywood Pitch Movies
 he should stay home from school
 
 should
-  - to give a suggestion
-  -  to say something about a duty or responsibility
+
+- to give a suggestion
+- to say something about a duty or responsibility
 
 - you should...
 - why don't you...
@@ -3109,36 +3369,41 @@ You look tired (X) 有點沒禮貌
 
 Collocations
 
-Agony Aunt 
+Agony Aunt
 遊戲有一段描述，用should/shouldn't給他建議
 
 achieving student
 socialising 社群
 
 ## 2026/7/15
+
 demonstrate
 
 picky 挑惕的
 
 ## 2026/7/23
+
 If I make a miskate so be it
 c'est la vie = that's life
 do you have any question before we wrap it up
 
 ## 2026/7/27
+
 blender
 
-
 ## 2026/7/28
+
 creepy
-frightened / scared / terrified / horrified 
+frightened / scared / terrified / horrified
 creaking sound
-  - my bone are creaking
-it was damp and gloomy
-He got separated from his parents
-He is looking for his parents
+
+- my bone are creaking
+  it was damp and gloomy
+  He got separated from his parents
+  He is looking for his parents
 
 ## 2026/7/30
+
 coin = metal money
 bill = paper money
 twenny 20 / a twenty-dollar bill / a twenty
@@ -3158,12 +3423,13 @@ nickel - 5 cents
 penny - 1 cents
 
 ## 2026/8/3
+
 binmen
 trash collector
 heat it up
 homebody
 high caliber 高素質
-greenery / green land  / park
+greenery / green land / park
 county
 mail a letter / package
 bulk up
@@ -3182,6 +3448,7 @@ tell -> inform (I will inform them of you request and let you know asap)
 ask -> request
 
 ## 2026/8/4
+
 carpool (v/n)
 I carpool with my friends when we go swimming
 We carpool to the poll
@@ -3207,8 +3474,8 @@ play it by ear = no plan
 brochures
 get a quote 取得報價
 enclousure
-  African enclousure
-  penguin enclousure
+African enclousure
+penguin enclousure
 orangutan 猩猩
 souvenir likes postcard, magnet, doll
 shear the sheep 給羊剪毛
@@ -3221,7 +3488,6 @@ celebrity
 possessive 所有格
 It's his or hers = It's theirs 不知道性別狀況可以使用
 
-
 start small and build up intensity/time.
 You're in for a shock = you will be surprised
 
@@ -3231,16 +3497,17 @@ oversleep → 睡過頭，通常是不小心的，例如因此遲到
 
 mutual friends
 
-
 I haven't seen you for ages
 teasing
 the new person addresses Harry in a formal way
+
 - address: to speak to someone in a particular way
 - How should/may I address you ? Mr / Mrs / Ms / Miss
-
 
 Yes sounds a bit perfunctory.
 When it came to saying goodbye, I thought of XXX.
 terrific
 
 next-door neighbor
+
+I always keep a raincoat in the storage compartment under the seat.

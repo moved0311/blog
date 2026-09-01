@@ -64,22 +64,24 @@ PSS狀態下電感一個週期平均電壓為0
 Freewheeling Diode / Flyback Diode（續流二極體）
 
 二極體
+
 ```
         Diode
 A ──────>|────── K
 Anode           Cathode
 ```
+
 D = ON, $V_A > V_K$
 D = OFF, $V_A<V_K$
 
 到負半週期，$V_s$變成負值，D1從ON變OFF，D2 Forward Bias (D2 ON)
-
 
 為什麼半波整流器（Half-Wave Rectifier）的平均輸出電壓$V_{avg}=\frac{V_s}{\pi}$
 
 $$
 V_s(\theta)=V_s\sin\theta
 $$
+
 $$
 v_o(\theta)=
 \begin{cases}
@@ -87,6 +89,7 @@ V_{s}\sin\theta,&0\le\theta\le\pi \newline
 0,&\pi\le\theta\le2\pi
 \end{cases}
 $$
+
 $$
 \begin{aligned}
 V_{avg}&=\frac{1}{2\pi}\int_{0}^{2\pi}v_0(\theta)d\theta \newline
@@ -97,3 +100,24 @@ $$
 ## [Lecture 3: Load Regulation - YouTube](https://www.youtube.com/watch?v=Tpc39Bv3YJ8&list=PLUl4u3cNGP62UTc77mJoubhDELSC8lfR0&index=3)
 
 Commutation Inductance（換流電感）
+
+![[rectifiers_LR3.png]]
+
+如果沒有加$L_c$  電流可以瞬間 D2→Ｄ1
+但有Lc的話，會同時有一段時間D1=ON, D2=ON
+D2轉移到D1的過程稱作Commutation
+
+Commutating Angle (u)
+$$
+\begin{aligned}
+L_c\frac{di_1}{dt}&=V_s\sin{\omega t}\\
+i_1(t)&=\frac{V_s}{\omega L_c}(1-\cos{\omega t})\\
+\omega t &= u \\
+i_1 &= I_D\\
+I_D &= \frac{V_s}{\omega L_c}(1-\cos{\omega u}) \\
+\cos{u}&=1-\frac{\omega L_c I_D}{V_s}
+\end{aligned}
+$$
+
+Load Regulation（負載調整率）
+當負載電流改變時，電源能不能維持輸出電壓穩定
