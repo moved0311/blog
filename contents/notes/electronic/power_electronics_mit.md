@@ -121,3 +121,42 @@ $$
 
 Load Regulation（負載調整率）
 當負載電流改變時，電源能不能維持輸出電壓穩定
+
+
+## [Lecture 4: Power Factor - YouTube](https://www.youtube.com/watch?v=-r0hWGcNLSI&list=PLUl4u3cNGP62UTc77mJoubhDELSC8lfR0&index=5)
+
+RMS(Root Mean Square)
+Orthogonality
+x(t), y(t) are orthogonal on \[a,b\] iff $\int_{a}^{b}x(t)y(t)dt = 0$
+
+$\frac{1}{2\pi}\int_{0}^{2\pi}\sin(\omega t)\sin(\omega t+\phi)d(\omega t)=\frac{1}{2}\cos(\phi)$
+
+
+breaker主要是保護wire ?
+
+ $PF=\frac{I_{1,RMS}}{I_{RMS}}\cos\phi_1=K_dK_{\theta}$
+ $K_d = \frac{I_{1,RMS}}{I_{RMS}}$   distortion factor（相位問題）
+ $K_\theta=\cos(\phi_1)$ displacement factor（諧波問題）
+ $\phi_1$ power factor angle
+
+Harmonic↑⇒$I_{RMS}$↑⇒Distortion↑⇒Kd​↓⇒PF↓
+$\phi_1\gt0$ ⇒ $\cos\phi_1\lt1$  ⇒ PF​↓
+
+$I_{RMS}=\sqrt{I^2_{1,RMS}+I^2_{3,RMS}+I^2_{5,RMS}+...}$    
+harmonic current不會幫忙傳輸real power但是會增加總RMS
+
+不同頻率彼此 orthogonal
+Harmonis 不貢獻Real Power但會增加$I_{RMS}$導致PF↓
+
+
+
+
+
+
+
+ 
+
+
+
+
+
