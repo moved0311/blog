@@ -133,5 +133,14 @@ M = B - (N-1)
 $\Delta$-Y Equivalent Circuits
 $\Delta$電阻和Y電阻之間的轉換過程
 
+CH2
+Nodal analysis (Node-Voltage Method, 節點電壓法)
+在節點上假設v1,v2,v3,...，可以減少未知數的假設，自動符合KVL
+假設點電壓(實際上不存在)
+步驟:
+1. 設定未知數
+2. 對各個節點列KCL
+
+Mesh analysis (Node-Voltage Method, 網目電流法)
 
 

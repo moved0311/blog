@@ -3508,6 +3508,6 @@ Yes sounds a bit perfunctory.
 When it came to saying goodbye, I thought of XXX.
 terrific
 
-next-door neighbor
-
 I always keep a raincoat in the storage compartment under the seat.
+
+it got me itching

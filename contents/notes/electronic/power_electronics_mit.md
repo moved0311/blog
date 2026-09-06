@@ -135,8 +135,8 @@ $\frac{1}{2\pi}\int_{0}^{2\pi}\sin(\omega t)\sin(\omega t+\phi)d(\omega t)=\frac
 breaker主要是保護wire ?
 
  $PF=\frac{I_{1,RMS}}{I_{RMS}}\cos\phi_1=K_dK_{\theta}$
- $K_d = \frac{I_{1,RMS}}{I_{RMS}}$   distortion factor（相位問題）
- $K_\theta=\cos(\phi_1)$ displacement factor（諧波問題）
+ $K_d = \frac{I_{1,RMS}}{I_{RMS}}$   distortion factor（諧波問題）
+ $K_\theta=\cos(\phi_1)$ displacement factor（相位問題）
  $\phi_1$ power factor angle
 
 Harmonic↑⇒$I_{RMS}$↑⇒Distortion↑⇒Kd​↓⇒PF↓
@@ -147,6 +147,37 @@ harmonic current不會幫忙傳輸real power但是會增加總RMS
 
 不同頻率彼此 orthogonal
 Harmonis 不貢獻Real Power但會增加$I_{RMS}$導致PF↓
+
+## [Lecture 5: Intro to DC/DC, Part 1 - YouTube](https://www.youtube.com/watch?v=6Bzq25m68BE&list=PLUl4u3cNGP62UTc77mJoubhDELSC8lfR0&index=5)
+
+Average KCL
+Average KVL
+電容 charge balance，IN PSS，$\lt i_c\gt=0$
+電感 volt-second balance，IN PSS ， $\lt v_L\gt=0$
+理想情況下的 power conservation 
+
+Buck Converter(降壓轉換器)
+
+Boost Converter(升壓轉換器)
+
+![[booster_converter.png]]
+
+1. 開關ON(S導通)
+	- 電感兩端電壓$V_L=V_1$
+	- 電感電流$i_L$上升
+	- 電感儲存能量
+2. 開關OFF(S截止)
+	- 電感電流無法瞬間改變，為了維持電流方向，電感會產生一個較高電壓，電流經由二極體流向輸出
+	- 根據KVL，$V_1-V_L-V_2=0$，$V_L=V_1-V_2$，$V_L \lt 0$
+	- 電感釋放能量到輸出
+IN PSS ， $\lt v_L\gt=0$
+$D\cdot V_1 + (1-D)\cdot(V_1-V_2)=0$ (Volt-Second Balance)
+$V_2=\frac{V_1}{1-D}$，$0\lt D\lt1$
+$V_2\gt V_1$
+## [Lecture 6: DC/DC, Part 2 - YouTube](https://www.youtube.com/watch?v=UMTHJC22p7A&list=PLUl4u3cNGP62UTc77mJoubhDELSC8lfR0&index=6)
+
+
+
 
 
 
