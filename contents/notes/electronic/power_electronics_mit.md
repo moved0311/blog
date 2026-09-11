@@ -177,7 +177,23 @@ $V_2\gt V_1$
 ## [Lecture 6: DC/DC, Part 2 - YouTube](https://www.youtube.com/watch?v=UMTHJC22p7A&list=PLUl4u3cNGP62UTc77mJoubhDELSC8lfR0&index=6)
 
 
+Boost Converter
+$V_2=\frac{V_1}{1-D}$
 
+$P_{in}=P_{out}$
+$V_1I_1=V_2I_2$
+$V_1I_1=\frac{V_1}{1-D}I_2$
+$I_2=I_1(1-D)$
+
+#### Power MOSFET
+Block +v
+Carry +,- i 
+
+IGBT
+
+Buck-boost converter
+
+## [Lecture 7: DC/DC, Part 3 - YouTube](https://www.youtube.com/watch?v=O91G3Likq3w&list=PLUl4u3cNGP62UTc77mJoubhDELSC8lfR0&index=7)
 
 
 
