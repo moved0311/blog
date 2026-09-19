@@ -195,15 +195,15 @@ Buck-boost converter
 
 ## [Lecture 7: DC/DC, Part 3 - YouTube](https://www.youtube.com/watch?v=O91G3Likq3w&list=PLUl4u3cNGP62UTc77mJoubhDELSC8lfR0&index=7)
 
+說明為什麼 Buck-Boost Stress 比較高
+- 為什麼Buck-Boost Converter的stress會比Buck Converter或是Boost Coverter高
 
+Ripple Ratio 
 
+$\Delta V_c=\frac{1}{C}\int i_Cdt$
+* C↑ ⇒ Voltage Ripple↓
 
-
-
-
- 
-
-
-
+$\Delta I_L=\frac{1}{L}\int V_Ldt$
+- L↑ ⇒ Current Ripple↓
 
 

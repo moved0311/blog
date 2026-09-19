@@ -3511,3 +3511,85 @@ terrific
 I always keep a raincoat in the storage compartment under the seat.
 
 it got me itching
+
+I will take one hour of leave.
+- sick leave
+- vacation leave
+
+
+disposable 一次性的
+thermometer 溫度計
+installment 分期付款
+Do I need to buy any replacement parts for the item?
+
+What colors are available?
+What colors does it come in?
+
+we have the same interests /likes
+we all like the same genres.
+
+horror 嚇人
+thriller 鬼/陰森
+
+tense
+at the edge of my seat
+faint-hearted
+uncontacted tribes or peoples
+prey
+primitive
+hunter-gatherers
+bloom scenery
+
+rural areas
+
+Giving Advice
+- You should(n't)
+- Why don't you...?
+- If I were you, I would...
+
+
+
+Categories:
+1. Accommodation
+2. Transport
+3. Packing
+4. Safety
+
+1. Accommodation
+Stay in a hotel between a nightclub and a train station.
+Sleep in a broken tent at a park.
+Book a room far away from the city.
+
+2. Transport
+Ride a bicycle around the high-speed highway.
+Wait for a bus at 3:00 AM on Sunday.
+Take a boat in a dangerous storm.
+
+3. Packing
+Pack heavy winter coats for a beach vacation.
+Put only 1 set of spare clothes.
+Pack hot coffee between your white shirts.
+
+4. Safety
+Leave your wallet at home and put my money in my socks.
+Walk around a dark forest at midnight.
+Run away from your tour guide.
+
+Student A:
+- I am planning the most exciting vacation ever! Let me tell you about it...
+- For my ________(category), I am going to... 
+- I don't need a ______, I prefer (v.ing)...
+- I think it's best that I (don't)...
+
+Student B:
+- You should(n't)...
+- Why don't you...?
+- If I were you, I would...
+
+dim 暗淡
+
+passive voice
+yaers old (adj.)
+year olds(n.)
+past certain age
+impulse buying

@@ -142,5 +142,5 @@ Nodal analysis (Node-Voltage Method, 節點電壓法)
 2. 對各個節點列KCL
 
 Mesh analysis (Node-Voltage Method, 網目電流法)
-
-
+## [單元 7 ．進階電路分析 - 節點電壓法 - YouTube](https://www.youtube.com/watch?v=Aq4GZw3YwvI&list=PL68D2uCy1WTMtp1m5TEJbKEt4kvlA4jLP&index=9)
+矩陣觀察法 GV=I

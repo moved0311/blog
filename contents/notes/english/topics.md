@@ -194,7 +194,6 @@ surf instructor
 
 pannier 腳踏車包
 repair kit
-
 - screwdriver
   pump
 - inflate: to put air in
