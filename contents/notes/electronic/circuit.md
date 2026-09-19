@@ -51,11 +51,17 @@ $$p = \frac{dw}{dt} = \frac{dw}{dq} \times \frac{dq}{dt} = vi$$
 - R: resistance(ohms, $\Omega$)
 - G: conductance(siemens, S)
 	- $\sigma$: 導電率 conductivity
+
+- 電感在直流非時變的情況下表現像短路。
+- 電感器電流必定連續
+
 ### Capacitor 電容
 
 結構: 兩個金屬板中間填充絕緣體
-
 當電壓越大，金屬板的電荷數量越高  Q $\propto$ V
+
+- 電容器在直流非時變的情況下表現像開路。
+- 電容器電壓必定連續
 
 Q = CV,  C = $\epsilon \frac{A}{d}$
 - $\epsilon$ : permittivity 電容率 (F/m)
@@ -144,3 +150,10 @@ Nodal analysis (Node-Voltage Method, 節點電壓法)
 Mesh analysis (Node-Voltage Method, 網目電流法)
 ## [單元 7 ．進階電路分析 - 節點電壓法 - YouTube](https://www.youtube.com/watch?v=Aq4GZw3YwvI&list=PL68D2uCy1WTMtp1m5TEJbKEt4kvlA4jLP&index=9)
 矩陣觀察法 GV=I
+
+
+## [單元 16．儲能元件的電路分析 - RC、RL電路的系統化解法（一） - YouTube](https://www.youtube.com/watch?v=sphg30hr6qo&list=PL68D2uCy1WTMtp1m5TEJbKEt4kvlA4jLP&index=16)
+$v_C(t) = V_{\text{final}} + \left(V_{\text{initial}} - V_{\text{final}}\right) e^{-\frac{t}{RC}}$
+$v_C(t) = V_{\text{final}} + \left(V_{\text{initial}} - V_{\text{final}}\right) e^{-\frac{t}{\tau}}, \qquad \tau = RC$
+
+
