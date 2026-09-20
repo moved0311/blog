@@ -3,7 +3,8 @@ title: 電路學
 date: 2026-08-21
 category: note
 ---
-[電路學開放式課程 - YouTube](https://www.youtube.com/playlist?list=PL68D2uCy1WTMtp1m5TEJbKEt4kvlA4jLP)
+- [電路學開放式課程 - YouTube](https://www.youtube.com/playlist?list=PL68D2uCy1WTMtp1m5TEJbKEt4kvlA4jLP)
+- [ppt](https://drive.google.com/file/d/1agCrSmmHaNgziS8VkhAVRmHiFPoPFVhT/view)
 
 ## [單元 1．電路學課程導論 - YouTube](https://www.youtube.com/watch?v=vupQZd8bm8M)
 KCL, KVL, 節點電壓法, 網路電流法
@@ -156,4 +157,20 @@ Mesh analysis (Node-Voltage Method, 網目電流法)
 $v_C(t) = V_{\text{final}} + \left(V_{\text{initial}} - V_{\text{final}}\right) e^{-\frac{t}{RC}}$
 $v_C(t) = V_{\text{final}} + \left(V_{\text{initial}} - V_{\text{final}}\right) e^{-\frac{t}{\tau}}, \qquad \tau = RC$
 
+EX 3.15
+EX 3.16
 
+3.4 一階電路
+## [單元 19．儲能元件的電路分析 - RLC電路的系統化解法（一） - YouTube](https://www.youtube.com/watch?v=3To6yzRgFQQ&list=PL68D2uCy1WTMtp1m5TEJbKEt4kvlA4jLP&index=19)
+
+3.5 二階電路Linear Second-Order Circuits
+- 包含兩個儲能元件
+- 解二次微分方程式
+
+- 兩相異實根(過阻尼,Overdamped)
+- 重根(過阻尼,Critically damped)
+- 兩共軛複根(欠阻尼,Underdamped)
+- Undamped
+## [單元 20．儲能元件的電路分析 - RLC電路的系統化解法（二） - YouTube](https://www.youtube.com/watch?v=XebauFnGfKM&list=PL68D2uCy1WTMtp1m5TEJbKEt4kvlA4jLP&index=20)
+
+EX3.17
