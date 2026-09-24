@@ -13,7 +13,7 @@ date: 2026-07-07
 - cuisine
   family restaurants / fine dining / restaurant chain
   food court
-- street food vendor
+- street food vendor / food stalls (攤位)
 - appeal to adults and children
 - family restaurant / diner 小餐館
 - fine dining
@@ -194,6 +194,7 @@ surf instructor
 
 pannier 腳踏車包
 repair kit
+
 - screwdriver
   pump
 - inflate: to put air in

@@ -207,3 +207,9 @@ $\Delta I_L=\frac{1}{L}\int V_Ldt$
 - L↑ ⇒ Current Ripple↓
 
 
+## [Lecture 8: DC/DC, Part 4 - YouTube](https://www.youtube.com/watch?v=sB547f1ogWc&list=PLUl4u3cNGP62UTc77mJoubhDELSC8lfR0&index=10)
+
+$R_L = \frac{D(1-D)^2TR}{2L}$
+ripple ratio $R_L$↑ ⇒ R↑ or L↓
+
+Discontinous Conduction Mode(DCM)
