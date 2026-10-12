@@ -3567,3 +3567,11 @@ small stakes 小賭注
 
 - We played for small stakes to make the game more exciting
 - We usually play for small stakes when we play mahjong.
+
+dabbling 淺嚐輒止
+expedites 加速
+flawed 有缺陷的
+
+not to outsource your thinking.
+
+plausible 合情合理
