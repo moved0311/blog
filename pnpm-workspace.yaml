@@ -3,4 +3,5 @@ packages:
 
 allowBuilds:
   rehype-code-titles: true
+  simple-git-hooks: true
   sharp: true

@@ -93,9 +93,7 @@ however physical exercise, regular meditation and good conversations apparently 
 
 葬送的芙莉蓮 1 - 2
 
-- Himmel the Hero would have done so.
 - They're all very unassuming tasks. (unassuming: easy)
-- It's Hemmel's fault for wanting fame.
 - To a moderate degree
 - unfathomable: impossible to understand
 - repay: to pay back or to reward someone or something
@@ -112,17 +110,9 @@ however physical exercise, regular meditation and good conversations apparently 
 
 [3 個常見英語錯誤 (3 Most Common English Mistakes)](https://tw.voicetube.com/videos/69874)
 
-- ~yesterday night~ -> last night
 - care about countable items
 - I have been living here for 3 years / since 2015.
   - for: duration of time
-
-## 10/21
-
-1. 上課Homes, towns and neighborhoods - Adrian (Lesson 1)
-
-- groceries
-- adopt
 
 ## 10/22
 
@@ -202,12 +192,6 @@ consequenial / Nostalgia / extraordinary / fixated
 - Hours of mediocrity can be reduced to five or six perfect images.
 
 ## 10/26
-
-葬送的芙莉蓮 3
-
-- practical use
-- That was ordinary offensive magic
-- continent (land / island)
 
 葬送的芙莉蓮 4
 
@@ -316,10 +300,8 @@ Can I get the bill, please? / Can I get the check, please?
 
 2. [跟著 Georgie 一起學會「旅遊」的實用片語！ (Phrasal verbs with Georgie: Travel ✈️)](https://tw.voicetube.com/videos/183424)
 
-- I'm really looking forward to the summer holidays
 - take off / anticipate / get away
 - I'd love to get away for a few days and spend time in the countryside.
-- pick up the woman / pick the woman up
 - Set off means to begin your journey
 
 ## 11/06
@@ -1029,16 +1011,6 @@ reptiles
 hamster
 yard / tail / tiny / tank水族箱 / fur毛
 
-## 2025/2/12
-
-上課: Places to see in Perth
-
-- In the west
-- mainland
-- vacation(traveling) / holiday
-- staycation
-- 國家有s結尾的，前面要加the表示是很多組合成的
-
 ## 2025/2/15
 
 上課: Multiword verbs with BACK
@@ -1073,14 +1045,6 @@ yard / tail / tiny / tank水族箱 / fur毛
 
 paramedics 醫護人員
 temporary backup (second phone)
-
-## 2025/2/17
-
-上課: Holidays and celebrations
-
-- gatherings
-- Christmas / Halloween / Thanksgiving / birthday / New Year
-- Mid-Autumn Festival
 
 ## 2025/2/18
 
@@ -3513,9 +3477,9 @@ I always keep a raincoat in the storage compartment under the seat.
 it got me itching
 
 I will take one hour of leave.
+
 - sick leave
 - vacation leave
-
 
 disposable 一次性的
 thermometer 溫度計
@@ -3543,45 +3507,47 @@ bloom scenery
 rural areas
 
 Giving Advice
+
 - You should(n't)
 - Why don't you...?
 - If I were you, I would...
 
-
-
 Categories:
+
 1. Accommodation
 2. Transport
 3. Packing
 4. Safety
 
-1. Accommodation
-Stay in a hotel between a nightclub and a train station.
-Sleep in a broken tent at a park.
-Book a room far away from the city.
+5. Accommodation
+   Stay in a hotel between a nightclub and a train station.
+   Sleep in a broken tent at a park.
+   Book a room far away from the city.
 
-2. Transport
-Ride a bicycle around the high-speed highway.
-Wait for a bus at 3:00 AM on Sunday.
-Take a boat in a dangerous storm.
+6. Transport
+   Ride a bicycle around the high-speed highway.
+   Wait for a bus at 3:00 AM on Sunday.
+   Take a boat in a dangerous storm.
 
-3. Packing
-Pack heavy winter coats for a beach vacation.
-Put only 1 set of spare clothes.
-Pack hot coffee between your white shirts.
+7. Packing
+   Pack heavy winter coats for a beach vacation.
+   Put only 1 set of spare clothes.
+   Pack hot coffee between your white shirts.
 
-4. Safety
-Leave your wallet at home and put my money in my socks.
-Walk around a dark forest at midnight.
-Run away from your tour guide.
+8. Safety
+   Leave your wallet at home and put my money in my socks.
+   Walk around a dark forest at midnight.
+   Run away from your tour guide.
 
 Student A:
+
 - I am planning the most exciting vacation ever! Let me tell you about it...
-- For my ________(category), I am going to... 
-- I don't need a ______, I prefer (v.ing)...
+- For my **\_\_\_\_**(category), I am going to...
+- I don't need a **\_\_**, I prefer (v.ing)...
 - I think it's best that I (don't)...
 
 Student B:
+
 - You should(n't)...
 - Why don't you...?
 - If I were you, I would...
@@ -3589,7 +3555,15 @@ Student B:
 dim 暗淡
 
 passive voice
-yaers old (adj.)
-year olds(n.)
+yaers old (adj.) / year olds(n.)
 past certain age
 impulse buying
+
+"came to home" → "came over to my place"
+
+- My friends came over last night.
+
+small stakes 小賭注
+
+- We played for small stakes to make the game more exciting
+- We usually play for small stakes when we play mahjong.

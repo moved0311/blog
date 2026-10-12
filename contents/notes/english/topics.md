@@ -210,10 +210,20 @@ repair kit
   steer the bike
   hi-vis clothing (high visibility)
 
+## Holiday
+
+- Christmas / Halloween / Thanksgiving / New Year / Mid-Autumn Festival / Taiwan's National Day
+
+long weekend 連假
+N-day weekend
+I'm looking forward to the summer holidays.
+
 ## Travel / Country
 
 - inhabitants (居民)
 - see the sights
+- 國家有s結尾的，前面要加the表示是很多組合成的
+- staycation 居家度假/放假時完全不出遠門
 
 #### travel agentcy
 
