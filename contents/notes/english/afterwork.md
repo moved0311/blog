@@ -3282,23 +3282,6 @@ I just checked into the Airbnb, and I noticed that the XXX is broken.
 - I hate...
 - I'm not a fan of...
 
-## 2026/6/10
-
-adjective
-形容詞有分為fact和opinion，如果要連接兩個形容詞
-順序通常是 option adject + fact adject + noun.
-
-- fun English lession (fun是主觀意見, English是事實)
-- beautiful silver necklace
-- She is a kind old woman
-
-順序調換的話，母語人士聽起來會覺得很奇怪
-she has long black hair.
-
-如果形容詞都是fact的話
-what size -> what shape -> How old -> What color -> where from -> made of + noun.
-
-- a small red metal box
 
 ## 2026/6/17
 
@@ -3593,3 +3576,70 @@ yaers old (adj.)
 year olds(n.)
 past certain age
 impulse buying
+
+Giving Advice:
+- I think you/he/she should  /  I think you/he/she shouldn't...
+- Why don't you...?   /   Why doesn't he/she...?
+- If I were you/him/her, I would...
+- I think it would be best to...
+
+fragrant = smell good 
+it smells = smell bad
+
+
+smart casual 
+sportswear / activewear
+blazer
+too much hassle
+
+acquaintances 熟人
+spelunking 洞穴探險
+
+Renting
+owe
+lease: longer than rent
+rent
+tenant
+utilities
+
+work for myself / self-employed / freelancer
+medical malpractice
+
+
+(bell) pepper
+edible = can eat
+inedible = can't eat it
+that sounds right up my street
+lettuce
+garnish
+parsley
+kidney beans
+
+
+Game: The Co-Op Recipe
+- Choose a Meal: Select one dish from the Co-Op Meal Cards 
+- Alternate Steps: Follow the Turn-Taking Script using First, Second Next, After that, and Finally. Switch roles for the next dish!
+
+Meals:
+- Beef Noodle Soup
+- Pepperoni Pizza
+- Chicken Fried Rice
+- Blueberries Pancakes with honey
+
+LINKING PHRASES:
+• Step 1: FIRST, you need to / have to [action]...
+• Step 2: NEXT, you should / must [action]...
+• Step 3: AFTER THAT, you need to / can [action]...
+• Step 4: FINALLY, you [action] and enjoy your meal!
+Actions:
+- Chop (vegetables into small pieces)
+- Slice (meat, bread, or fruit into thin slices)
+- Cook (general cooking)
+- Boil (noodles, soup, or water)
+- Add (salt, spices, or seasonings)
+- Pour (liquids like water, milk, soy sauce, or oil)
+- Serve (on a plate or in a bowl)
+
+Her friend called out of the blue.
+caught red-handed
+red tape 繁文縟節

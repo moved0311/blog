@@ -404,3 +404,22 @@ musle aches
 - minor - noun(people under 18)
 - health card: 健保卡
 - cholesterol: the oil in your blood
+
+## Adjective
+
+adjective
+形容詞有分為fact和opinion，如果要連接兩個形容詞
+順序通常是 option adject + fact adject + noun.
+
+- fun English lession (fun是主觀意見, English是事實)
+- beautiful silver necklace
+- She is a kind old woman
+
+順序調換的話，母語人士聽起來會覺得很奇怪
+she has long black hair.
+
+如果形容詞都是fact的話
+what size -> what shape -> How old -> What color -> where from -> made of + noun.
+
+- a small red metal box
+
