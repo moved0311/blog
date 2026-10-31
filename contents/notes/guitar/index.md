@@ -35,7 +35,7 @@ $$
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | C   |     | D   |     | E   | F   |     | G   |     | A   |     | B   |
 
-大三和弦 1-3(大三度)-5(小三度)的規則組成的和弦
+大三和弦 1-3(大三度)-5(完全五度)的規則組成的和弦
 
 - 1: Root
 - 3: 和Root是大三度(差4個半音)關係
@@ -89,6 +89,25 @@ $$
 ## 8度音相對位置
 
 ![[find_all_c.png]]
+如果跨過第二弦要多往右一格 (多補一個半音)
+
+$$
+\mathrm{E}
+\;\xrightarrow{\text{5半音}}\;
+\mathrm{A}
+\;\xrightarrow{\text{5半音}}\;
+\mathrm{D}
+\;\xrightarrow{\text{5半音}}\;
+\mathrm{G}
+\;\xrightarrow{\text{4半音}}\;
+\mathrm{B}
+\;\xrightarrow{\text{5半音}}\;
+\mathrm{e}
+$$
+
+## 其他級數相對位置
+
+![[related_pos.png]]
 
 ## Power Chord
 
@@ -99,15 +118,3 @@ C的Power Chord -> C + G + C
 | C   | D   | E   | F   | G   | A   | B   | C   |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   |
-
-A minor pentatonic 五聲音階
-
-## CAGED SYSTEM
-
----
-
-找不同位置的C, F, G 和弦位置
-
-1. 用同一種指形(C, A, G, D)分別彈 C -> F -> G -> F
-   - 會依照CAGED的順序輪流: C -> A指形的C -> G指形的C -> D指形的C -> C指形的C
-2. 在同一個把位按出C -> F -> G -> F
