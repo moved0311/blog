@@ -1,6 +1,8 @@
 import { getAllPosts, type Post } from "@/lib/posts";
 import { type Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 export async function generateMetadata(): Promise<Metadata> {
   return { title: "Notes | Taiyi | Dev" };
@@ -21,6 +23,23 @@ const titleFromKey = (key: string) =>
 
 const postTimestamp = (post: Post) =>
   Date.parse(post.lastUpdate ?? post.date ?? "") || 0;
+
+const groupIcon = (group: NoteGroup): ReactNode => {
+  if (group.key === "guitar") return "🎸";
+  if (group.key === "janpanese") {
+    return (
+      <Image
+        src="/icons/japan.svg"
+        alt=""
+        aria-hidden="true"
+        className="h-7 w-7 rounded-md"
+        width={28}
+        height={28}
+      />
+    );
+  }
+  return group.title.slice(0, 1).toUpperCase();
+};
 
 const NoteLink = ({ note }: { note: Post }) => (
   <li>
@@ -99,7 +118,7 @@ const Page = () => {
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 marker:hidden [&::-webkit-details-marker]:hidden">
                 <span className="flex min-w-0 items-center gap-3">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sm font-bold text-sky-700 dark:bg-[#123b58] dark:text-[#65c7ff]">
-                    {group.title.slice(0, 1).toUpperCase()}
+                    {groupIcon(group)}
                   </span>
                   <span className="truncate font-semibold text-slate-800 dark:text-[#e5edf7]">
                     {group.title}
