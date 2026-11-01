@@ -19,6 +19,9 @@ const titleFromKey = (key: string) =>
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 
+const postTimestamp = (post: Post) =>
+  Date.parse(post.lastUpdate ?? post.date ?? "") || 0;
+
 const NoteLink = ({ note }: { note: Post }) => (
   <li>
     <Link
@@ -60,9 +63,18 @@ const Page = () => {
       groups.set(key, group);
     });
 
-  const sortedGroups = Array.from(groups.values()).sort((a, b) =>
-    a.title.localeCompare(b.title),
-  );
+  const sortedGroups = Array.from(groups.values()).sort((a, b) => {
+    const latestA = Math.max(
+      ...(a.index ? [postTimestamp(a.index)] : []),
+      ...a.notes.map(postTimestamp),
+    );
+    const latestB = Math.max(
+      ...(b.index ? [postTimestamp(b.index)] : []),
+      ...b.notes.map(postTimestamp),
+    );
+
+    return latestB - latestA || a.title.localeCompare(b.title);
+  });
 
   return (
     <main className="mx-auto max-w-5xl px-5 pb-16 pt-10 sm:px-8 sm:pt-14">
