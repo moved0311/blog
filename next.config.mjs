@@ -1,5 +1,6 @@
 import createMDX from "@next/mdx";
 import rehypeCodeTitles from "rehype-code-titles";
+import rehypeDiffMarkers from "./src/lib/rehype-diff-markers.mjs";
 import rehypeKatex from "rehype-katex";
 import rehypePrism from "rehype-prism-plus";
 import recmaHtmlStyles from "./src/lib/recma-html-styles.mjs";
@@ -25,6 +26,7 @@ const withMDX = createMDX({
       rehypeCodeTitles,
       [rehypeKatex, { strict: false }],
       [rehypePrism, { ignoreMissing: true }],
+      rehypeDiffMarkers,
     ],
     recmaPlugins: [recmaHtmlStyles],
   },

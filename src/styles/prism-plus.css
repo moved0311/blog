@@ -32,6 +32,22 @@ pre {
   background-color: rgba(239, 68, 68, 0.2); /* Set deleted line (-) color */
 }
 
+.code-line.inserted::before,
+.code-line.deleted::before {
+  display: inline-block;
+  width: 1ch;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.code-line.inserted::before {
+  content: "+";
+}
+
+.code-line.deleted::before {
+  content: "-";
+}
+
 .highlight-line {
   margin-left: -16px;
   margin-right: -16px;

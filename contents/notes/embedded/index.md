@@ -16,6 +16,10 @@ lastUpdate: 2026-11-04
 - [datasheet](https://www.st.com/resource/en/datasheet/stm32f446mc.pdf)
 - [nucleo-user-guide](https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf)
 
+Source Code:
+
+- [STM32 Bare-Metal Embedded-C – EmbeddedExpertIO](https://blog.embeddedexpert.io/stm32-bare-metal-embedded-c/)
+
 ## 1. Getting Started - Constructing Peripheral Registers from Memory Addresses
 
 | 縮寫 |                                     |
@@ -96,3 +100,65 @@ STM32 使用 Memory-Mapped I/O（記憶體映射輸入輸出）。\
 MCU 把 GPIO、RCC、USART、Timer 等硬體周邊的暫存器，映射到固定的記憶體位址
 
 Mode Register（MODER）用來設定 GPIO 腳位的模式
+
+透過struct簡化程式碼
+
+```diff-c
+#include <stdint.h>
+
+#define PERIPH_BASE         (0x40000000UL)
+
+#define AHB1PERIPH_OFFSET   (0x00020000UL)
+#define AHB1PERIPH_BASE     (PERIPH_BASE + AHB1PERIPH_OFFSET)
+
+#define GPIOA_OFFSET        (0x00000000UL)
+#define GPIOA_BASE          (AHB1PERIPH_BASE + GPIOA_OFFSET)
+
+#define RCC_OFFSET          (0x00003800UL)
+#define RCC_BASE            (AHB1PERIPH_BASE + RCC_OFFSET)
+
+#define PIN5                (1U << 5)
+#define LED_PIN             PIN5
+
+/* GPIOA clock enable */
+#define GPIOAEN             (1U << 0)
+
++/* RCC register structure */
++typedef struct
++{
++    volatile uint32_t DUMMY[12];
++    volatile uint32_t AHB1ENR;
++} RCC_TypeDef;
+
++/* GPIO register structure */
++typedef struct
++{
++    volatile uint32_t MODER;
++    volatile uint32_t DUMMY[4];
++    volatile uint32_t ODR;
++} GPIO_TypeDef;
+
++/* Peripheral pointer definitions */
++#define RCC     ((RCC_TypeDef *)RCC_BASE)
++#define GPIOA   ((GPIO_TypeDef *)GPIOA_BASE)
+
+ int main(void)
+ {
+     /* 1. Enable GPIOA clock */
+-    RCC_AHB1EN_R |= GPIOAEN;
++    RCC->AHB1ENR |= GPIOAEN;
+
+     /* 2. Set PA5 as output */
+-    GPIOA_MODE_R &= ~(3U << 10);
+-    GPIOA_MODE_R |= (1U << 10);
++    GPIOA->MODER |= (1U << 10);
++    GPIOA->MODER &= ~(1U << 11);
+
+     while (1){
+        /* Toggle PA5 */
+        GPIOA->ODR ^= LED_PIN;
+        for (int i = 0; i < 100000; i++){}
+     }
+ }
+
+```

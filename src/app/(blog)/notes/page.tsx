@@ -26,6 +26,18 @@ const postTimestamp = (post: Post) =>
 
 const groupIcon = (group: NoteGroup): ReactNode => {
   if (group.key === "guitar") return "🎸";
+  if (group.key === "embedded") {
+    return (
+      <Image
+        src="/icons/integrated-system.png"
+        alt=""
+        aria-hidden="true"
+        className="h-7 w-7 object-contain dark:invert"
+        width={28}
+        height={28}
+      />
+    );
+  }
   if (group.key === "janpanese") {
     return (
       <Image
