@@ -162,3 +162,5 @@ Mode Register（MODER）用來設定 GPIO 腳位的模式
  }
 
 ```
+
+## 2. General Purpose Input/Output (GPIO)
