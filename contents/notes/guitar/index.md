@@ -112,7 +112,7 @@ $$
 
 ## 其他級數相對位置
 
-![[related_pos.png]]
+![[related_pos.png|475]]
 
 ## Power Chord
 

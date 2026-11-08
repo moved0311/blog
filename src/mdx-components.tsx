@@ -1,12 +1,19 @@
-import type { ComponentPropsWithoutRef, ComponentType, CSSProperties } from "react";
+import type {
+  ComponentPropsWithoutRef,
+  ComponentType,
+  CSSProperties,
+} from "react";
 import Collapsible from "@/components/Collapsible";
+import CodeBlock from "@/components/CodeBlock/index.client";
 import { MdxH1, MdxH2 } from "@/components/MdxHeading";
 import TOC from "@/components/TableOfContents";
 
 type MDXComponents = Record<string, ComponentType<Record<string, unknown>>>;
 
 const toCamelCase = (value: string) => {
-  return value.replace(/-([a-z])/g, (_, letter: string) => letter.toUpperCase());
+  return value.replace(/-([a-z])/g, (_, letter: string) =>
+    letter.toUpperCase(),
+  );
 };
 
 const parseStyleString = (value: string): CSSProperties => {
@@ -36,6 +43,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     TOC: TOC as ComponentType<Record<string, unknown>>,
     h1: MdxH1 as ComponentType<Record<string, unknown>>,
     h2: MdxH2 as ComponentType<Record<string, unknown>>,
+    pre: CodeBlock as ComponentType<Record<string, unknown>>,
     span: MdxSpan as ComponentType<Record<string, unknown>>,
     ...components,
   };
