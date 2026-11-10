@@ -101,7 +101,7 @@ MCU 把 GPIO、RCC、USART、Timer 等硬體周邊的暫存器，映射到固定
 
 Mode Register（MODER）用來設定 GPIO 腳位的模式
 
-透過struct簡化程式碼
+透過struct簡化程式碼, 之後的引入header檔案也是用struct
 
 ```diff-c
 #include <stdint.h>
@@ -164,3 +164,74 @@ Mode Register（MODER）用來設定 GPIO 腳位的模式
 ```
 
 ## 2. General Purpose Input/Output (GPIO)
+
+PA1 = Port A Pin 1
+
+#### Common Registers
+
+- Direction Register: Set pin as input or output (MODE Register)
+- Data Register: Write to pin or read from pin
+
+#### Busese
+
+- Advanced High-Performance Bus (AHB): 1 clock cycle access to peripherals
+- Advanced Peripheral Bus (APB): Minimum of 2 clock cycles access to peripherals
+
+#### Clock Sources
+
+- On-Chip RC Oscillator: Least precise
+- Externally Connected Crystal: Most precise
+- Phase Locked Loop (PLL): Programmable
+
+#### BSRR (Bit Set/Reset Rigister)
+
+BSRR前16bits用來set，後16bits用來reset。\
+第5個bit用來set PIN5，第21個bit用來reset PIN5，也可以做到閃爍的效果
+
+```c
+while(1){
+    GPIOA->BSRR = LED_PIN;
+    for(int i=0;i<100000;i++){}
+    GPIOA->BSRR = (1U<<21);
+    for(int i=0;i<100000;i++){}
+}
+```
+
+#### Input Driver
+
+ex4. 按下按鈕開關LED
+
+| 周邊  | 匯流排 | RCC 暫存器    | Enable Bit |
+| ----- | ------ | ------------- | ---------- |
+| GPIOA | AHB1   | `RCC_AHB1ENR` | Bit 0      |
+| GPIOB | AHB1   | `RCC_AHB1ENR` | Bit 1      |
+| GPIOC | AHB1   | `RCC_AHB1ENR` | Bit 2      |
+
+使用不同周邊要啟用不同clock
+
+```c
+RCC->AHB1ENR |= GPIOAEN;
+RCC->AHB1ENR |= GPIOCEN;
+```
+
+設定LED為輸出，Button為輸入(用MODER設定)
+
+```c
+// Set PA5(LED) as output pin
+GPIOA->MODER |= (1U<<10);
+GPIOA->MODER &= ~(1U<<11);
+
+// Set Push-buttons PC13 as input pin
+// MODER13: 26,27 pin
+// 00: input mode
+GPIOC->MODER &=~(1U<<26);
+GPIOC->MODER &=~(1U<<27);
+```
+
+檢查有沒有按按鈕
+
+```c
+if(GPIOC->IDR & BTN_PIN)
+```
+
+## 3. Universal Asynchronous Receiver-Transmitter(UART)
