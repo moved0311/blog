@@ -235,3 +235,91 @@ if(GPIOC->IDR & BTN_PIN)
 ```
 
 ## 3. Universal Asynchronous Receiver-Transmitter(UART)
+
+|              | Serial | Parallel |
+| ------------ | ------ | -------- |
+| Asynchronous | UART   |          |
+| Synchronous  |        |          |
+
+Serial: 一次傳1個bit\
+Parallel: 一次傳8個bits
+
+Synchronous: clock和data一起傳\
+Asynchronous: 不用傳clock，但約定相同的clock speed (Baudrate)
+
+Duplex: 可以傳送和接收資料\
+Simplex: 只能傳送或接收資料\
+Half Duplex: 同一個時間只能傳送或接收資料\
+Full Duplex: 同一個時間可以同時傳送和接收資料
+
+初始化UART TX(傳送)
+
+```c
+#include "stm32f4xx.h"
+
+#define GPIOAEN			(1U<<0)
+#define UART2EN			(1U<<17)
+
+#define SYS_FREQ		16000000
+#define APB1_CLK		SYS_FREQ
+#define UART_BAUDRATE	115200
+
+#define CR1_TE			(1U<<3)
+#define CR1_UE			(1U<<13)
+#define SR_TXE			(1U<<7)
+
+void uar2_tx_init(void)
+{
+	/****************Configure uart gpio pin***************/
+	/* Enable clock access to gpioa */
+	RCC->AHB1ENR |= GPIOAEN;
+
+	/* Set PA2 mode to alternate function mode (10)
+       datasheet: Table 9. Alternate function mapping
+       USART2_TX: PA2 AF07
+    */
+	GPIOA->MODER &=~(1U<<4);
+	GPIOA->MODER |= (1U<<5);
+
+	/* Set PA2 alternate function type to UART_TX (AF07)
+       AFR[0] (AFRL)   PA0-PA7
+       AFR[1] (AFRH)  PA8-PA15
+       PA2 的 Alternate Function 設定位於 AFR[0][11:8]
+       設為0111 → AF7 USART2_TX
+    */
+	GPIOA->AFR[0] |= (1U<<8);
+	GPIOA->AFR[0] |= (1U<<9);
+	GPIOA->AFR[0] |= (1U<<10);
+	GPIOA->AFR[0] &= ~(1U<<11);
+
+	/****************Configure uart module ***************/
+	/* Enable clock access to uart2  USART2EN: 17bit */
+	RCC->APB1ENR |= UART2EN;
+
+	/* Configure baudrate
+       USART2從stm32f4xx.h定義
+    */
+	uart_set_baudrate(USART2, APB1_CLK, UART_BAUDRATE);
+
+	/* Configure the transfer direction */
+	 USART2->CR1 =  CR1_TE;
+
+	/*Enable uart module*/
+	 USART2->CR1 |= CR1_UE;
+}
+```
+
+計算Buad Rate
+
+```c
+static void uart_set_baudrate(USART_TypeDef *USARTx, uint32_t PeriphClk,  uint32_t BaudRate){
+	USARTx->BRR =  compute_uart_bd(PeriphClk,BaudRate);
+}
+
+/* BRR = (PeriphClk + BaudRate / 2) / BaudRate */
+static uint16_t compute_uart_bd(uint32_t PeriphClk, uint32_t BaudRate){
+	return ((PeriphClk + (BaudRate/2U))/BaudRate);
+}
+```
+
+理論值是`PeriphClk / BaudRate`，加`BaudRate/2U` 是為了四捨五入
