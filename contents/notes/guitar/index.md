@@ -8,6 +8,7 @@ lastUpdate: 2026-11-01
 ## 線上學習資源
 
 - [【2026全新改版】《零基础入门电吉他教学完整版》适合零基础自学入门](https://www.bilibili.com/video/BV1FT411Z7iu/?vd_source=dd17785051618d4f071d13ac54fdc780)
+- [《零基础入门电吉他7周自学计划2》适合零基础自学入门的电吉他系列教材](https://www.bilibili.com/video/BV17m68Y9Eis/?spm_id_from=333.788.videopod.episodes&vd_source=dd17785051618d4f071d13ac54fdc780)
 
 相鄰格子差半音
 
