@@ -372,9 +372,18 @@ int main(void){
 
 `__io_putchar` 讓`printf()`進行UART輸出
 
-UART同時支援讀寫
+UART同時讀和寫\
+透過電腦的 RealTerm 傳送字元，控制開發板上的 LD2 LED
+
+- 電腦傳送字元 '1' → LED 亮。
+- 電腦傳送其他字元（例如 '0'）→ LED 滅。
 
 ```c
+#define CR1_TE			(1U<<3)
+#define CR1_RE			(1U<<2)
+#define CR1_UE			(1U<<13)
+#define SR_RXNE			(1U<<5)
+
 void uart2_rxtx_init(void)
 {
 	/****************Configure uart gpio pin***************/
@@ -422,5 +431,113 @@ char uart2_read(void)
 
 	/*Read data*/
 	return USART2->DR;
+}
+```
+
+```c
+#include <stdio.h>
+#include <stdint.h>
+#include "stm32f4xx.h"
+#include "uart.h"
+#define GPIOAEN     (1U<<0)
+#define GPIOA_5     (1U<<5)
+#define LED_PIN     GPIOA_5   //PA5: LD2 LED
+
+char key;
+int main(void){
+	/*1.Enable clock access to GPIOA*/
+	RCC->AHB1ENR |= GPIOAEN;
+
+	/*2.Set PA5 as output pin
+      MODER[11:10] = 01 → General Purpose Output
+    */
+	GPIOA->MODER |= (1U<<10);
+	GPIOA->MODER &= ~(1U<<11);
+
+	uart2_rxtx_init();
+
+	while(1){
+		key =  uart2_read();
+		if(key == '1'){
+			GPIOA->ODR |= LED_PIN;
+		}else {
+			GPIOA->ODR &= ~LED_PIN;
+		}
+	}
+}
+```
+
+## 4. Analog to Digital Conversion(ADC)
+
+溫度、速度等物理量通常是連續變化的類比量(Analog)，
+CPU主要處理數位(Digital)資料，所以需要一個轉換器。
+
+轉換器有不同的解析度依據支援的bits數，例如8bits可以表示256個級距。
+參考電壓為5V的情況下，每一個級距約為5/256=19.531mV，
+電壓在同一個級距內用相同的bits表示
+
+下一個實驗是把PA1分別接到GND和3.3V觀察ADC轉成數位資料的數值，接到GND數值會很接近0，接到3.3V數值會接近2^12 (12bits)。
+
+[11.12.11 ADC regular sequence register](/pdf/embedded/reference_manual.pdf#page=236)
+
+```c
+#define GPIOAEN		    (1U<<0)
+#define ADC1EN			(1U<<8)
+#define ADC_CH1			(1U<<0)
+#define ADC_SEQ_LEN_1	 0x00
+#define CR2_AD0N		(1U<<0)
+
+void pa1_adc_init(void)
+{
+	/***Configure the ADC GPIO pin ***/
+	/*Enable clock access to GPIOA*/
+	RCC->AHB1ENR |= GPIOAEN;
+	/*Set the mode of PA1 to analo
+      11: Analog Mode */
+	GPIOA->MODER |=(1U<<2);
+	GPIOA->MODER |=(1U<<3);
+	/***Configure the ADC module***/
+	/*Enable clock access to ADC */
+	RCC->APB2ENR |= ADC1EN;
+	/*Conversion sequence start*/
+	ADC1->SQR3 = ADC_CH1;
+	/*Conversion sequence length 0000 -> 轉換1次*/
+	ADC1->SQR1 = ADC_SEQ_LEN_1;
+	/*Enable ADC module*/
+	ADC1->CR2 |= CR2_AD0N;
+}
+```
+
+[11.12.3 ADC control register 2 (ADC_CR2)](/pdf/embedded/reference_manual.pdf#page=231) \
+SWSTART: bit 30
+
+```c
+#define CR2_SWSTART		(1U<<30)
+#define SR_EOC			(1U<<1)
+
+void start_converstion(void){
+	/*Start adc conversion*/
+	ADC1->CR2 |= CR2_SWSTART;
+}
+
+uint32_t adc_read(void){
+	/*Wait for conversion to be complete*/
+	while(!(ADC1->SR & SR_EOC)){}
+
+	/*Read converted result*/
+	return (ADC1->DR);
+}
+```
+
+開啟continuous conversion，會持續做ADC。如果只有打開CR2_SWSTART會做一次就停下來
+
+```diff c
++ #define CR2_CONT		(1U<<1)
+
+void start_converstion(void){
++	/*Enable continuous conversion*/
++	ADC1->CR2 |= CR2_CONT;
+	/*Start adc conversion*/
+	ADC1->CR2 |= CR2_SWSTART;
 }
 ```
