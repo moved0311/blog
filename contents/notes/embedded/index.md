@@ -541,3 +541,14 @@ void start_converstion(void){
 	ADC1->CR2 |= CR2_SWSTART;
 }
 ```
+
+## 5. System Tick Timer(SYSTICK)
+
+System Clock(SYSCLK)
+
+假設 System clock = 16MHz\
+表示1秒可以跑16M cycles
+
+1個cycle = 1/16M = 62.5 ns
+
+![[systickcontrolregister.png]]
