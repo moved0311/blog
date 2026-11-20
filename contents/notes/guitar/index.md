@@ -2,13 +2,23 @@
 title: Guitar
 category: note
 date: 2026-07-17
-lastUpdate: 2026-11-01
+lastUpdate: 2026-11-21
 ---
 
-## 線上學習資源
+## 設備
+
+#### 新手裝
+
+- 吉他 Fender日廠tele NT\$24000 (2025/11)
+- 錄音介面 Focusrite Scarlett Solo 4代 NT\$4300 (2025/12)
+- 耳機 NT\$700 / 導線 NT\$300 / A型架 NT\$300 / 背帶 NT\$200 / Pick 100個 NT\$200
+
+## 學習資源
 
 - [【2026全新改版】《零基础入门电吉他教学完整版》适合零基础自学入门](https://www.bilibili.com/video/BV1FT411Z7iu/?vd_source=dd17785051618d4f071d13ac54fdc780)
 - [《零基础入门电吉他7周自学计划2》适合零基础自学入门的电吉他系列教材](https://www.bilibili.com/video/BV17m68Y9Eis/?spm_id_from=333.788.videopod.episodes&vd_source=dd17785051618d4f071d13ac54fdc780)
+
+## 基礎樂理
 
 相鄰格子差半音
 

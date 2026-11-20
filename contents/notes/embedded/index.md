@@ -6,8 +6,7 @@ lastUpdate: 2026-11-16
 ---
 
 課程: [Udemy-Embedded-Systems-Bare-Metal-Programming](https://www.udemy.com/course/embedded-systems-bare-metal-programming) \
-板子: NUCLEO-F446RE
-
+板子: NUCLEO-F446RE \
 起始花費: NT\$850(板子) + NT\$370(Udemy)
 
 文件:
@@ -172,7 +171,7 @@ PA1 = Port A Pin 1
 - Direction Register: Set pin as input or output (MODE Register)
 - Data Register: Write to pin or read from pin
 
-#### Busese
+#### Buses
 
 - Advanced High-Performance Bus (AHB): 1 clock cycle access to peripherals
 - Advanced Peripheral Bus (APB): Minimum of 2 clock cycles access to peripherals
@@ -199,7 +198,7 @@ while(1){
 
 #### Input Driver
 
-ex4. 按下按鈕開關LED
+EX4. 按下按鈕B1(PC13)關閉LED(LD2)
 
 | 周邊  | 匯流排 | RCC 暫存器    | Enable Bit |
 | ----- | ------ | ------------- | ---------- |
@@ -210,6 +209,9 @@ ex4. 按下按鈕開關LED
 使用不同周邊要啟用不同clock
 
 ```c
+#define GPIOAEN			(1U<<0)
+#define GPIOCEN			(1U<<2)
+
 RCC->AHB1ENR |= GPIOAEN;
 RCC->AHB1ENR |= GPIOCEN;
 ```
@@ -251,6 +253,10 @@ Duplex: 可以傳送和接收資料\
 Simplex: 只能傳送或接收資料\
 Half Duplex: 同一個時間只能傳送或接收資料\
 Full Duplex: 同一個時間可以同時傳送和接收資料
+
+EX5. 透過UART傳送字元到電腦，透過RealTerm觀察STM32持續送出的`Y`
+
+[RealTerm](https://sourceforge.net/projects/realterm/): 免費的 Windows 序列埠通訊軟體（Serial Terminal），主要用來接收、傳送、監控與分析 UART、RS-232、TCP 等通訊資料。
 
 #### 初始化UART TX(傳送)
 
@@ -350,9 +356,7 @@ void uart2_write(int ch)
 }
 ```
 
-[RealTerm](https://sourceforge.net/projects/realterm/): 免費的 Windows 序列埠通訊軟體（Serial Terminal），主要用來接收、傳送、監控與分析 UART、RS-232、TCP 等通訊資料。
-
-透過RealTerm觀察STM32持續送出的`Y`
+EX6. 將printf()的輸出透過UART傳送到電腦，透過RealTerm觀察STM32持續送出的`Hello from STM32F4........`
 
 #### printf
 
@@ -372,8 +376,8 @@ int main(void){
 
 `__io_putchar` 讓`printf()`進行UART輸出
 
-UART同時讀和寫\
-透過電腦的 RealTerm 傳送字元，控制開發板上的 LD2 LED
+EX7.
+透過電腦的 RealTerm send ASCII，控制開發板上的 LD2 LED
 
 - 電腦傳送字元 '1' → LED 亮。
 - 電腦傳送其他字元（例如 '0'）→ LED 滅。
@@ -476,7 +480,7 @@ CPU主要處理數位(Digital)資料，所以需要一個轉換器。
 參考電壓為5V的情況下，每一個級距約為5/256=19.531mV，
 電壓在同一個級距內用相同的bits表示
 
-下一個實驗是把PA1分別接到GND和3.3V觀察ADC轉成數位資料的數值，接到GND數值會很接近0，接到3.3V數值會接近2^12 (12bits)。
+EX9. 把PA1分別接到GND和3.3V觀察ADC轉成數位資料的數值，接到GND數值會很接近0，接到3.3V數值會接近2^12 (12bits)。
 
 [11.12.11 ADC regular sequence register](/pdf/embedded/reference_manual.pdf#page=236)
 
@@ -529,6 +533,7 @@ uint32_t adc_read(void){
 }
 ```
 
+EX12. Enable continuous conversion
 開啟continuous conversion，會持續做ADC。如果只有打開CR2_SWSTART會做一次就停下來
 
 ```diff c
@@ -552,3 +557,34 @@ System Clock(SYSCLK)
 1個cycle = 1/16M = 62.5 ns
 
 ![[systickcontrolregister.png]]
+
+EX11. 用systickDelayMs做1秒閃爍一次
+
+## 6. General Purpose Timer
+
+$\text{Update Event} = \frac{Timer_{clock}}{(PSC + 1)(Period + 1)}$
+
+- Auto-Relload Register (ARR): 計數器達到最大值後，會重新從0開始計數。
+- Prescaler(PSC): 將輸入 Timer 的時脈頻率降低，讓 Timer 計數器以較慢的速度計數。
+
+```c
+#define TIM2EN		(1U<<0)
+#define CR1_CEN		(1U<<0)
+
+void tim2_1hz_init(void){
+	/*Enable clock access to tim2*/
+	RCC->APB1ENR |=TIM2EN;
+	/*Set prescaler value*/
+	TIM2->PSC =  1600 - 1 ;  //  16 000 000 / 1 600 = 10 000
+	/*Set auto-reload value*/
+	TIM2->ARR =  10000 - 1;  // 10 000 / 10 000 = 1
+	/*Clear counter*/
+	TIM2->CNT = 0;
+	/*Enable timer*/
+	TIM2->CR1 = CR1_CEN;
+}
+```
+
+EX12. 改用TIM2做一秒閃爍一次
+
+Update Event = 16M / (1600 \* 10000) = 1Hz， PSC = 1600 - 1，ARR = 10000 - 1
